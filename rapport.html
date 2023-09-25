@@ -1,0 +1,201 @@
+<h1>Glossaire</h1>
+<p style="font-size: large;">Liste de Souhait: Liste virtuelle qui énumère les produits voulu de l'acheteur en question</p>
+<p style="font-size: large;">Profil: Renseignement de l'utilisateur destinataire, contenant souvent des informations tel que le pseudo et un moyen de contact</p>
+<p style="font-size: large;">Métrique: Rapport d'évaluation et activités de l'utilisateur, tel que le nombre d'article acheté ou le nombre d'évaluation écrite</p>
+<p style="font-size: large;">Rémédiation: Négociation entre le vendeur et l'acheteur en cas de problème sur la commande. Un exemple de rémédiation est les remplacement du produit en question.</p>
+<p style="font-size: large;">Commande: Action d'acheter un produit avec un paiement virtuel, comme une carte de crédit. Le produit acheté sera ensuit livré au client</p>
+<p style="font-size: large;">ID: Identifiant unique de l'utilisateur ou produit utilisé pour leur repérer spécifiquement.</p>
+<p style="font-size: large;">Signalement: L'acheteur peut signaler au revendeur s'il y a des problèmes avec sa commande.  </p>
+<p style="font-size: large;">Produit: Objet physique ou virtuelle vendu par un vendeur envers une groupe de consommateur cible. Exemple: manuels, jeu d'ordinateur, nourriture.</p>
+<p style="font-size: large;">Instance: Demanande d'achat d'un produit sur un site web. Étant donné que le produit est virtuel, l'achat est également virtuel jusqu'à ce que le produit est en livraison.</p>
+<p style="font-size: large;">Retour et échange: Le revendeur essaiera de régler son problème avec sa commande en échangeant ou en retournant celle-ci. Le client devra payer la différence entre le prix ou se faire rembourser dépendament de la situation.</p>
+<p style="font-size: large;">Revendeur ou vendeur: Utilisateur qui vend ses produits offerts. Il assure la responsibilité partielle du produit, si jamais elle est endommagée ou perdue en livraison. </p>
+<p style="font-size: large;">Acheteur: Utilisateur consommateur qui s'occupe d'acheter les produits. Il assure une responsabilité minime sur sa commande: évaluation des produits achetés, vérification de l'état de livraison, etc.</p>
+<p style="font-size: large;">Évaluation: Note donnée aux produits suite à l'évaluation du consommateur par rapport à certain facteur tel que la qualité, la performance du produit et son expérience d'achat. </p>
+<p style="font-size: large;">Livraison: Utilisation des données postale de l'acheteur afin de lui envoyer la marchandise commandé  </p>
+
+<h1>Cas d'utilisation 1</h1>
+<h1>Description</h1>
+<p><strong>Cas d'utilisation:</strong> Acheter un manuel </br> 
+    <strong>But: </strong>Client utilise le website pour acheter un manuel spécifique </br>
+<strong>Préconditions: </strong>Le client connait déjà le nom du manuel désiré et possède une carte de débit ou crédit ou autre forme de paiement valide.<br>
+<strong>Acteurs:</strong> Client (principal), site web et vendeur (secondaire) <br>
+    <strong>Scénario principal: </strong><br>
+    <ol>
+        <li><span>1</span> Le client entre dans le site
+            <ol>
+                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+              </ol>  
+        </li>            
+        <li><span>2</span> Il s'inscrit en tant qu'acheteur
+          <ol>
+            <li><span>2.1</span> Il donne son nom et prénom</li>
+            <li><span>2.2</span> Il invente un pseudo unique</li>
+            <li><span>2.3</span> Il inscrit son numéro de téléphone</li>
+            <li><span>2.4</span> Il inscrit son adresse d'expédition</li>
+            <li><span>2.5</span> Le site accepte son inscription et son compte est crée</li>
+          </ol>        
+        </li>
+        <li><span>3</span> Dans la catalogue des produits, il tape sur recherche des produits</li>
+        <li><span>4</span> Il écrit le nom du manuel recherché  <ol>
+            <li><span>4.1</span> Il est redirigé vers une liste de manuels en vente correspondant à sa recherche</li>
+          </ol>
+        </li>
+        <li><span>5</span> Il clique sur le premier manuel de la liste</li>
+        <li><span>6</span> Dans la page de vente du manuel, il vérifie que c'est bien le bon manuel </li>
+        <li><span>7</span> Le client clique sur vente  <ol>
+            <li><span>7.1</span> Il est redirigé vers la page de paiement</li>
+            <li><span>7.2</span> Il prépare ses informations de paiement</li></ol>
+        </li>
+        <li><span>8</span> Il paie pour le manuel et reçoit une confirmation de son paiement</li>
+        <li><span>9</span> Il attend pour la livraison de son manuel en surveillant les mises à jours de la livraison</li>
+        <li><span>10</span> Le client reçoit son produit dans le format d'un colis</li>
+        <li><span>11</span> Il confirme la réception du produit</li>
+      </ol>
+    <strong>Scénarios alternatifs: </strong>
+    <ol>
+        <li><span>2.2a.1</span> Le pseudo n'est pas unique</li>
+        <li><span>2.2a.2</span> Le client ajoute une série de chiffre après son pseudo pour le rendre unique</li>
+        <li><span>4.1a.1</span> Le manuel recherché n'est pas en vente, donc seulement des ouvrages liés en ce manuel sont recommandés</li>
+        <li><span>4.1a.2</span> Le client choisit de l'acheter quelque part d'autre et sort du site web</li>
+        <li><span>6a.1</span> Il se rend compte que ce n'est pas la bonne édition du manuel</li>
+        <li><span>6a.2</span> Il sort du page web et ajoute à sa recherche l'édition spécifique désiré</li>
+        <li><span>6a.3</span> Dans la nouvelle liste, il trouve le bon manuel et procède au paiement</li>
+        <li><span>6b.1</span> Le client remarque que le produit a plusieurs mauvaises évaluations</li>
+        <li><span>6b.2</span> Il lit les évaluations et décide d'acheter le produit d'un autre vendeur</li>
+        <li><span>8a.1</span> La carte du client n'existe pas.</li>
+        <li><span>8a.2</span> Il se rend compte qu'il s'est trompé sur un information inscrit de sa carte et revient à la page de paiement pour le corriger</li>
+        <li><span>8a.3</span> cette fois, le paiement marche et il reçoit une confirmation</li>
+        <li><span>8b.1</span> La carte du client est refusé car il n'y a plus d'argent dedans</li>
+        <li><span>8b.2</span> Le client revient sur la page de paiement et utilise une autre carte</li>
+        <li><span>8b.3</span> Le paiement marche et il reçoit une confirmation</li>
+        <li><span>9a.1</span> La livraison est envoyée au mauvais adresse</li>
+        <li><span>9a.2</span> Le client contacte le vendeur tout de suite et l'erreur est réglé</li>
+        <li><span>10a.1</span> Le colis arrivé est endommagée</li>
+        <li><span>10a.1</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
+        <li><span>10a.2</span> Après quelques échanges, le vendeur lui renvoie le même produit gratuitement</li>
+        <li><span>10b.1</span> Le colis arrive, mais le manuel n'est pas celui que le client a acheté</li>
+        <li><span>10b.2</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
+        <li><span>10b.3</span> Il n'y a plus de manuel correspondant dans l'inventaire du vendeur. Il fournit un remboursement pour un retour</li>
+        <li><span>10b.4</span> Le client renvoie le manuel au vendeur</li>
+      </ol>
+    <strong>Postconditions: </strong> Les détails de l'achat doivent être archivés et conservés
+</p>
+
+<h1>Cas d'utilisation 2</h1>
+<h1>Description</h1>
+<p><strong>Cas d'utilisation:</strong> Mise à jour de la liste de souhait </br> 
+    <strong>But: </strong>Client ajoute ou supprime un produit à sa liste de souhait </br>
+<strong>Préconditions: </strong>Le client possède déjà un compte du site<br>
+<strong>Acteurs:</strong> Client (principal), site web (secondaire) <br>
+    <strong>Scénario principal: </strong><br>
+    <ol>
+        <li><span>1</span> Le client entre dans le site
+            <ol>
+                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+                <li><span>1.1</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
+              </ol>  
+        </li>            
+        <li><span>2</span> Il se connecte en tant qu'acheteur
+          <ol>
+            <li><span>2.1</span> Il donne son pseudo unique</li>
+            <li><span>2.2</span> Le site reconnait son pseudo et il est redirigé à la page principale</li>
+          </ol>        
+        </li>
+        <li><span>3</span> Dans la catalogue des produits, il regarde la recommendation des produits</li>
+        <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
+        <li><span>5</span> Le client aime le produit, mais ne veut pas l'acheter maintenant.</li>
+        <li><span>6</span> Dans la page du produit, il clique sur l'option d'ajouter à sa liste de souhait à côté de liker et rédiger un commentaire</li>
+        <li><span>7</span> Un rectangle pop pour l'informer que le produit est bien ajouté à sa liste</li>
+        <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
+        <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
+        <ol>
+            <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
+          </ol> 
+        <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
+      </ol>
+    <strong>Scénarios alternatifs: </strong>
+    <ol>
+        <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
+        <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
+        <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
+        <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
+        <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
+        <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
+        <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
+        <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
+        <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>
+        
+      </ol>
+    <strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
+</p>
+
+<h1>Cas d'utilisation 3</h1>
+<h1>Description</h1>
+<p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits </br> 
+    <strong>But: </strong>Client achète plusieurs produit à l'intermédiaire </br>
+<strong>Préconditions: </strong>Le client possède déjà un compte du site<br>
+<strong>Acteurs:</strong> Client (principal), site web (secondaire) <br>
+    <strong>Scénario principal: </strong><br>
+    <ol>
+        <li><span>1</span> Le client entre dans le site
+            <ol>
+                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+                <li><span>1.1</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
+              </ol>  
+        </li>            
+        <li><span>2</span> Il se connecte en tant qu'acheteur
+          <ol>
+            <li><span>2.1</span> Il donne son pseudo unique</li>
+            <li><span>2.2</span> Le site reconnait son pseudo et il est redirigé à la page principale</li>
+          </ol>        
+        </li>
+        <li><span>3</span> Dans la catalogue des produits, il regarde la recommendation des produits</li>
+        <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
+        <li><span>5</span> Le client aime le produit, mais ne veut pas l'acheter maintenant.</li>
+        <li><span>6</span> Dans la page du produit, il clique sur l'option d'ajouter à sa liste de souhait à côté de liker et rédiger un commentaire</li>
+        <li><span>7</span> Un rectangle pop pour l'informer que le produit est bien ajouté à sa liste</li>
+        <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
+        <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
+        <ol>
+            <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
+          </ol> 
+        <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
+      </ol>
+    <strong>Scénarios alternatifs: </strong>
+    <ol>
+        <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
+        <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
+        <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
+        <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
+        <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
+        <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
+        <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
+        <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
+        <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>
+        
+      </ol>
+    <strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
+</p>
+
+<!-- Cas d<utilisation #... Création de page par un acheteur -->
+
+<p><Strong>Cas d'utilisation : </Strong>Création d'un compte par un acheteur</p>
+<p><Strong>Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d'acceuil
+en cliquant sur le bouton d'inscription dans la barre de navigation</p>
+
+<p>Acteur principal :</p>
+<dl>
+  <dt><strong>Acteur Initiateur :</strong></dt>
+  <dd>Un potentiel acheteur désirant ouvrir un compte sur le site web. 
+  <dt>Acteur bénéficiaire : Acheteur recevant le compte</dt>
+  <dd>Acheteur recevant le compte</dd>
+
+<p><strong>Acteurs secondaires : Acheteur participant au processus d'inscription par validation du courriel </strong></p>
+
+<p><strong>Pré-conditions :</strong></p>
+
+<!-- Fin cas d'utilisation #...-->
+<style>
+    ol {list-style:none;}
+</style>
