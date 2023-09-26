@@ -318,173 +318,64 @@
           <p><strong>Postconditions: </strong> Le panier d'achat est sauvegardé avec les produits qui ont été ajouté par le client, tout en respectant les disponibilités</p>
         </div>
 
-        <div  class="items" > <!--Cas 4 -->
-          <p><Strong>Cas d'utilisation : </Strong> Création d'un compte par un acheteur</p>
-          <p><Strong> But : </Strong> Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d'acceuil
-          en cliquant sur le bouton d'inscription dans la barre de navigation</p>
-  
-          <p><strong>Acteurs : </strong></p>
-          <dl>
-            <dt>&nbsp&nbsp&nbsp<strong>Initiateur :</strong></dt>
-            <dd>Un potentiel acheteur désirant se créer un compte sur le site web. </dd>
-            <dt>&nbsp&nbsp&nbsp<strong>Bénéficiaire : </strong></dt>
-            <dd>Acheteur recevant le compte</dd>
-          </dl>
-          <p>&nbsp&nbsp&nbsp<strong>Secondaires : </strong> Acheteur participant au processus d'inscription par validation du courriel</p>
-  
-          <dl>
-            <dt><strong>Pré-conditions : </strong></dt>
-            <dd>L'enregistrement sur le site est fonctionnel et receuille bien les données de l'utilisateur pour lui créer un compte</dd>
-            <dd>L'utilisateur a un courriel actif et doit être prêt à divilguer certaines informations</dd>
-            <dd>La cr/ation d'un pseudonyme</dd>
-            <dd>Le mot de passe fourni doit être validé</dd>
-            <dd>Deux utilisateurs ne peuvent pas avoir le même pseudonyme</dd>
-          </dl>
-  
-  
-          <p><strong>Exigences non fonctionnelles : </strong> La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
-  
-          <dl>
-            <dt><strong>Scénario nominale :</strong></dt>
-            <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
-            <dd> 2) "Pop-Up" du formulaire d'inscription dans la page </dd>
-            <dd> 3) L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
-            <dd> 4) Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
-            <dd> 5) L'utilisateur se crée un mot de passe</dd>
-            <dd> 6) Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
-            <dd> 7) Vérifier si les mots de passe sont identiques</dd>
-            <dd> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</dd>
-            <dd> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant avec l'email qui lui est envoyé</dd>
-          </dl>
-  
-          <dl>
-            <dt><strong>Scénario alternatif SA1 : le pseudonyme est déjà pris</strong> </dt>
-            <dd>SA1 commence au point 3 du scénario nominale.</dd>
-            <dd> Le formulaire lui demande de choisir un autre nom d'utilisateur </dd>
-            <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
-  
-          </dl>
-  
-          <dl>
-            <dt><strong>Scénario alternatif SA2: Les mots de passe ne sont pas identiques </strong> </dt>
-            <dd>SA1 commence au point 6 du scénario nominale.</dd>
-            <dd> Le formulaire lui demande de s'assurer que les mots de passe sont identique </dd>
-            <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
-          </dl>
+<h1>Cas d'utilisation 4</h1>
 
-          <p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...). </p>
+<!-- Cas d<utilisation # 4 Création de page par un acheteur  Anne Sophie-->
+<p><Strong>Cas d'utilisation : </Strong>Création d'un compte par un acheteur</p>
+<p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d'acceuil
+en cliquant sur le bouton d'inscription dans la barre de navigation</p>
 
-        </div>
+<p><strong>Acteur principal : </strong></p>
+<dl>
+  <dt>&nbsp&nbsp&nbsp<strong>Acteur Initiateur :</strong></dt>
+  <dd>Un potentiel acheteur désirant se créer un compte sur le site web. </dd>
+  <dt>&nbsp&nbsp&nbsp<strong>Acteur bénéficiaire : </strong></dt>
+  <dd>Acheteur recevant le compte</dd>
+</dl>
 
-      <div  class="items" > <!--cas 5-->
-        <p><strong>Cas d'utilisation:</strong> Vendre un produit </p> 
-        <p></p><strong>But: </strong>Vendeur veut vendre un produit </p>
-        <p><strong>Préconditions: </strong>Le vendeur possède une connaissance de base de l'internet et des ventes, il possède aussi la quantité requise du produit qu'il vend</p>
-        <p><strong>Acteurs:</strong> Vendeur (principal), site web, clients, compagnie de livraison (secondaire)</p>
-        <p><strong>Scénario principal: </strong></p>
-          <ol>
-            <li><span>1</span> Le vendeur entre dans le site
-                <ol>
-                    <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-                    <li><span>1.1</span> Il choisit l'option de s'inscrire en tant que vendeur</li>
-                  </ol>  
-            </li>            
-            <li><span>2</span> Il se connecte en tant que vendeur
-              <ol>
-                <li><span>2.1</span> Il inscrit son nom unique, adresse, adresse courriel et téléphone</li>
-                <li><span>2.2</span> Il reçoit un code de confirmation par courriel et l'écrit dans le site</li>
-                <li><span>2.3</span> C'est le bon code et il s'est bien inscrit en tant que vendeur</li>
-              </ol>        
-            </li>
-            <li><span>3</span> Dans l'accueuil, il choisit le bouton de poster une annonce</li>
-            <li><span>4</span> Il crée un titre unique et choisit la catégorie de son produit<ol>
-                <li><span>4.1</span> Supposons qu'il vend des cahiers, alors la catégorie est papeteries</li>
-              </ol>  </li>
-            <li><span>5</span> Il écrit une description du produit, le nom de sa marque, le nom du modèle, la quantité offerte, le prix et une photo pour attirer les clients</li>
-            <li><span>6</span> Il poste son annonce et attends son premier client</li>
-            <li><span>7</span> Le vendeur reçoit sa première commande</li>
-            <li><span>8</span> Le statut de la commande est en production. Il emballe son produit et met à jour la commande en livraison.</li>
-            <li><span>10</span> Après que le livreur a pris le colis, il informe au client le numéro de suivi et le nom de la compagnie de livraison.</li>
-            <li><span>11</span>Quelques jours plus tard, l'acheteur confirme la réception et il met à jour la commande en livré</li>
-          </ol>
-          <strong>Scénarios alternatifs: </strong>
-          <ol>
-            <li><span>2.1a.1</span> Le nom du vendeur n'est pas unique. Il réessaye avec quelques alternations et réussi finalement</li>
-            <li><span>2.2a.1</span>Le courriel qu'il a fournit ne marche pas. Alors, le vendeur choisit de recevoir le code par téléphone</li>
-            <li><span>2.2a.2</span> Il le reçoit et l'inscrit sur le site</li>
-            <li><span>5a.1</span> Son nom du produit n'est pas unique. Il ajoute d'autres mots et finalement ça marche</li>
-            <li><span>6a.1</span> Le vendeur se rend compte qu'il a mit un 0 de plus à son prix. Il retourne à son annonce dans la page d'accueuil et rentre dans son annonce</li>
-            <li><span>6a.2</span> Il clique sur modifier mon prix et le change, puis le sauvegarde</li>
-            <li><span>11a.1</span> Le vendeur reçoit des nouvelles de sa première commande: le client a signalé un problème</li>
-            <li><span>11a.2</span> Il voit dans son profil que le produit n'est pas de la bonne couleure. Alors, il contacte le client et propose une échange</li>
-            <li><span>11a.3</span> Le client accepte et renvoie le colis.</li>
-            <li><span>11a.4</span> Ayant reçu le colis, le vendeur met à jour le retour comme livré, et renvoie le produit en suivant le même processus</li>
-            <li><span>11b.1</span> Quelques jours plus tard, le client signale que le colis n'est pas livré à la bonne adresse selon le suivi</li>
-            <li><span>11b.2</span> Le vendeur contacte la compagnie et rectifie l'erreur tout de suite</li>
-          </ol>
-          <p><strong>Postconditions:</strong> Le produit posté ainsi que l'achat doivent être sauvegardés et tout activité est noté dans les métriques du vendeur </p>
-          </p>
-        </div>
+<p><strong>Acteurs secondaires : </strong> Acheteur participant au processus d'inscription par validation du courriel</p>
 
-        <div class="items">  <!--cas 6-->
-          <p><strong>Cas d'utilisation:</strong> Voir la métrique </p> 
-          <p><strong>But: </strong> Acheteur du site veut voir la métrique de ses activités et trouver un produit qu'il a déjà acheté </p>
-          <p><strong>Préconditions: </strong>L'acheteur possède un compte<p>
-          <p><strong>Acteurs:</strong> Acheteur (principal), site web (secondaire)<p>
-          <strong>Scénario principal: </strong><br>
-          <ol>
-            <li><span>1</span> Le client entre dans le site
-              <ol>
-                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-                <li><span>1.2</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
-              </ol>  
-            </li>
-            <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
-            <li><span>3</span> Dans cette page, il voit une section sur ses produits likés, ses commentaires rédigés, ses revendeurs likés et le nombre d'achat</li>
-            <li><span>4</span> Il clique sur son historique d'achat</li>
-            <li><span>5</span> Il le filtre par ordre alphabétique et trouve son produit</li>
-            <li><span>6</span> Il note le nom de ce produit et sort du site</li>
-          </ol>
-          <strong>Scénarios alternatifs: </strong>
-          <ol>
-            <li><span>5a.1</span> Il ne trouve pas son produit et réalise qu'il n'est plus en vente</li>
-          </ol>
-          <p><strong>Postconditions: </strong> Tout est gardé tel quel, vu que le client n'a pas fait d'action à sauvegarder</p>
-        </div>
+<dl>
+  <dt><strong>Pré-conditions : </strong></dt>
+  <dd>L'enregistrement sur le site est fonctionnel et receuille bien les données de l'utilisateur pour lui créer un compte</dd>
+  <dd>L'utilisateur a un courriel actif et doit être prêt à divilguer certaines informations</dd>
+  <dd>La cr/ation d'un pseudonyme</dd>
+  <dd>Le mot de passe fourni doit être validé</dd>
+  <dd>Deux utilisateurs ne peuvent pas avoir le même pseudonyme</dd>
+</dl>
 
+<p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...). </p>
 
-        <div  class="items" > <!-- cas 7-->
-          <p><strong>Cas d'utilisation:</strong> Voir la métrique (2) </p> 
-          <p><strong>But: </strong> Vendeur du site veut voir la métrique de ses activités et savoir combien d'argent il a gagné pour faire ses impôts </p>
-          <p><strong>Préconditions: </strong>Le vendeur possède un compte<p>
-          <p><strong>Acteurs:</strong> Vendeur (principal), site web (secondaire)</p>
-          <p><strong>Scénario principal: </strong></p>
-          <ol>
-            <li><span>1</span> Le vendeur entre dans le site
-              <ol>
-                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-                <li><span>1.2</span> Il choisit l'option de se connecter en tant que vendeur</li>
-              </ol>  
-            </li>
-            <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
-            <li><span>3</span> Dans cette page, il voit une section sur ses produits vendus, ses annonces actives et l'argent gagné</li>
-            <li><span>4</span> Il note le montant et sort du site</li>
-          </ol>
-          <p><strong>Postconditions: </strong> Tout est gardé tel quel, vu que le vendeur n'a pas fait d'action à sauvegarder</p>
-        </div>
+<p><strong>Exigences non fonctionnelles : </strong> La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
 
-        <div  class="items"><!-- Cas d<utilisation # 8 -->
-      
-          <p><Strong>Cas d'utilisation 8 : </Strong>Modification du profil d'un acheteur</p>
-          <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se modifier les informations de son compte après s'être conecté</p>
+<dl>
+  <dt><strong>Scénario nominale :</strong></dt>
+  <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
+  <dd> 2) "Pop-Up" du formulaire d'inscription dans la page </dd>
+  <dd> 3) L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
+  <dd> 4) Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
+  <dd> 5) L'utilisateur se crée un mot de passe</dd>
+  <dd> 6) Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
+  <dd> 7) Vérifier si les mots de passe sont identiques</dd>
+  <dd> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</dd>
+  <dd> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant avec l'email qui lui est envoyé</dd>
+</dl>
 
-          <p><strong>Acteurs: </strong></p>
-          <dl>
-            <dt>&nbsp&nbsp&nbsp<strong>Principal :</strong></dt>
-            <dd>Acheteur détenant un compte </dd>
-            <dt>&nbsp&nbsp&nbsp<strong>Acteur secondaire : </strong></dt>
-            <dd>Le site web...</dd>
-          </dl>
+<dl>
+  <dt><strong>Scénario alternatif SA1 : le pseudonyme est déjà pris</strong> </dt>
+  <dd>SA1 commence au point 3 du scénario nominale.</dd>
+  <dd> Le formulaire lui demande de choisir un autre nom d'utilisateur </dd>
+  <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
+
+</dl>
+
+<dl>
+  <dt><strong>Scénario alternatif SA2: Les mots de passe ne sont pas identiques </strong> </dt>
+  <dd>SA1 commence au point 6 du scénario nominale.</dd>
+  <dd> Le formulaire lui demande de s'assurer que les mots de passe sont identique </dd>
+  <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
+
+</dl>
 
           <p><strong>Pré-conditions : </strong>l'acheteur détient un compte et est capable de se connecter avec son identifiant et son mot de passe</p>
           
