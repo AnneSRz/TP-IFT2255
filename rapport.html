@@ -263,10 +263,10 @@
 
           <strong>Scénarios alternatifs: </strong>
           <ol>
-            <li><span>4.1.1) </span> Le client veut ajouter une quantité supérieure à celle qui est disponible en inventaire</li>
+            <li><span>4.1.1. </span> Le client veut ajouter une quantité supérieure à celle qui est disponible en inventaire</li>
               <ol>
-                <li>4.1.1.1) Le site web détecte l'erreur affiche un message indiquant que la quantité voulue n'est pas disponible.</li>
-                <li>4.1.1.2) Le client corrige la quantité ou décide de ne plus ajouter le produit au panier.</li>
+                <li>4.1.1.1. Le site web détecte l'erreur affiche un message indiquant que la quantité voulue n'est pas disponible.</li>
+                <li>4.1.1.2. Le client corrige la quantité ou décide de ne plus ajouter le produit au panier.</li>
               </ol>
             <br>
 
@@ -456,10 +456,53 @@ en cliquant sur le bouton d'inscription dans la barre de navigation</p>
   <dt>Acteur bénéficiaire : Acheteur recevant le compte</dt>
   <dd>Acheteur recevant le compte</dd>
 
-<p><strong>Acteurs secondaires : Acheteur participant au processus d'inscription par validation du courriel </strong></p>
+<p><strong>Acteurs secondaires : </strong> Acheteur participant au processus d'inscription par validation du courriel</p>
 
-<p><strong>Pré-conditions :</strong></p>
-<p>Allooooo frieeeends...Test test</p>
+<dl>
+  <dt><strong>Pré-conditions : </strong></dt>
+  <dd>L'enregistrement sur le site est fonctionnel et receuille bien les données de l'utilisateur pour lui créer un compte</dd>
+  <dd>L'utilisateur a un courriel actif et doit être prêt à divilguer certaines informations</dd>
+  <dd>La cr/ation d'un pseudonyme</dd>
+  <dd>Le mot de passe fourni doit être validé</dd>
+  <dd>Deux utilisateurs ne peuvent pas avoir le même pseudonyme</dd>
+</dl>
+
+<p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...). </p>
+
+<p><strong>Exigences non fonctionnelles : </strong> La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
+
+<dl>
+  <dt><strong>Scénario nominale :</strong></dt>
+  <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
+  <dd> 2) "Pop-Up" du formulaire d'inscription dans la page </dd>
+  <dd> 3) L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
+  <dd> 4) Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
+  <dd> 5) L'utilisateur se crée un mot de passe</dd>
+  <dd> 6) Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
+  <dd> 7) Vérifier si les mots de passe sont identiques</dd>
+  <dd> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</dd>
+  <dd> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant avec l'email qui lui est envoyé</dd>
+</dl>
+
+<dl>
+  <dt><strong>Scénario alternatif SA1 : le pseudonyme est déjà pris</strong> </dt>
+  <dd>SA1 commence au point 3 du scénario nominale.</dd>
+  <dd> Le formulaire lui demande de choisir un autre nom d'utilisateur </dd>
+  <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
+
+</dl>
+
+<dl>
+  <dt><strong>Scénario alternatif SA2: Les mots de passe ne sont pas identiques </strong> </dt>
+  <dd>SA1 commence au point 6 du scénario nominale.</dd>
+  <dd> Le formulaire lui demande de s'assurer que les mots de passe sont identique </dd>
+  <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
+
+</dl>
+
+
+
+<!-- Cas d<utilisation # 5 Modification du profil d'un acheteur  Anne Sophie-->
 
 <!-- Fin cas d'utilisation #...-->
 <style>
