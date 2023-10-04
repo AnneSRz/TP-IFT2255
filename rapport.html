@@ -57,57 +57,72 @@
       <p style="font-size: large;"><Strong>Signalement:</Strong> La possi'bilité pour l'acheteur de signaler au revendeur s'il y a des problèmes avec sa commande. </p>
     </div>
 
-    <!--Cas 1-->
-    <h1>Cas d'utilisation 1</h1>
-    <h1>Description</h1>
-    <p><strong>Cas d'utilisation:</strong> Acheter un manuel </br> 
-    <strong>But: </strong>Client utilise le website pour acheter un manuel spécifique </br>
-    <strong>Préconditions: </strong>Le client connait déjà le nom du manuel désiré et possède une carte de débit ou crédit ou autre forme de paiement valide.<br>
-    <strong>Acteurs:</strong> Client (principal), site web et vendeur (secondaire) <br>
-    <strong>Scénario principal: </strong><br>
-    <ol>
-      <li><span>1)</span> Le client entre dans le site
-        <ol>
-          <li><span>1.1)</span> Il est redirigé vers l'inscription d'archeteur</li>
-        </ol>  
-      </li>   
-      <br>
-      <li><span>2)</span> Il s'inscrit en tant qu'acheteur
-        <ol>
-          <li><span>2.1)</span> Il donne son nom et prénom</li>
-          <li><span>2.2)</span> Il invente un pseudo unique</li>
-          <li><span>2.3)</span> Il inscrit son numéro de téléphone</li>
-          <li><span>2.4)</span> Il inscrit son adresse d'expédition</li>
-          <li><span>2.5)</span> Le site accepte son inscription et son compte est crée</li>
-        </ol>        
-      </li>
-      <br>
-      <li><span>3)</span> Dans la catalogue des produits, il tape sur recherche des produits</li>
-      <br>
-      <li><span>4)</span> Il écrit le nom du manuel recherché 
-        <ol>
-          <li><span>4.1)</span> Il est redirigé vers une liste de manuels en vente correspondant à sa recherche</li>
-        </ol>
-      <br>
-      <li><span>5)</span> Il clique sur le premier manuel de la liste</li>
-      <br>
-      <li><span>6)</span> Dans la page de vente du manuel, il vérifie que c'est bien le bon manuel </li>
-      <br>
-      <li><span>7)</span> Le client clique sur vente  
-        <ol>
-          <li><span>7.1)</span> Il est redirigé vers la page de paiement</li>
-          <li><span>7.2)</span> Il prépare ses informations de paiement</li>
-        </ol>
-      </li>
-      <br>
-      <li><span>8)</span> Il paie pour le manuel et reçoit une confirmation de son paiement</li>
-      <br>
-      <li><span>9)</span> Il attend pour la livraison de son manuel en surveillant les mises à jours de la livraison</li>
-      <br>
-      <li><span>10)</span> Le client reçoit son produit dans le format d'un colis</li>
-      <br>
-      <li><span>11)</span> Il confirme la réception du produit</li>
-    </ol>
+    <br><hr><br>
+
+    <div style="background-color: aliceblue; width: 96%; margin:0 auto" >
+      <h1 style="text-align: center; padding: 50px; ">CAS D'UTILISATION</h1>
+
+      <div class="container">
+        <div class="items">
+           <!--Cas 1-->
+          <p><strong>Cas d'utilisation:</strong> Acheter un manuel</p>
+          <p><strong>But: </strong>Client utilise le website pour acheter un manuel spécifique</p>
+          <p><strong>Préconditions: </strong>Le site web est opérationnel.<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            Le client connait déjà le nom du manuel désiré et une carte crédit ou un autre forme de paiement valide.</p>
+          <p><strong>Acteurs:</strong> Client (principal), site web et vendeur (secondaire)</p>
+
+          <strong>Scénario principal: </strong><br>
+          <ol>
+            <li><span>1)</span> Le client accède  au site
+              <ol>
+                <li><span>1.1)</span> Il est redirigé vers l'inscription en tant qu'archeteur</li>
+              </ol>  
+            </li>   
+            <br>
+            <li><span>2)</span> Le client s'inscrit en tant qu'acheteur
+              <ol>
+                <li><span>2.1)</span> Il fournit son nom et prénom</li>
+                <li><span>2.2)</span> Il crée un pseudo unique</li>
+                <ol>
+                  <li>2.2.1) Si le pseudo n'est pas unique, le client ajoute des chiffres pour le rendre unique.</li>
+                </ol>
+                <li><span>2.3)</span> Il inscrit son numéro de téléphone</li>
+                <li><span>2.4)</span> Il indique son adresse d'expédition</li>
+                <li><span>2.5)</span> L'inscription est acceptée, et son compte est créé.e</li>
+              </ol>        
+            </li>
+
+            <br>
+
+            <li><span>3)</span> Dans le catalogue des produits, le client effectue une recherche</li>
+            <br>
+            <li><span>4)</span> Il entre le nom du manuel recherché 
+              <ol>
+                <li><span>4.1)</span> Il est redirigé vers une liste de manuels en vente correspondant à sa recherche</li>
+                  <ol>
+                    <li>4.1.1) Si le manuel recherché n'est pas disponible, le site recommande des ouvrages similaires.</li>
+                  </ol>
+              </ol>
+            <br>
+            <li><span>5)</span> Il clique sur le premier manuel de la liste</li>
+            <br>
+            <li><span>6)</span> Sur la page de vente du manuel, le client vérifie si c'est bien le bon manuel </li>
+            <br>
+            <li><span>7)</span> Le client clique sur "Acheter"
+              <ol>
+                <li><span>7.1)</span> Il est redirigé vers la page de paiement</li>
+                <li><span>7.2)</span> Il prépare ses informations de paiement</li>
+              </ol>
+            </li>
+            <br>
+            <li><span>8)</span> Il paie pour le manuel et reçoit une confirmation de son paiement</li>
+            <br>
+            <li><span>9)</span> Il attend pour la livraison de son manuel en surveillant les mises à jours de suivi</li>
+            <br>
+            <li><span>10)</span> Le client reçoit son manuel sous la forme d'un colis</li>
+            <br>
+            <li><span>11)</span> Il confirme la réception du produit</li>
+          </ol>
 
     <strong>Scénarios alternatifs: </strong>
     <ol>
@@ -139,14 +154,13 @@
 
     <p><strong>Postconditions:</strong> Les détails de l'achat doivent être archivés et conservés</p>
 
-    <!--Cas 2-->
-    <h1>Cas d'utilisation 2</h1>
-    <h1>Description</h1>
-    <p><strong>Cas d'utilisation:</strong> Mise à jour de la liste de souhait</p>
- 
-    <p><strong>But: </strong>Client ajoute ou supprime un produit à sa liste de souhait</p>
-    <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
-    <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
+        <div  class="items">
+          <!--Cas 2-->
+          <p><strong>Cas d'utilisation:</strong> Mise à jour de la liste de souhait</p>
+      
+          <p><strong>But: </strong>Client ajoute ou supprime un produit à sa liste de souhait</p>
+          <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
+          <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
 
     <strong>Scénario principal: </strong><br>
     <ol>
@@ -197,116 +211,114 @@
     <p><strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
   
 
-    <h1>Cas d'utilisation 3</h1>
-    <h1>Description</h1>
-    <p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits</p>
-    <p><strong>But: </strong>Client achète plusieurs produit à l'intermédiaire</p>
-    <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
-    <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
-    <p><strong>Scénario principal: </strong></p>
-    <ol>
-      <li><span>1</span> Le client entre dans le site
-        <ol>
-          <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-          <li><span>1.1</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
-        </ol>  
-      </li>            
-      <li><span>2</span> Il se connecte en tant qu'acheteur
-        <ol>
-          <li><span>2.1</span> Il donne son pseudo unique</li>
-          <li><span>2.2</span> Le site reconnait son pseudo et il est redirigé à la page principale</li>
-        </ol>        
-      </li>
-      <br>
-      <li><span>3</span> Dans la catalogue des produits, il regarde la recommendation des produits</li>
-      <br>
-      <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
-      <br>
-      <li><span>5</span> Le client aime le produit, mais ne veut pas l'acheter maintenant.</li>
-      <br>
-      <li><span>6</span> Dans la page du produit, il clique sur l'option d'ajouter à sa liste de souhait à côté de liker et rédiger un commentaire</li>
-      <br>
-      <li><span>7</span> Un rectangle pop pour l'informer que le produit est bien ajouté à sa liste</li>
-      <br>
-      <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
-      <br>
-      <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
-        <ol>
-          <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
-        </ol> 
-      <br>
-      <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
-    </ol>
-    <strong>Scénarios alternatifs: </strong>
-    <ol>
-      <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
-      <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
-      <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
-      <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
-      <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
-      <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
-      <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
-      <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
-      <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>     
-    </ol>
+        <div  class="items" ><!--Cas 3-->
+          <p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits</p>
+          <p><strong>But: </strong>Client achète plusieurs produit à l'intermédiaire</p>
+          <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
+          <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
+          <p><strong>Scénario principal: </strong></p>
+          <ol>
+            <li><span>1</span> Le client entre dans le site
+              <ol>
+                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+                <li><span>1.1</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
+              </ol>  
+            </li>            
+            <li><span>2</span> Il se connecte en tant qu'acheteur
+              <ol>
+                <li><span>2.1</span> Il donne son pseudo unique</li>
+                <li><span>2.2</span> Le site reconnait son pseudo et il est redirigé à la page principale</li>
+              </ol>        
+            </li>
+            <br>
+            <li><span>3</span> Dans la catalogue des produits, il regarde la recommendation des produits</li>
+            <br>
+            <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
+            <br>
+            <li><span>5</span> Le client aime le produit, mais ne veut pas l'acheter maintenant.</li>
+            <br>
+            <li><span>6</span> Dans la page du produit, il clique sur l'option d'ajouter à sa liste de souhait à côté de liker et rédiger un commentaire</li>
+            <br>
+            <li><span>7</span> Un rectangle pop pour l'informer que le produit est bien ajouté à sa liste</li>
+            <br>
+            <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
+            <br>
+            <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
+              <ol>
+                <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
+              </ol> 
+            <br>
+            <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
+          </ol>
+          <strong>Scénarios alternatifs: </strong>
+          <ol>
+            <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
+            <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
+            <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
+            <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
+            <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
+            <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
+            <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
+            <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
+            <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>     
+          </ol>
+  
+          <p><strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
+        </div>
 
-    <p><strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
-    
-    <h1>Cas d'utilisation 4</h1>
-    <p><Strong>Cas d'utilisation : </Strong>Création d'un compte par un acheteur</p>
-    <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d'acceuil
-    en cliquant sur le bouton d'inscription dans la barre de navigation</p>
-
-    <p><strong>Acteur principal : </strong></p>
-    <dl>
-      <dt>&nbsp&nbsp&nbsp<strong>Acteur Initiateur :</strong></dt>
-      <dd>Un potentiel acheteur désirant se créer un compte sur le site web. </dd>
-      <dt>&nbsp&nbsp&nbsp<strong>Acteur bénéficiaire : </strong></dt>
-      <dd>Acheteur recevant le compte</dd>
-    </dl>
-
-    <p><strong>Acteurs secondaires : </strong> Acheteur participant au processus d'inscription par validation du courriel</p>
-
-    <dl>
-      <dt><strong>Pré-conditions : </strong></dt>
-      <dd>L'enregistrement sur le site est fonctionnel et receuille bien les données de l'utilisateur pour lui créer un compte</dd>
-      <dd>L'utilisateur a un courriel actif et doit être prêt à divilguer certaines informations</dd>
-      <dd>La cr/ation d'un pseudonyme</dd>
-      <dd>Le mot de passe fourni doit être validé</dd>
-      <dd>Deux utilisateurs ne peuvent pas avoir le même pseudonyme</dd>
-    </dl>
-
-    <p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...). </p>
-
-    <p><strong>Exigences non fonctionnelles : </strong> La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
-
-    <dl>
-      <dt><strong>Scénario nominale :</strong></dt>
-      <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
-      <dd> 2) "Pop-Up" du formulaire d'inscription dans la page </dd>
-      <dd> 3) L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
-      <dd> 4) Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
-      <dd> 5) L'utilisateur se crée un mot de passe</dd>
-      <dd> 6) Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
-      <dd> 7) Vérifier si les mots de passe sont identiques</dd>
-      <dd> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</dd>
-      <dd> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant avec l'email qui lui est envoyé</dd>
-    </dl>
-
-    <dl>
-      <dt><strong>Scénario alternatif SA1 : le pseudonyme est déjà pris</strong> </dt>
-      <dd>SA1 commence au point 3 du scénario nominale.</dd>
-      <dd> Le formulaire lui demande de choisir un autre nom d'utilisateur </dd>
-      <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
-
-    </dl>
-
-    <dl>
-      <dt><strong>Scénario alternatif SA2: Les mots de passe ne sont pas identiques </strong> </dt>
-      <dd>SA1 commence au point 6 du scénario nominale.</dd>
-      <dd> Le formulaire lui demande de s'assurer que les mots de passe sont identique </dd>
-      <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
-    </dl>
+        <div  class="items" > <!--Cas 4 -->
+          <p><Strong>Cas d'utilisation : </Strong> Création d'un compte par un acheteur</p>
+          <p><Strong> But : </Strong> Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d'acceuil
+          en cliquant sur le bouton d'inscription dans la barre de navigation</p>
+  
+          <p><strong>Acteurs : </strong></p>
+          <dl>
+            <dt>&nbsp&nbsp&nbsp<strong>Initiateur :</strong></dt>
+            <dd>Un potentiel acheteur désirant se créer un compte sur le site web. </dd>
+            <dt>&nbsp&nbsp&nbsp<strong>Bénéficiaire : </strong></dt>
+            <dd>Acheteur recevant le compte</dd>
+          </dl>
+          <p>&nbsp&nbsp&nbsp<strong>Secondaires : </strong> Acheteur participant au processus d'inscription par validation du courriel</p>
+  
+          <dl>
+            <dt><strong>Pré-conditions : </strong></dt>
+            <dd>L'enregistrement sur le site est fonctionnel et receuille bien les données de l'utilisateur pour lui créer un compte</dd>
+            <dd>L'utilisateur a un courriel actif et doit être prêt à divilguer certaines informations</dd>
+            <dd>La cr/ation d'un pseudonyme</dd>
+            <dd>Le mot de passe fourni doit être validé</dd>
+            <dd>Deux utilisateurs ne peuvent pas avoir le même pseudonyme</dd>
+          </dl>
+  
+  
+          <p><strong>Exigences non fonctionnelles : </strong> La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
+  
+          <dl>
+            <dt><strong>Scénario nominale :</strong></dt>
+            <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
+            <dd> 2) "Pop-Up" du formulaire d'inscription dans la page </dd>
+            <dd> 3) L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
+            <dd> 4) Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
+            <dd> 5) L'utilisateur se crée un mot de passe</dd>
+            <dd> 6) Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
+            <dd> 7) Vérifier si les mots de passe sont identiques</dd>
+            <dd> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</dd>
+            <dd> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant avec l'email qui lui est envoyé</dd>
+          </dl>
+  
+          <dl>
+            <dt><strong>Scénario alternatif SA1 : le pseudonyme est déjà pris</strong> </dt>
+            <dd>SA1 commence au point 3 du scénario nominale.</dd>
+            <dd> Le formulaire lui demande de choisir un autre nom d'utilisateur </dd>
+            <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
+  
+          </dl>
+  
+          <dl>
+            <dt><strong>Scénario alternatif SA2: Les mots de passe ne sont pas identiques </strong> </dt>
+            <dd>SA1 commence au point 6 du scénario nominale.</dd>
+            <dd> Le formulaire lui demande de s'assurer que les mots de passe sont identique </dd>
+            <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
+          </dl>
 
     <h1>Cas d'utilisation 5</h1>
     <h1>Description</h1>
@@ -459,9 +471,31 @@
 
         </div>
 
+        <!-- Mettez les autres cas d'utilisatiion entre chacun de ces divs-->
+
+        <div class="items"></div> <!--Cas utilisation 9-->
+
+        <div class="items"></div> <!--Cas utilisation 10-->
+
+        <div class="items"></div> <!--Cas utilisation 11-->
+
+        <div class="items"></div> <!--Cas utilisation 12-->
+
+        <div class="items"></div> <!--Cas utilisation 13-->
+
+        <div class="items"></div> <!--Cas utilisation 14--></div>
+
 
     </div>
     <!-- Fin cas d'utilisation #...-->
+    <br><hr><br>
+    
+    <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto;" >
+      
+      <h1 style="text-align: center; padding: 50px;">Risques</h1>
+
+    </div>
+
 
   </body>
 </html>
