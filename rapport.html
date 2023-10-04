@@ -34,6 +34,7 @@
       }
     </style>
 
+   <h3>Shini Yang 20246181, shini.yang@umontreal.ca , 6 heures</h2>
   </head>
 
   <body style="background-color: #304674">
@@ -472,15 +473,110 @@
 
           </dl>
 
-          <!-- Cas d<utilisation # 8 Modification du profil d'un acheteur  Anne Sophie-->
-            <p><Strong>Cas d'utilisation : </Strong>Confirmer la commande</p>
-            <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur de voir si ça commande à été accepté</p>
+          <h1>Cas d'utilisation 8 </h1>
 
-        </div>
+    <p><Strong>Cas d'utilisation 8 : </Strong>Modification du profil d'un acheteur</p>
+    <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se modifier les informations de son compte après s'être conecté</p>
 
+    <p><strong>Acteurs: </strong></p>
+    <dl>
+      <dt>&nbsp&nbsp&nbsp<strong>Principal :</strong></dt>
+      <dd>Acheteur détenant un compte </dd>
+      <dt>&nbsp&nbsp&nbsp<strong>Acteur secondaire : </strong></dt>
+      <dd>Le site web...</dd>
+    </dl>
 
-    </div>
+    <p><strong>Pré-conditions : </strong>l'acheteur détient un compte et est capable de se connecter avec son identifiant et son mot de passe</p>
+    
+
+    <p><strong>Post-conditions : </strong> Le détenteur du compte doit enregistrer les modification liés à son compte </p>
+
+    <p><strong>Exigences non fonctionnelles : </strong>...</p>
+
+    <dl>
+      <dt><strong>Scénario nominale :</strong></dt>
+      <dd> 1) L'utilisateur se connecte </dd>
+      <dd> 2) Ce dernier accède à la page de son profil  </dd>
+      <dd> 3) Il clique sur le bouton  "Informations personnelles"</dd>
+      <dd> 4) L'utilisateur clique sur "modifier les informations"</dd>
+      <dd> 5)Il est alors possible de modifier la date de naissance, le sexe, l'adresses e-mail et les numéros de téléphone enregistrés aux comptes.</dd>
+      <dd> 6) Pour modifier sa photo de profil: 
+        <ul>
+          <li>Cliquez sur Photo</li>
+          <li>Importez une photo depuis l'ordinateur</li>
+          <li>Modifier l'orientatin de la photo et la recadrer si nécessaire.</li>
+          <li>Cliquez sur "Définir comme photo de profil"</li>
+        </ul>
+      </dd>
+      <dd> 7) Si l'email est modifié, l'utilisateur doit le confirmer en cliquant sur le lien qui lui a été envoyé à la nouvelle adresse</dd>
+    </dl>
+
+    <dl>
+      <dt><strong>Scénario alternatif SA1 : l'utilisateur se trompe dans les nouvelles informations entrées</strong> </dt>
+      <dd>SA1 commence au point 5 du scénario nominale.</dd>
+      <dd> Tant que l'utilisateur est connecté à son compte, il peut modifier les informations  </dd>
+      <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
+
+    </dl>
+
+    <h1>Cas d'utilisation 9</h1>
+    <h1>Description</h1>
+    <p><strong>Cas d'utilisation:</strong> Demander un retour </br> 
+    <strong>But: </strong> L'acheteur demande un retour quelques jours après sa réception du colis </br>
+    <strong>Préconditions: </strong>Le client possède un compte et a une commande<br>
+    <strong>Acteurs:</strong> Acheter (principal), site web, vendeur (secondaire)<br>
+    <strong>Scénario principal: </strong><br>
+    <ol>
+      <li><span>1</span> L'acheteur entre dans le site
+        <ol>
+          <li><span>1.1</span> Il est redirigé vers l'inscription d'acheteur</li>
+          <li><span>1.2</span> Il se connecte par connexion d'acheteur</li>
+        </ol>  
+      </li>
+      <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de ses commandes</li>
+      <li><span>3</span> Dans cette page, les commandes sont filtrés par date et il choisit la commande </li>
+      <li><span>4</span> Il clique sur demande de retour et remboursement</li>
+      <li><span>5</span> Il explique sa raison et envoie la demande, qui est ensuite acceptée par le vendeur</li>
+      <li><span>6</span> Le client renvoie son colis et reçoit son argent après que le vendeur confirme d'avoir reçu son produit</li>
+    </ol>
+    <strong>Scénarios alternatifs: </strong>
+    <ol>
+        <li><span>4a.1</span> Le retour n'est pas accepté car le vendeur a proposé un échange à la place</li>
+        <li><span>4a.2</span>Le client accepte cette solution et renvoie son colis</li>
+        <li><span>4a.3</span> Quelques jours plus tard, il confirme la réception d'un nouveau colis</li>
+        <li><span>4b.1</span> Le retour est refusé car l'achat a été fait dans plus de 30 jours</li>
+      </ol>
+    <p><strong>Postconditions: </strong> La commande est toujours sauvegardé comme une commande retournée et archivée. L'argent est retourné dans la carte de banque dans les jours qui suivent</p>
+    
+    
+    <h1>Cas d'utilisation 10</h1>
+    <h1>Description</h1>
+    <p><strong>Cas d'utilisation:</strong> Modification du profil d'un acheteur ou vendeur </br> 
+    <strong>But: </strong> L'acheteur/vendeur veut changer une information dans son profil </br>
+    <strong>Préconditions: </strong>Le client possède un compte<br>
+    <strong>Acteurs:</strong> Acheteur, vendeur (principal), site web (secondaire)<br>
+    <strong>Scénario principal: </strong><br>
+    <ol>
+      <li><span>1</span> L'acheteur ou vendeur entre dans le site
+        <ol>
+          <li><span>1.1</span> Il est redirigé vers l'inscription d'acheteur</li>
+          <li><span>1.2</span> Il se connecte</li>
+        </ol>  
+      </li>
+      <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de ses informations personnelles</li>
+      <li><span>3</span> Dans cette page, Il a ses informations tel que son téléphone et courriel </li>
+      <li><span>4</span> Il clique le bouton modifier en haut de la page</li>
+      <li><span>5</span> Il change les zones ciblés, et clique sur sauvegarder</li>
+      <li><span>6</span> Le client se déconnecte de son compte</li>
+    </ol>
+    <p><strong>Postconditions: </strong> Les informations changés sont sauvegardés après leur changement</p>
     <!-- Fin cas d'utilisation #...-->
+    <h1>Risques</h1>
+    <p><strong>Risque de sécurité: </strong> Le code n'est pas bien développé, et des informations du client tel que sa commande est perdue, ou pire, des données de paiement sont divulgées </p>
+    <p><strong>Risque de développement: </strong> Le développement de l'ensemble du projet va dans une direction différente de celui idéal, ce qui cause du retardement, plus de bug et un site moins satisfaisant</p>
+    <p><strong>Risque de performance: </strong> Le site n'est pas assez performant, il y a beaucoup de bug, les images sont lourdes, etc... et le client se tanne du site</p>
+    <p><strong>Risque de UI/performance: </strong> L'interface utilisateur est trop compliqué ou trop simple pour certains personnes, et le client se tanne du site</p>
+    <p><strong>Risque de fraude: </strong> Dans une relation monétaire, le vendeur ou l'acheteur sont susceptible de fraude, ce qui cause d'une perte d'argent aux directeurs du site</p>
 
   </body>
 </html>
