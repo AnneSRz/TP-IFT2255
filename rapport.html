@@ -276,7 +276,7 @@
           <p><strong>Acteurs : Un potentiel acheteur (principal), Secondaire (l'administrateur du dite web) </strong></p>
           <dl>
             <dt>&nbsp&nbsp&nbsp<strong>Initiateur :</strong></dt>
-            <dd>Un potentiel acheteur désirant se créer un compte sur le site web. </dd>
+            <dd>Un potentiel acheteur désirant se créer un compte sur le site web.</dd>
             <dt>&nbsp&nbsp&nbsp<strong>Bénéficiaire : </strong></dt>
             <dd>Acheteur recevant le compte</dd>
             <dt>&nbsp&nbsp&nbsp<strong>Secondaire : </strong></dt>
@@ -328,81 +328,80 @@
 
         </div>
 
-      <div  class="items" > <!--cas 5-->
-        <p><strong>Cas d'utilisation:</strong> Vendre un produit </p> 
-        <p></p><strong>But: </strong>Vendeur veut vendre un produit </p>
-        <p><strong>Préconditions: </strong>Le vendeur possède une connaissance de base de l'internet et des ventes, il possède aussi la quantité requise du produit qu'il vend</p>
-        <p><strong>Acteurs:</strong> Vendeur (principal), site web, clients, compagnie de livraison (secondaire)</p>
-        <p><strong>Scénario principal: </strong></p>
-          <ol>
-            <li><span>1</span> Le vendeur entre dans le site
+        <div  class="items" > <!--cas 5-->
+          <p><strong>Cas d'utilisation:</strong> Vendre un produit </p> 
+          <p></p><strong>But: </strong>Vendeur veut vendre un produit </p>
+          <p><strong>Préconditions: </strong>Le vendeur possède une connaissance de base de l'internet et des ventes, il possède aussi la quantité requise du produit qu'il vend</p>
+          <p><strong>Acteurs:</strong> Vendeur (principal), site web, clients, compagnie de livraison (secondaire)</p>
+          <p><strong>Scénario principal: </strong></p>
+            <ol>
+              <li><span>1</span> Le vendeur entre dans le site
+                  <ol>
+                      <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+                      <li><span>1.1</span> Il choisit l'option de s'inscrire en tant que vendeur</li>
+                    </ol>  
+              </li>            
+              <li><span>2</span> Il se connecte en tant que vendeur
                 <ol>
-                    <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-                    <li><span>1.1</span> Il choisit l'option de s'inscrire en tant que vendeur</li>
-                  </ol>  
-            </li>            
-            <li><span>2</span> Il se connecte en tant que vendeur
+                  <li><span>2.1</span> Il inscrit son nom unique, adresse, adresse courriel et téléphone</li>
+                  <li><span>2.2</span> Il reçoit un code de confirmation par courriel et l'écrit dans le site</li>
+                  <li><span>2.3</span> C'est le bon code et il s'est bien inscrit en tant que vendeur</li>
+                </ol>        
+              </li>
+              <li><span>3</span> Dans l'accueuil, il choisit le bouton de poster une annonce</li>
+              <li><span>4</span> Il crée un titre unique et choisit la catégorie de son produit<ol>
+                  <li><span>4.1</span> Supposons qu'il vend des cahiers, alors la catégorie est papeteries</li>
+                </ol>  </li>
+              <li><span>5</span> Il écrit une description du produit, le nom de sa marque, le nom du modèle, la quantité offerte, le prix et une photo pour attirer les clients</li>
+              <li><span>6</span> Il poste son annonce et attends son premier client</li>
+              <li><span>7</span> Le vendeur reçoit sa première commande</li>
+              <li><span>8</span> Le statut de la commande est en production. Il emballe son produit et met à jour la commande en livraison.</li>
+              <li><span>10</span> Après que le livreur a pris le colis, il informe au client le numéro de suivi et le nom de la compagnie de livraison.</li>
+              <li><span>11</span>Quelques jours plus tard, l'acheteur confirme la réception et il met à jour la commande en livré</li>
+            </ol>
+            <strong>Scénarios alternatifs: </strong>
+            <ol>
+              <li><span>2.1a.1</span> Le nom du vendeur n'est pas unique. Il réessaye avec quelques alternations et réussi finalement</li>
+              <li><span>2.2a.1</span>Le courriel qu'il a fournit ne marche pas. Alors, le vendeur choisit de recevoir le code par téléphone</li>
+              <li><span>2.2a.2</span> Il le reçoit et l'inscrit sur le site</li>
+              <li><span>5a.1</span> Son nom du produit n'est pas unique. Il ajoute d'autres mots et finalement ça marche</li>
+              <li><span>6a.1</span> Le vendeur se rend compte qu'il a mit un 0 de plus à son prix. Il retourne à son annonce dans la page d'accueuil et rentre dans son annonce</li>
+              <li><span>6a.2</span> Il clique sur modifier mon prix et le change, puis le sauvegarde</li>
+              <li><span>11a.1</span> Le vendeur reçoit des nouvelles de sa première commande: le client a signalé un problème</li>
+              <li><span>11a.2</span> Il voit dans son profil que le produit n'est pas de la bonne couleure. Alors, il contacte le client et propose une échange</li>
+              <li><span>11a.3</span> Le client accepte et renvoie le colis.</li>
+              <li><span>11a.4</span> Ayant reçu le colis, le vendeur met à jour le retour comme livré, et renvoie le produit en suivant le même processus</li>
+              <li><span>11b.1</span> Quelques jours plus tard, le client signale que le colis n'est pas livré à la bonne adresse selon le suivi</li>
+              <li><span>11b.2</span> Le vendeur contacte la compagnie et rectifie l'erreur tout de suite</li>
+            </ol>
+            <p><strong>Postconditions:</strong> Le produit posté ainsi que l'achat doivent être sauvegardés et tout activité est noté dans les métriques du vendeur </p>
+        </div>
+
+        <div class="items">  <!--cas 6-->
+          <p><strong>Cas d'utilisation:</strong> Voir la métrique </p> 
+          <p><strong>But: </strong> Acheteur du site veut voir la métrique de ses activités et trouver un produit qu'il a déjà acheté </p>
+          <p><strong>Préconditions: </strong>L'acheteur possède un compte<p>
+          <p><strong>Acteurs:</strong> Acheteur (principal), site web (secondaire)<p>
+          <strong>Scénario principal: </strong><br>
+          <ol>
+            <li><span>1</span> Le client entre dans le site
               <ol>
-                <li><span>2.1</span> Il inscrit son nom unique, adresse, adresse courriel et téléphone</li>
-                <li><span>2.2</span> Il reçoit un code de confirmation par courriel et l'écrit dans le site</li>
-                <li><span>2.3</span> C'est le bon code et il s'est bien inscrit en tant que vendeur</li>
-              </ol>        
+                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
+                <li><span>1.2</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
+              </ol>  
             </li>
-            <li><span>3</span> Dans l'accueuil, il choisit le bouton de poster une annonce</li>
-            <li><span>4</span> Il crée un titre unique et choisit la catégorie de son produit<ol>
-                <li><span>4.1</span> Supposons qu'il vend des cahiers, alors la catégorie est papeteries</li>
-              </ol>  </li>
-            <li><span>5</span> Il écrit une description du produit, le nom de sa marque, le nom du modèle, la quantité offerte, le prix et une photo pour attirer les clients</li>
-            <li><span>6</span> Il poste son annonce et attends son premier client</li>
-            <li><span>7</span> Le vendeur reçoit sa première commande</li>
-            <li><span>8</span> Le statut de la commande est en production. Il emballe son produit et met à jour la commande en livraison.</li>
-            <li><span>10</span> Après que le livreur a pris le colis, il informe au client le numéro de suivi et le nom de la compagnie de livraison.</li>
-            <li><span>11</span>Quelques jours plus tard, l'acheteur confirme la réception et il met à jour la commande en livré</li>
+            <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
+            <li><span>3</span> Dans cette page, il voit une section sur ses produits likés, ses commentaires rédigés, ses revendeurs likés et le nombre d'achat</li>
+            <li><span>4</span> Il clique sur son historique d'achat</li>
+            <li><span>5</span> Il le filtre par ordre alphabétique et trouve son produit</li>
+            <li><span>6</span> Il note le nom de ce produit et sort du site</li>
           </ol>
           <strong>Scénarios alternatifs: </strong>
           <ol>
-            <li><span>2.1a.1</span> Le nom du vendeur n'est pas unique. Il réessaye avec quelques alternations et réussi finalement</li>
-            <li><span>2.2a.1</span>Le courriel qu'il a fournit ne marche pas. Alors, le vendeur choisit de recevoir le code par téléphone</li>
-            <li><span>2.2a.2</span> Il le reçoit et l'inscrit sur le site</li>
-            <li><span>5a.1</span> Son nom du produit n'est pas unique. Il ajoute d'autres mots et finalement ça marche</li>
-            <li><span>6a.1</span> Le vendeur se rend compte qu'il a mit un 0 de plus à son prix. Il retourne à son annonce dans la page d'accueuil et rentre dans son annonce</li>
-            <li><span>6a.2</span> Il clique sur modifier mon prix et le change, puis le sauvegarde</li>
-            <li><span>11a.1</span> Le vendeur reçoit des nouvelles de sa première commande: le client a signalé un problème</li>
-            <li><span>11a.2</span> Il voit dans son profil que le produit n'est pas de la bonne couleure. Alors, il contacte le client et propose une échange</li>
-            <li><span>11a.3</span> Le client accepte et renvoie le colis.</li>
-            <li><span>11a.4</span> Ayant reçu le colis, le vendeur met à jour le retour comme livré, et renvoie le produit en suivant le même processus</li>
-            <li><span>11b.1</span> Quelques jours plus tard, le client signale que le colis n'est pas livré à la bonne adresse selon le suivi</li>
-            <li><span>11b.2</span> Le vendeur contacte la compagnie et rectifie l'erreur tout de suite</li>
+            <li><span>5a.1</span> Il ne trouve pas son produit et réalise qu'il n'est plus en vente</li>
           </ol>
-          <p><strong>Postconditions:</strong> Le produit posté ainsi que l'achat doivent être sauvegardés et tout activité est noté dans les métriques du vendeur </p>
-          </p>
+          <p><strong>Postconditions: </strong> Tout est gardé tel quel, vu que le client n'a pas fait d'action à sauvegarder</p>
         </div>
-
-    <h1>Cas d'utilisation 6</h1>
-    <h1>Description</h1>
-    <p><strong>Cas d'utilisation:</strong> Voir la métrique </p> 
-    <p><strong>But: </strong> Acheteur du site veut voir la métrique de ses activités et trouver un produit qu'il a déjà acheté </p>
-    <p><strong>Préconditions: </strong>L'acheteur possède un compte<p>
-    <p><strong>Acteurs:</strong> Acheteur (principal), site web (secondaire)<p>
-    <strong>Scénario principal: </strong><br>
-    <ol>
-      <li><span>1</span> Le client entre dans le site
-        <ol>
-          <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-          <li><span>1.2</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
-        </ol>  
-      </li>
-      <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
-      <li><span>3</span> Dans cette page, il voit une section sur ses produits likés, ses commentaires rédigés, ses revendeurs likés et le nombre d'achat</li>
-      <li><span>4</span> Il clique sur son historique d'achat</li>
-      <li><span>5</span> Il le filtre par ordre alphabétique et trouve son produit</li>
-      <li><span>6</span> Il note le nom de ce produit et sort du site</li>
-    </ol>
-    <strong>Scénarios alternatifs: </strong>
-    <ol>
-      <li><span>5a.1</span> Il ne trouve pas son produit et réalise qu'il n'est plus en vente</li>
-    </ol>
-    <p><strong>Postconditions: </strong> Tout est gardé tel quel, vu que le client n'a pas fait d'action à sauvegarder</p>
 
 
         <div  class="items" > <!-- cas 7-->
@@ -412,64 +411,58 @@
           <strong>Acteurs:</strong> Vendeur (principal), site web (secondaire)<br>
           <strong>Scénario principal: </strong><br>
           <ol>
-            <li><span>1</span> Le vendeur entre dans le site
+            <li><span>1) </span> Le vendeur accède au site web
               <ol>
-                <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
-                <li><span>1.2</span> Il choisit l'option de se connecter en tant que vendeur</li>
+                <li><span>1.1) </span> S'il n'est pas déjà connecté, il est redirigé vers la page de connexion pour les vendeurs.</li>
+                <li><span>1.2) </span> Il choisit l'option de se connecter en tant que vendeurs  et entre ses informations de connexion.</li>
               </ol>  
             </li>
-            <li><span>2</span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
-            <li><span>3</span> Dans cette page, il voit une section sur ses produits vendus, ses annonces actives et l'argent gagné</li>
-            <li><span>4</span> Il note le montant et sort du site</li>
+            <li><span>2) </span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
+            <li><span>3) </span> Dans cette page, il voit une section sur ses produits vendus, ses annonces actives et l'argent gagné</li>
+            <li><span>4) </span> Il note le montant et sort quitte le site</li>
           </ol>
-          <p><strong>Postconditions: </strong> Tout est gardé tel quel, vu que le vendeur n'a pas fait d'action à sauvegarder</p>
+          <p><strong>Postconditions: </strong> Aucune modification n'a été apportée aux données, puisque que le vendeur n'a pas fait d'action à sauvegarder</p>
         </div>
 
-        <div  class="items"><!-- Cas d<utilisation # 8 -->
+        <div  class="items"><!-- Cas d<utilisation #8 -->
       
           <p><Strong>Cas d'utilisation 8 : </Strong>Modification du profil d'un acheteur</p>
-          <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur se modifier les informations de son compte après s'être conecté</p>
-
-          <p><strong>Acteurs: </strong></p>
-          <dl>
-            <dt>&nbsp&nbsp&nbsp<strong>Principal :</strong></dt>
-            <dd>Acheteur détenant un compte </dd>
-            <dt>&nbsp&nbsp&nbsp<strong>Acteur secondaire : </strong></dt>
-            <dd>Le site web...</dd>
-          </dl>
 
           <p><strong>Pré-conditions : </strong>l'acheteur détient un compte et est capable de se connecter avec son identifiant et son mot de passe</p>
-          
 
-          <p><strong>Post-conditions : </strong> Le détenteur du compte doit enregistrer les modification liés à son compte </p>
+          <p><Strong> But : </Strong> Ce cas d'utilisation permet à l'utilisateur se modifier les informations de son compte après s'être conecté</p>
 
-          <p><strong>Exigences non fonctionnelles : </strong>...</p>
+          <p><strong>Acteurs: </strong> Acheteur détenant un compte (princiapl), le site web (secondaire)</p>
+   
+          <strong>Scénario principal :</strong>
+          <ol>
+            <li> 1) L'utilisateur se connecte à son compte </li>
+            <li> 2) Après s'être connecté, il accède à la page de son profil  </li>
+            <li> 3) Il clique sur le bouton  "Informations personnelles"</li>
+            <li> 4) L'utilisateur clique sur "modifier les informations"</li>
+            <li> 5)Il est alors possible de modifier la date de naissance, le sexe, l'adresses e-mail et les numéros de téléphone enregistrés aux comptes.</li>
+            <li> 6) Pour modifier sa photo de profil:</li> 
+              <ol>
+                <li>6.2) Cliquez sur Photo</li>
+                <li>6.3) Importez une photo depuis l'ordinateur</li>
+                <li>6.4) Modifier l'orientatin de la photo et la recadrer si nécessaire.</li>
+                <li>6.5) Cliquez sur "Définir comme photo de profil"</li>
+              </ol>
 
-          <dl>
-            <dt><strong>Scénario nominale :</strong></dt>
-            <dd> 1) L'utilisateur se connecte </dd>
-            <dd> 2) Ce dernier accède à la page de son profil  </dd>
-            <dd> 3) Il clique sur le bouton  "Informations personnelles"</dd>
-            <dd> 4) L'utilisateur clique sur "modifier les informations"</dd>
-            <dd> 5)Il est alors possible de modifier la date de naissance, le sexe, l'adresses e-mail et les numéros de téléphone enregistrés aux comptes.</dd>
-            <dd> 6) Pour modifier sa photo de profil: 
-              <ul>
-                <li>Cliquez sur Photo</li>
-                <li>Importez une photo depuis l'ordinateur</li>
-                <li>Modifier l'orientatin de la photo et la recadrer si nécessaire.</li>
-                <li>Cliquez sur "Définir comme photo de profil"</li>
-              </ul>
-            </dd>
-            <dd> 7) Si l'email est modifié, l'utilisateur doit le confirmer en cliquant sur le lien qui lui a été envoyé à la nouvelle adresse</dd>
+            <li> 7) Si l'email est modifié, l'utilisateur doit le confirmer en cliquant sur le lien qui lui a été envoyé à la nouvelle adresse</li>
+          </ol>
+
+          <dt><strong>Scénario alternatif : </strong> </dt>
+
+          <ol>
+            <li>5.1) l'utilisateur se trompe dans les nouvelles informations entrées </li>
+              <ol>
+                <li>Tant que l'utilisateur est connecté à son compte, il peut modifier les informations.</li>
+              </ol>
+            
           </dl>
+          <p><strong>Post-conditions : </strong> Le détenteur du compte doit enregistrer les modification liés à son compte pour les confirmer </p>
 
-          <dl>
-            <dt><strong>Scénario alternatif SA1 : l'utilisateur se trompe dans les nouvelles informations entrées</strong> </dt>
-            <dd>SA1 commence au point 5 du scénario nominale.</dd>
-            <dd> Tant que l'utilisateur est connecté à son compte, il peut modifier les informations  </dd>
-            <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
-
-          </dl>
         </div>
 
           <!-- Cas d<utilisation # 8 Modification du profil d'un acheteur  Anne Sophie-->
@@ -560,16 +553,17 @@
     <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto; height:500px" >
       
       <h1 style="text-align: center; padding: 50px;">Besoins non-fonctionnels</h1>
-      <ol>
-        <li>Les informations sensibles sont masquées du modérateur sur l’interface. </li>
-        <li>La page de redirection affiche si l’authentification est survenue ou si elle a échoué. </li>
-        <li>Exigences non fonctionnelles :  Le mot de passe de n’affiche pas à l’écran. Les données sont ajoutées seulement si les champs sont valides.</li>
-        <li>Le délai entre l'événement d’envoi du courriel et de sa réception par l’utilisateur doit être raisonnable : moins d’une minute.</li>
-        <li>La redirection entre les pages doit être efficace et rapide et prendre moins de 5 secondes.</li>
-        <li>La transmission des données entre la page web et la base de données doit être fiable et minimiser les échecs de transfert. Les échecs sont recensés dans un fichier pour aider à la maintenabilité.</li>
-        <li>Lors de l’inscription, le contenu du mail de confirmation contient les informations sommaires du compte.</li>
-        <li>Le contenu de la database est stocké de façon sécuritaire et le contenu est indéchiffrable.</li>
-      </ul>
+  
+      <p>Les informations sensibles sont masquées du modérateur sur l’interface. </p>
+      <p>La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
+      <p>La page de redirection affiche si l’authentification est survenue ou si elle a échoué. </p>
+      <p>Exigences non fonctionnelles :  Le mot de passe de n’affiche pas à l’écran. Les données sont ajoutées seulement si les champs sont valides.</p>
+      <p>Le délai entre l'événement d’envoi du courriel et de sa réception par l’utilisateur doit être raisonnable : moins d’une minute.</p>
+      <p>La redirection entre les pages doit être efficace et rapide et prendre moins de 5 secondes.</p>
+      <p>La transmission des données entre la page web et la base de données doit être fiable et minimiser les échecs de transfert. Les échecs sont recensés dans un fichier pour aider à la maintenabilité.</p>
+      <p>Lors de l’inscription, le contenu du mail de confirmation contient les informations sommaires du compte.</p>
+      <p>Le contenu de la database est stocké de façon sécuritaire et le contenu est indéchiffrable.</p>
+  
     </div>
 
 
