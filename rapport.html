@@ -217,11 +217,18 @@
 
         </div>
 
+<<<<<<< Updated upstream
         <div  class="items" ><!--Cas 3-->
           <p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits</p>
           <p><strong>But: </strong>Client achète plusieurs produit à l'intermédiaire</p>
+=======
+        <div  class="items" ><!--Cas 3 -->
+          <p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits</p>
+          <p><strong>But: </strong>Permettre le client d'acheter plusieurs produits en une seule commande</p>
+>>>>>>> Stashed changes
           <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
           <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
+
           <p><strong>Scénario principal: </strong></p>
           <ol>
             <li><span>1</span> Le client entre dans le site
@@ -229,14 +236,21 @@
                 <li><span>1.1</span> Il est redirigé vers l'inscription d'archeteur</li>
                 <li><span>1.1</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
               </ol>  
+<<<<<<< Updated upstream
             </li>            
             <li><span>2</span> Il se connecte en tant qu'acheteur
+=======
+            </li>
+            <br>            
+            <li><span>2)</span> Le client se connecte en tant qu'acheteur
+>>>>>>> Stashed changes
               <ol>
                 <li><span>2.1</span> Il donne son pseudo unique</li>
                 <li><span>2.2</span> Le site reconnait son pseudo et il est redirigé à la page principale</li>
               </ol>        
             </li>
             <br>
+<<<<<<< Updated upstream
             <li><span>3</span> Dans la catalogue des produits, il regarde la recommendation des produits</li>
             <br>
             <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
@@ -250,26 +264,58 @@
             <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
             <br>
             <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
+=======
+            <li><span>3)</span> Dans le catalogue, le client observe les produits et consulte les recommadations.</li>
+>>>>>>> Stashed changes
               <ol>
-                <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
-              </ol> 
+                <li>3.1) Il utilise les filtres pour personnaliser les résultats selon ses préférences.</li>
+              </ol>
             <br>
-            <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
+            <li><span>4)</span> Il trouve un produit et l'ajoute à son panier</li>
+              <ol>
+                <li>4.1) Il ajuste la quantité voulue.</li>
+              </ol>
+            <br>
+            <li><span>5)</span> Il continue de parcourir le catalogue de produit sur le site web</li>
+            <br>
+            <li><span>6)</span> Il en repere d'autres qu'il souhaite acheter et il ajoute les articles ans le panier</li>
+            <br>
+            <li><span>7)</span> Un rectangle de notification apparaît pour l'informer que le produit a été ajouté au panier</li>
+            <br>
+            <li><span>8)</span> Le client décide de vérifier son panier pour s'assurer que tous les produits sont présents.</li>
+              <ol>
+                <li>8.1) Il ajuste les quantités </li>
+                <li>8.2) Il supprime les produits qu'il ne veut plus acheter</li>
+              </ol>
+            <br>
+            <li><span>9)</span> Le client clique sur "Payer" pour compléter son achat</li>
           </ol>
+
           <strong>Scénarios alternatifs: </strong>
           <ol>
-            <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
-            <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
-            <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
-            <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
-            <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
-            <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
-            <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
-            <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
-            <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>     
+            <li><span>4.1.1) </span> Le client veut ajouter une quantité supérieure à celle qui est disponible en inventaire</li>
+              <ol>
+                <li>4.1.1.1) Le site web détecte l'erreur affiche un message indiquant que la quantité voulue n'est pas disponible.</li>
+                <li>4.1.1.2) Le client corrige la quantité ou décide de ne plus ajouter le produit au panier.</li>
+              </ol>
+            <br>
+
+            <li>8.2.1) Le client supprime par erreur un produit de son panier</li>
+              <ol>
+                <li> 8.2.1) Le produit est retiré du panier</li>
+                <li> 8.2.2) Le client retourne dans le catalogue pour rajouter le produit à son panier.</li></li>
+              </ol>
+              <br>
+
+              <li>9.1) Le client ne veut plus procédé au paiement </li>
+                <ol>
+                  <li>9.1.1) Il quitte le site sans passer à l'étape de paiement.</li>
+                  <li>9.1.2) Le client quitte le site web/se déconnecte</li>
+                  <li>9.1.3) Le système enregistre le contenu du panier et le client reçoit un email de rappel pour qu'il puisse finaliser sa commande avec un aperçu de son panier</li>
+                </ol> 
           </ol>
   
-          <p><strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
+          <p><strong>Postconditions: </strong> Le panier d'achat est sauvegardé avec les produits qui ont été ajouté par le client, tout en respectant les disponibilités</p>
         </div>
 
         <div  class="items" > <!--Cas 4 -->
@@ -471,7 +517,46 @@
             <dd> Tant que l'utilisateur est connecté à son compte, il peut modifier les informations  </dd>
             <dd>Le scénario reprend au point 3 du scénario nominal.</dd>
 
+<<<<<<< Updated upstream
           </dl>
+=======
+        <div class="items"> <!-- Cas d'utilisation #9 -->
+          <p><Strong>Cas d'utilisation : </Strong>Confirmer la commande</p>
+          <p><Strong> But : </Strong> Ce cas d'utilisation permet à l'utilisateur de voir si ça commande à été accepté</p>
+          <p><strong>Préconditions : </strong>L'utilisateur a payé sa commande</p>
+          <p><strong>Acteurs :</strong>Un l'acheteur (initiateur), Site web et base de données (secondaire)</p>
+
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li>1) Après avoir ajouté les produits voulus dans le panier</li>
+            <li>2) L'utilisateur appuie sur "Commander"</li>
+            <li>3) Il rentre les informations relatifs à l'expédition</li>
+              <ol>
+                <li>3.1) Nom et prénom du destinataire </li>
+                <li>3.2) Adresse d'expédition</li>
+                <li>3.3) Adresse email pour envoyer la confirmation de commande</li>
+                <li>3.4) Numéro de téléphone</li>
+                <li>3.5) Mode de paiement (carte de crédit</li>
+              </ol>
+            <li>4) L’acheteur appuie sur le bouton de confirmation</li>
+            <li>5) Le système effectue le processus de validation du formulaire</li>
+            <li>6) Le système vérifie la validité des informations, en s'assurant que les informations sont valides et conformes </li>
+            <li>7) Le systeme verifie si les information de la carte sont valide</li>
+            <li>8) Un courriel est envoyé pour confirmer l'achat à l'adresse fourni par l'acheteur</li>
+          </ol>
+
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li><span>3.5.1) </span> Le mode de paiement est erroné, un message d'erreur est affiché</li>
+            <li><span>3.5.2) </span> L'utilisateur a quelques minutes pour corriger ses informations avant que sa commande soit automatiquement annulé</li>
+            <br>
+            <li>8.1) L'acheteur veut annuler sa commande après sa confirmation</li>
+            <li>8.2) Tant que les articles ne sont pas expédiés, l'utilisateur peut annuler sa commande a partir du site web</li>
+          </ol>
+
+          <p>Post-conditions : Les données après une commande de l'acheteur sont validés et enregistrés dans la base de données</p>
+        </div>
+>>>>>>> Stashed changes
 
           <h1>Cas d'utilisation 8 </h1>
 
