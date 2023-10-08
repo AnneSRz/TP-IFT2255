@@ -166,7 +166,7 @@
 
           <strong>Scénario principal: </strong><br>
           <ol>
-            <li><span>1)</span> Le client entre dans le site
+            <li><span>1.</span> Le client entre dans le site
               <ol>
                 <li><span>1.1.</span> Il est redirigé vers l'inscription d'archeteur</li>
                 <li><span>1.1.</span> Il choisit l'option de se connecter en tant qu'acheteur</li>
@@ -214,11 +214,12 @@
 
         </div>
 
-        <div  class="items" ><!--Cas 3 A revoir!!!!-->
+        <div  class="items" ><!--Cas 3 -->
           <p><strong>Cas d'utilisation:</strong> Achat de plusieurs produits</p>
-          <p><strong>But: </strong>Permettre le client d'acheter plusieurs produits à l'intermédiaire</p>
+          <p><strong>But: </strong>Permettre le client d'acheter plusieurs produits en une seule commande</p>
           <p><strong>Préconditions: </strong>Le client possède déjà un compte du site</p>
           <p><strong>Acteurs:</strong> Client (principal), site web (secondaire)</p>
+
           <p><strong>Scénario principal: </strong></p>
           <ol>
             <li><span>1.</span> Le client accède au site web
@@ -234,46 +235,63 @@
               </ol>        
             </li>
             <br>
-            <li><span>3</span> Dans le catalogue, le client observe les produits et consulte les recommadations.</li>
-            <br>
-            <li><span>4</span> Il trouve un produit populaire avec 2.1k likes et des bonnes évaluations</li>
-            <br>
-            <li><span>5</span> Le client aime le produit, mais ne veut pas l'acheter maintenant.</li>
-            <br>
-            <li><span>6</span> Dans la page du produit, il clique sur l'option d'ajouter à sa liste de souhait à côté de liker et rédiger un commentaire</li>
-            <br>
-            <li><span>7</span> Un rectangle pop pour l'informer que le produit est bien ajouté à sa liste</li>
-            <br>
-            <li><span>8</span> Pour être sure, il clique sur l'icone de profile</li>
-            <br>
-            <li><span>10</span> De tous les options, il choisit la liste de souhait</li>
+            <li><span>3.</span> Dans le catalogue, le client observe les produits et consulte les recommadations.</li>
               <ol>
-                <li><span>10.1</span> Il est dirigé dans sa liste de souhait</li>
-              </ol> 
+                <li>3.1. Il utilise les filtres pour personnaliser les résultats selon ses préférences.</li>
+              </ol>
             <br>
-            <li><span>11</span> Il confirme que le nouveau produit est bien là et sort du site, satisfait</li>
+            <li><span>4.</span> Il trouve un produit et l'ajoute à son panier</li>
+              <ol>
+                <li>4.1. Il ajuste la quantité voulue.</li>
+              </ol>
+            <br>
+            <li><span>5.</span> Il continue de parcourir le catalogue de produit sur le site web</li>
+            <br>
+            <li><span>6.</span> Il en repere d'autres qu'il souhaite acheter et il ajoute les articles ans le panier</li>
+            <br>
+            <li><span>7.</span> Un rectangle de notification apparaît pour l'informer que le produit a été ajouté au panier</li>
+            <br>
+            <li><span>8.</span> Le client décide de vérifier son panier pour s'assurer que tous les produits sont présents.</li>
+              <ol>
+                <li>8.1. Il ajuste les quantités </li>
+                <li>8.2. Il supprime les produits qu'il ne veut plus acheter</li>
+              </ol>
+            <br>
+            <li><span>9.</span> Le client clique sur "Payer" pour compléter son achat</li>
           </ol>
+
           <strong>Scénarios alternatifs: </strong>
           <ol>
-            <li><span>2.1a.1</span> Le pseudo n'est pas inscrit n'existe pas et donne un erreur</li>
-            <li><span>2.1a.2</span> Le client a mal écrit son pseudo et le corrige</li>
-            <li><span>2a.1</span> Après plusieurs minutes, le client ne trouve toujours pas un bon produit. Il choisit donc de  faire une recherche de produits</li>
-            <li><span>2a.2</span> Dans la barre de recherche, il tape ce qui l'intéresse</li>
-            <li><span>2a.2</span> De tous les produits listés, il choisit de les filtrer par popularité</li>
-            <li><span>2a.3</span> En trouvant un bon produit, il rentre dans la page du produit en question</li>
-            <li><span>2a.4</span> Il le met dans sa liste de souhait et sort du web, satisfait</li>
-            <li><span>11a.1</span> Avant de sortir du web, il se rend compte qu'il y a un produit dans la liste qu'il ne veut plus</li>
-            <li><span>11a.2</span> Il sélectionne ce produit par le sélectionneur à gauche de la liste et le supprime</li>     
+            <li><span>4.1.1. </span> Le client veut ajouter une quantité supérieure à celle qui est disponible en inventaire</li>
+              <ol>
+                <li>4.1.1.1. Le site web détecte l'erreur affiche un message indiquant que la quantité voulue n'est pas disponible.</li>
+                <li>4.1.1.2. Le client corrige la quantité ou décide de ne plus ajouter le produit au panier.</li>
+              </ol>
+            <br>
+
+            <li>8.2.1. Le client supprime par erreur un produit de son panier</li>
+              <ol>
+                <li> 8.2.1. Le produit est retiré du panier</li>
+                <li> 8.2.2. Le client retourne dans le catalogue pour rajouter le produit à son panier.</li></li>
+              </ol>
+              <br>
+
+              <li>9.1. Le client ne veut plus procédé au paiement </li>
+                <ol>
+                  <li>9.1.1. Il quitte le site sans passer à l'étape de paiement.</li>
+                  <li>9.1.2. Le client quitte le site web/se déconnecte</li>
+                  <li>9.1.3. Le système enregistre le contenu du panier et le client reçoit un email de rappel pour qu'il puisse finaliser sa commande avec un aperçu de son panier</li>
+                </ol> 
           </ol>
   
-          <p><strong>Postconditions: </strong> La liste de souhait de ce client est sauvegardé </p>
+          <p><strong>Postconditions: </strong> Le panier d'achat est sauvegardé avec les produits qui ont été ajouté par le client, tout en respectant les disponibilités</p>
         </div>
 
         <div  class="items" > <!--Cas 4 -->
           <p><Strong>Cas d'utilisation : </Strong> Création d'un compte par un acheteur</p>
           <p><Strong> But : </Strong>Pour avoir un compte personnel sur le Site web</p>
   
-          <p><strong>Acteurs : Un potentiel acheteur (principal), Secondaire (l'administrateur du dite web) </strong></p>
+          <p><strong>Acteurs : Un potentiel acheteur (principal), Secondaire (l'administrateur du dite web)</strong></p>
           <dl>
             <dt>&nbsp&nbsp&nbsp<strong>Initiateur :</strong></dt>
             <dd>Un potentiel acheteur désirant se créer un compte sur le site web.</dd>
@@ -298,9 +316,9 @@
   
           <dl>
             <dt><strong>Scénario nominale :</strong></dt>
-            <dd> 1) Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
+            <dd> 1. Élément déclencheur :  L'utilisateur appuie sur le bouton d'inscriptioin </dd>
             <dd> 2. "Pop-Up" du formulaire d'inscription dans la page </dd>
-            <dd> 3. L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique., adresse courriel, téléphone, date de naissance </dd>
+            <dd> 3. L'utilisateur remplit le formulaire en fournissant : son nom, prénom, pseudo (unique), adresse courriel, téléphone, date de naissance </dd>
             <dd> 4. Vérifier si le pesudonyme créer est différent des détenteurs de comptes existants</dd>
             <dd> 5. L'utilisateur se crée un mot de passe</dd>
             <dd> 6. Le mot de passe est valide en demandant à l'utilisateur de le saisir une deuxième fois</dd>
@@ -324,7 +342,7 @@
             <dd>Le scénario reprend au point 6 du scénario nominal.</dd>
           </dl>
 
-          <p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...). </p>
+          <p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés (nom, prénom, anniversaire, mot de passe...) </p>
 
         </div>
 
@@ -411,7 +429,7 @@
           <strong>Acteurs:</strong> Vendeur (principal), site web (secondaire)<br>
           <strong>Scénario principal: </strong><br>
           <ol>
-            <li><span>1) </span> Le vendeur accède au site web
+            <li><span>1. </span> Le vendeur accède au site web
               <ol>
                 <li><span>1.1. </span> S'il n'est pas déjà connecté, il est redirigé vers la page de connexion pour les vendeurs.</li>
                 <li><span>1.2. </span> Il choisit l'option de se connecter en tant que vendeurs  et entre ses informations de connexion.</li>
@@ -465,9 +483,51 @@
 
         </div>
 
-          <!-- Cas d<utilisation # 8 Modification du profil d'un acheteur  Anne Sophie-->
-            <p><Strong>Cas d'utilisation : </Strong>Confirmer la commande</p>
-            <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur de voir si ça commande à été accepté</p>
+        <div class="items"> <!-- Cas d<utilisation # 9 : AAAAAAAA COMPLETER-->
+          <p><Strong>Cas d'utilisation : </Strong>Confirmer la commande</p>
+          <p><Strong> Résumé : </Strong> Ce cas d'utilisation permet à l'utilisateur de voir si ça commande à été accepté</p>
+        </div>
+
+
+        <div class="items"> <!--Cas utilisation 10-->
+          <p><strong>Cas d'utilisation : </strong> Création d'un compte par un revendeur</p> 
+          <p></p><strong>But : </strong>Ce cas d'utilisation permet à l'utilisateur se de créer un compte en naviguant à partir de la page d’inscription</p>
+          <p><strong>Préconditions : </strong>Le vendeur est déjà sur la page du formulaire. Le vendeur connaît déjà les coordonnées dont il a besoin pour le formulaire et son utilisateur unique. Son email est fonctionnel. Les données du formulaire sont envoyées dans la database dans le format attendu.</p>
+          <p><strong>Acteurs :</strong>Un potentiel revendeur désirant se créer un compte sur le site web (initiateur), Aide : Équipe de modération validant l’identité du revendeur et Database : Reçoit les données (secondaire)</p>
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li>Enregistrement : L’utilisateur arrive sur la page d’inscription avec le formulaire d’inscription</li>
+            <li>Générer le formulaire vide ou effacer les champs s’ils existent déjà sur la page</li>
+            <li>Le revendeur remplit le formulaire avec ses informations incluant</li>
+              <ol>
+                <li>Profil: nom (unique.</li>
+                <li>Adresse</li>
+                <li>Adresse courriel</li>
+                <li>téléphone</li>
+              </ol>
+            <li>L’acheteur appuie sur le bouton d’envoi</li>
+            <li>Processus de validation du formulaire</li>
+            <li>Vérifie si les champs entrés sont valides et les champs d’identifiants sont uniques</li>
+            <li>Profil mis dans état de validation partielle attendant la confirmation par courriel</li>
+            <li>Envoi d’un courriel pour confirmer l’inscription</li>
+            <li>Envoi des données validées à la database ainsi que le statut de validation partielle</li>
+          </ol>
+
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li>Exception 1 : Formulaire d’inscription invalide</li>
+            <li><span>2.a</span>2.a. Les champs entrés sont invalides ou les champs d’identifiants ne sont pas uniques</li>
+            <li><span>2.b</span>2.a. Revenir à l’étape 1.a., et souligner les champs invalides</li>
+            <br>
+            <li>Exception 2 : Échec de l’envoi du courriel d’inscription </li>
+            <li>3.a. Échec de l’envoi d’un courriel pour confirmer l’inscription</li>
+            <li>3.b. Souligner le champ de l’adresse courriel et revenir à l’étape 1.a.</li>
+          </ol>
+
+          <ol>
+            <li>Post-conditions : Si les coordonnées du compte du racheteur sont valides, elles sont sauvegardées dans la base de données. Le compte est créé. Les permissions sont attribuées automatiquement au compte du racheteur</li>
+            <li>Le flag d'authentification partielle est ajouté au compte créé</li>
+          </ol>
 
         </div>
 
@@ -509,7 +569,7 @@
           <p><strong>Cas d'utilisation : </strong>Validation des comptes par la modération</p> 
           <p></p><strong>But : </strong>Vendeur veut vendre un produit </p>
           <p><strong>Préconditions : </strong>Le modérateur est déjà connecté. Il a les permissions nécessaires pour modérer. Il est sur l’interface permettant de gérer les comptes en attente. Les données sont envoyées à la database dans le format attendu.</p>
-          <p><strong>Acteurs :</strong> Utilisateur de type modérateur (principal), Utilisateur recevant son compte vérifié site web (Bénéficiaire) , Database : Reçoit les données (secondaire)</p>
+          <p><strong>Acteurs :</strong> Utilisateur de type modérateur (principal), Utilisateur recevant son compte vérifié site web (Bénéficiaire) , Database : Reçoit les données (secondaire.</p>
           <p><strong>Scénario principal : </strong></p>
           <ol>
             <li>1. Acceptation / Rejection des comptes en attente visibles sur l’interface</li>
