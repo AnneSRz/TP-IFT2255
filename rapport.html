@@ -32,6 +32,30 @@
       text-align: center;
       font-size:25px
       }
+
+     
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 10px;
+      }
+
+      .zoomImage {
+        transition: transform .2s;
+        max-width: 100%;
+        max-height: 100%;
+        overflow-x: auto; 
+        overflow-y: auto;
+      }
+
+      .zoomImage:hover {
+        -ms-transform: scale(2); /* IE 9 */
+        -webkit-transform: scale(2); /* Safari 3-8 */
+        transform: scale(2);
+      }
+
     </style>
 
   </head>
@@ -60,14 +84,16 @@
 
     <br><hr><br>
 
-    <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto; height:1200px" >
+    <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto; height:1000px" >
       <h1 style="text-align: center; padding: 10px;">Diagramme de cas d'utilisation UML</h1>
-      <a href="UniShop diagram.svg"><img src="UniShop diagram.svg"></a>
+      <div class="image">
+        <a href="UniShop diagram.svg"><img class="zoomImage" style="height:900px;" mar src="UniShop diagram.svg"></a>
+      </div>
     </div>
 
 
     <div style="background-color: aliceblue; width: 96%; margin:0 auto;" >
-      <h1 style="text-align: center; padding: 50px; ">CAS D'UTILISATION</h1>
+      <h1 style="text-align: center; padding: 50px; ">Cas d'Utilisation</h1>
 
       <div class="container">
 
