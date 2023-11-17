@@ -178,14 +178,16 @@
     <div style=" width:90%; text-align: justify; margin:0 auto; background-color: aliceblue;padding:50px; overflow-y: scroll">
       <h1 style="text-align: center;">GLOSSAIRE</h1>
       <p style="font-size: large;"><Strong>Acheteur:</Strong> Le consommateur qui s'occupe d'acheter les articles. Ces responsabilités consistent à évaluaer les produits achetés, vérifier l'état de la commande, de l'état de livraison, etc.</p>
+      <p style="font-size: large;"><Strong>Unishop:</Strong> Une plateforme de commerce en ligne dans laquelle un revendeur peut vendre des produits et un acheteur peut acheter des produits du revendeur.</p>  
       <p style="font-size: large;"><Strong>Commande:</Strong> L'action d'acheter un produit à l'aide d'un mode de paiement virtuel, comme une carte de crédit. Le produit acheté sera ensuite livré au client.</p>
       <p style="font-size: large;"><Strong>Évaluation:</Strong> Une note attribuée aux produits suite à l'évaluation du consommateur par rapport à certains critères tels que la qualité, la performance du produit et son expérience d'achat. </p>
       <p style="font-size: large;"><Strong>ID: </Strong>L'identifiant unique de l'utilisateur ou du produit, utilisé pour les identifier de manière spécifique.</p>
-      <p style="font-size: large;"><Strong>Instance:</Strong> La demanande d'achat d'un produit sur un site web. Étant donné que le produit est virtuel, l'action d'acheter l'est également jusqu'à ce que le produit soit en livraison.</p>
+      <p style="font-size: large;"><Strong>Instance:</Strong> La demande d'achat d'un produit sur la plateforme de commerce UniShop. Étant donné que le produit est virtuel, l'action d'acheter l'est également jusqu'à ce que le produit soit en livraison.</p>
       <p style="font-size: large;"><Strong>Liste de Souhait:</Strong> Une liste virtuelle qui énumère les produits que l'acheteur voudrait acheter à l'avenir</p>
+      <p style="font-size: large;"><Strong>Panier:</Strong> Un panier virtuel qui permet d'ajouter, accumuler et ajuster la quantité des produits que l'acheteur va acheter. Ce dernier peut aussi avoir un aperçu du total de ses achats</p>
       <p style="font-size: large;"><strong>Livraison:</strong> L'utilisation des coordonnées postales de l'acheteur afin de lui envoyer la marchandise commandé. </p>
       <p style="font-size: large;"><Strong>Métrique:</Strong> Le rapport d'évaluation et les activités de l'utilisateur, tel que le nombre d'articles achetés ou le nombre d'évaluation rédigée.</p>
-      <p style="font-size: large;"><Strong>Produit:</Strong> Un oObjet physique, mais dans ce contextte, virtuelle vendu par un vendeur envers une groupe cible de consommateur. Exemple: manuels, jeu d'ordinateur, nourriture.</p>
+      <p style="font-size: large;"><Strong>Produit:</Strong> Un objet physique, mais dans ce contextte, virtuelle vendu par un vendeur envers une groupe cible de consommateur. Exemple: manuels, jeu d'ordinateur, nourriture.</p>
       <p style="font-size: large;"><Strong>Profil:</Strong> Les enseignements de l'utilisateur destinataire, contenant généralement des informations sur le pseudo et le moyen de contact.</p>
       <p style="font-size: large;"><Strong>Rémédiation:</Strong> Le processus de éngociation entre le vendeur et l'acheteur en cas de problème avec la commande. Un exemple de rémédiation serait le remplacement du produit en question.</p>
       <p style="font-size: large;"><Strong>Retour et échange:</Strong> Le revendeur s'efforce de régler les problèmes de commande en proposant un rembousement ou un retour. Le client devra payer la différence entre le prix ou se faire rembourser dépendament de la situation.</p>
@@ -213,7 +215,7 @@
           <p><strong>But: </strong>Client utilise le website pour acheter un manuel spécifique</p>
           <p><strong>Préconditions: </strong>Le site web est opérationnel.<br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             Le client connait déjà le nom du manuel désiré et une carte crédit ou un autre forme de paiement valide.</p>
-          <p><strong>Acteurs:</strong> Client (principal), site web et vendeur (secondaire)</p>
+          <p><strong>Acteurs:</strong> Client (principal), site web, vendeur, service postal et ournisseur de paiement(secondaire)</p>
 
           <strong>Scénario principal: </strong><br>
           <ol>
@@ -242,7 +244,8 @@
               <ol>
                 <li><span>4.1)</span> Il est redirigé vers une liste de manuels en vente correspondant à sa recherche</li>
                   <ol>
-                    <li>4.1.1) Si le manuel recherché n'est pas disponible, le site recommande des ouvrages similaires.</li>
+                    <li>4.1.1) Le systéme vérifie si le produit est disponible</li>
+                    <li>4.1.2) Si le manuel recherché n'est pas disponible, le site recommande des ouvrages similaires.</li>
                   </ol>
               </ol>
             <br>
@@ -259,9 +262,16 @@
             <br>
             <li><span>8)</span> Il paie pour le manuel et reçoit une confirmation de son paiement</li>
             <br>
-            <li><span>9)</span> Il attend pour la livraison de son manuel en surveillant les mises à jours de suivi</li>
+            <li><span>9)</span>Le vendeur reçoit les détails de la commmande</li>
+              <ol>
+                <li>Il prépare l'expédition du colis</li>
+                <li>Le colis est expédié et le montant de la vente est transféré au vendeur</li>
+                <li>Le statut de la commande change pour "en livraison"</li>
+              </ol>
             <br>
-            <li><span>10)</span> Le client reçoit son manuel sous la forme d'un colis</li>
+            <li><span>10)</span> Il attend pour la livraison de son manuel en surveillant les mises à jours de suivi</li>
+            <br>
+            <li><span>11)</span> Le client reçoit son manuel sous la forme d'un colis</li>
             <br>
             <li><span>11)</span> Il confirme la réception du produit</li>
           </ol>
@@ -283,15 +293,15 @@
             <li><span>8b.1</span> La carte du client est refusé car il n'y a plus d'argent dedans</li>
             <li><span>8b.2</span> Le client revient sur la page de paiement et utilise une autre carte</li>
             <li><span>8b.3</span> Le paiement marche et il reçoit une confirmation</li>
-            <li><span>9a.1</span> La livraison est envoyée au mauvais adresse</li>
-            <li><span>9a.2</span> Le client contacte le vendeur tout de suite et l'erreur est réglé</li>
-            <li><span>10a.1</span> Le colis arrivé est endommagée</li>
-            <li><span>10a.1</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
-            <li><span>10a.2</span> Après quelques échanges, le vendeur lui renvoie le même produit gratuitement</li>
-            <li><span>10b.1</span> Le colis arrive, mais le manuel n'est pas celui que le client a acheté</li>
-            <li><span>10b.2</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
-            <li><span>10b.3</span> Il n'y a plus de manuel correspondant dans l'inventaire du vendeur. Il fournit un remboursement pour un retour</li>
-            <li><span>10b.4</span> Le client retourne le manuel au vendeur</li>
+            <li><span>10a.1</span> La livraison est envoyée au mauvais adresse</li>
+            <li><span>10a.2</span> Le client contacte le vendeur tout de suite et l'erreur est réglé</li>
+            <li><span>11a.1</span> Le colis arrivé est endommagée</li>
+            <li><span>11a.1</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
+            <li><span>11a.2</span> Après quelques échanges, le vendeur lui renvoie le même produit gratuitement</li>
+            <li><span>11b.1</span> Le colis arrive, mais le manuel n'est pas celui que le client a acheté</li>
+            <li><span>11b.2</span> Le client contacte le vendeur avec une preuve photo du manuel</li>
+            <li><span>11b.3</span> Il n'y a plus de manuel correspondant dans l'inventaire du vendeur. Il fournit un remboursement pour un retour</li>
+            <li><span>11b.4</span> Le client retourne le manuel au vendeur</li>
           </ol>
 
           <p><strong>Postconditions:</strong> Les détails de l'achat sont archiver et conserver</p>
@@ -402,7 +412,8 @@
                 <li>8.2) Il supprime les produits qu'il ne veut plus acheter</li>
               </ol>
             <br>
-            <li><span>9)</span> Le client clique sur "Payer" pour compléter son achat</li>
+            <li><span>9)</span> L'acheteur entre ses informations de livraison avant de payer</li>
+            <li><span>10)</span> Le client clique sur "Payer" pour compléter son achat</li>
           </ol>
           <strong>Scénarios alternatifs: </strong>
           <ol>
@@ -420,11 +431,11 @@
               </ol>
               <br>
 
-              <li>9.1) Le client ne veut plus procédé au paiement </li>
+              <li>10.1) Le client ne veut plus procédé au paiement </li>
                 <ol>
-                  <li>9.1.1) Il quitte le site sans passer à l'étape de paiement.</li>
-                  <li>9.1.2) Le client quitte le site web/se déconnecte</li>
-                  <li>9.1.3) Le système enregistre le contenu du panier et le client reçoit un email de rappel pour qu'il puisse finaliser sa commande avec un aperçu de son panier</li>
+                  <li>10.1.1) Il quitte le site sans passer à l'étape de paiement.</li>
+                  <li>10.1.2) Le client quitte le site web/se déconnecte</li>
+                  <li>10.1.3) Le système enregistre le contenu du panier et le client reçoit un email de rappel pour qu'il puisse finaliser sa commande avec un aperçu de son panier</li>
                 </ol> 
           </ol>
   
@@ -456,7 +467,8 @@
             <li> 6) Le mot de passe est validé en demandant à l'utilisateur de le saisir une deuxième fois</li>
             <li> 7) Vérifier si les mots de passe sont identiques</li>
             <li> 8) L'utilisateur clique sur le bouton "s'inscrire" pour compléter son inscription</li>
-            <li> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant son adresse email en utilisant le lien envoyé qui lui aa été est envoyé</li>
+            <li> 9) Un message de confirmation est affiché et invite l'utilisateur à activer son compte en le confirmant son adresse email en utilisant le lien envoyé qui lui a été est envoyé</li>
+            <li>10) Les données de l'inscription sont envoyées à la base de données. </li>
           </ol>
 
           <Strong>Scénarios alternatifs</Strong>
@@ -472,7 +484,7 @@
                 <ol>
                   <li>6.1.1) Le formulaire lui demande de s'assurer que les mots de passe sont identique</li>
                   <li>6.1.2) Le système vérifie si les mots de passe sont identiques</li>
-                  <li>6.1.3) Il est unique, l'utilisatur peut maintenant compléter son inscription</li>
+                  <li>6.1.3) Il est unique, l'utilisateur peut maintenant compléter son inscription</li>
                 </ol>
           </ol>
           <p><strong>Post-conditions : </strong> Les détails de l'inscription doivent être enregistrés doivent être enregistrés dans la base de données du site web (nom, prénom, anniversaire, mot de passe...). </p>
@@ -487,8 +499,7 @@
             <ol>
               <li><span>1)</span> Le vendeur entre dans le site
                   <ol>
-                      <li><span>1.1) </span> Il est redirigé vers l'inscription d'archeteur</li>
-                      <li><span>1.1) </span> Il choisit l'option de s'inscrire en tant que vendeur</li>
+                      <li><span>1.1) </span> Il est redirigé vers la page de connexion pour vendeur</li>
                     </ol>  
               </li>            
               <li><span>2) </span> Il se connecte en tant que vendeur
@@ -542,7 +553,7 @@
             </li>
             <li><span>2) </span> Dans l'accueuil, il clique sur son profil et choisit l'option de sa métrique</li>
             <li><span>3) </span> Dans cette page, il voit une section sur ses produits likés, ses commentaires rédigés, ses revendeurs likés et le nombre d'achat</li>
-            <li><span>4) </span> Il clique sur son historique d'achat</li>
+            <li><span>4) </span> Il clique sur la section qu'il veut consulté</li>
             <li><span>5) </span> Il le filtre par ordre alphabétique et trouve son produit</li>
             <li><span>6) </span> Il note le nom de ce produit et quitte le site</li>
           </ol>
@@ -574,7 +585,7 @@
           <p><strong>Postconditions: </strong> Aucune modification n'a été apportée aux données, puisque que le vendeur n'a pas fait d'action à sauvegarder</p>
         </div>
 
-        <div  class="items"><!-- Cas d<utilisation #8 -->
+        <div  class="items"><!-- Cas d'utilisation #8 -->
       
           <p><Strong>Cas d'utilisation 8 : </Strong>Modification du profil d'un acheteur</p>
 
@@ -649,7 +660,7 @@
             <li>8.2) Tant que les articles ne sont pas expédiés, l'utilisateur peut annuler sa commande a partir du site web</li>
           </ol>
 
-          <p>Post-conditions : Les données après une commande de l'acheteur sont validés et enregistrés dans la base de données</p>
+          <p><strong>Post-conditions :</strong> Les données après une commande de l'acheteur sont validés et enregistrés dans la base de données</p>
         </div>
 
 
@@ -660,21 +671,21 @@
           <p><strong>Acteurs :</strong>Un potentiel revendeur désirant se créer un compte sur le site web (initiateur), Aide : Équipe de modération validant l’identité du revendeur et Database : Reçoit les données (secondaire)</p>
           <p><strong>Scénario principal : </strong></p>
           <ol>
-            <li>Enregistrement : L’utilisateur arrive sur la page d’inscription avec le formulaire d’inscription</li>
-            <li>Générer le formulaire vide ou effacer les champs s’ils existent déjà sur la page</li>
-            <li>Le revendeur remplit le formulaire avec ses informations incluant</li>
+            <li>1) Enregistrement : L’utilisateur arrive sur la page d’inscription avec le formulaire d’inscription</li>
+            <li>2) Générer le formulaire vide ou effacer les champs s’ils existent déjà sur la page</li>
+            <li>3) Le revendeur remplit le formulaire avec ses informations incluant</li>
               <ol>
-                <li>Profil: nom (unique)</li>
-                <li>Adresse</li>
-                <li>Adresse courriel</li>
-                <li>téléphone</li>
+                <li>3.1) Profil: nom (unique)</li>
+                <li>3.2) Adresse</li>
+                <li>3.3) Adresse courriel</li>
+                <li>3.4) téléphone</li>
               </ol>
-            <li>L’acheteur appuie sur le bouton d’envoi</li>
-            <li>Processus de validation du formulaire</li>
-            <li>Vérifie si les champs entrés sont valides et les champs d’identifiants sont uniques</li>
-            <li>Profil mis dans état de validation partielle attendant la confirmation par courriel</li>
-            <li>Envoi d’un courriel pour confirmer l’inscription</li>
-            <li>Envoi des données validées à la database ainsi que le statut de validation partielle</li>
+            <li>4) L’acheteur appuie sur le bouton d’envoi</li>
+            <li>5) Processus de validation du formulaire</li>
+            <li>6) Vérifie si les champs entrés sont valides et les champs d’identifiants sont uniques</li>
+            <li>7) Profil mis dans état de validation partielle attendant la confirmation par courriel</li>
+            <li>8) Envoi d’un courriel pour confirmer l’inscription</li>
+            <li>9) Envoi des données validées à la database ainsi que le statut de validation partielle</li>
           </ol>
 
           <strong>Scénarios alternatifs : </strong>
@@ -684,18 +695,81 @@
             <li><span>2.b</span>2.a) Revenir à l’étape 1.a), et souligner les champs invalides</li>
             <br>
             <li>Exception 2 : Échec de l’envoi du courriel d’inscription </li>
-            <li>3.a) Échec de l’envoi d’un courriel pour confirmer l’inscription</li>
-            <li>3.b) Souligner le champ de l’adresse courriel et revenir à l’étape 1.a)</li>
+            <li>8.a) Échec de l’envoi d’un courriel pour confirmer l’inscription</li>
+            <li>8.b) Souligner le champ de l’adresse courriel et revenir à l’étape 1.a)</li>
           </ol>
 
           <ol>
-            <li>Post-conditions : Si les coordonnées du compte du racheteur sont valides, elles sont sauvegardées dans la base de données. Le compte est créé. Les permissions sont attribuées automatiquement au compte du racheteur</li>
+            <li><strong>Post-conditions :</strong> Si les coordonnées du compte du racheteur sont valides, elles sont sauvegardées dans la base de données. Le compte est créé. Les permissions sont attribuées automatiquement au compte du racheteur</li>
             <li>Le flag d'authentification partielle est ajouté au compte créé</li>
           </ol>
 
         </div>
 
         <div class="items"> <!--Cas utilisation 11-->
+          <p><strong>Cas d'utilisation : </strong>Confirmation du courriel par le revendeur</p> 
+          <p></p><strong>But : </strong> Ce cas d'utilisation permet à l’utilisateur revendeur de finaliser la création de son compte</p>
+          <p><strong>Préconditions : </strong>Le vendeur est déjà sur la page de son courriel et clique sur le lien envoyé. Le vendeur a un compte existant et un lien de confirmation non expiré. Les données sont envoyées à la database dans le format attendu.</p>
+          <p><strong>Acteurs :</strong>Un potentiel revendeur désirant se créer un compte sur le site web (initiateur), Database : Reçoit les données (secondaire)</p>
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li>1) Enregistrement : L’utilisateur clique sur le lien d’authentification dans son mail</li>
+              <ol>
+                <li>1.1) Redirection en cours</li>
+              </ol>
+            <li>2) À partir du lien du courriel, amorçage du processus de validation partielle du compte</li>
+            <li>3) Vérification si le lien est valide, non-expiré</li>
+            <li>4) Vérification si le compte existe toujours</li>
+            <li>5) Profil mis dans un état de validation complète permettant au compte d’accéder à toutes les fonctionnalités normales</li>
+            <li>6) Envoi de la donnée de validation complète et Redirection sur une page de succès</li>
+          </ol>
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li>Exception 1 : Lien de confirmation expiré</li>
+            <li><span>2.a)</span>envoi d’un mail de confirmation et Retour à l’étape 1</li>
+            <br>
+            <li>Exception 2 : Le compte n’existe plus</li>
+            <li>2.b) Redirection sur une page d’erreur.</li>
+          </ol>
+
+          <strong>Post-conditions : </strong>
+          <ol>
+            <li>Le flag d'authentification complète est ajouté au compte</li>
+            <li>Le compte gagne des accès supplémentaires si s’applique</li>
+            <li>Exigences non fonctionnelles :  La page de redirection affiche si l’authentification est survenue ou si elle a échoué</li>
+          </ol>
+        </div>
+
+        <div class="items"> <!--Cas utilisation 12-->
+          <p><strong>Cas d'utilisation : </strong>Validation des comptes par la modération</p> 
+          <p></p><strong>But : </strong>Vendeur veut vendre un produit </p>
+          <p><strong>Préconditions : </strong>Le modérateur est déjà connecté. Il a les permissions nécessaires pour modérer. Il est sur l’interface permettant de gérer les comptes en attente. Les données sont envoyées à la database dans le format attendu.</p>
+          <p><strong>Acteurs :</strong> Utilisateur de type modérateur (principal), Utilisateur recevant son compte vérifié site web (Bénéficiaire) , Database : Reçoit les données (secondaire)</p>
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li>1) Acceptation / Rejection des comptes en attente visibles sur l’interface</li>
+            <li>2) Le modérateur a accès à une liste de compte, il doit cliquer sur chacun pour scrutiner les données entrées par l’utilisateur revendeur</li>
+            <li>3) Il accepte/rejete le compte avec un bouton crochet ou un bouton x.</li>
+            <li>4) Le compte est retiré de la liste</li>
+            <li>5)Le statut du compte validé ou non-validé est mis à jour et les données sont envoyées à la database</li>
+            <li>6) Envoi d’un courriel à l’utilisateur l’informant du statut de son compte</li>
+          </ol>
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li><span>2.a) </span> Exception lors de l’envoi des données pour la mise à jour de la base de donnée</li>
+            <li><span>2.b) </span> Le compte est remis dans la liste des comptes à valider</li>
+            <li><span>2.2a.2) </span> Il le reçoit et l'inscrit sur le site</li>
+          </ol>
+          <strong>Post-conditions : </strong>
+          <ol>
+            <li>Le flag de validation est ajouté au compte</li>
+            <li>Le compte gagne des accès supplémentaires si s’applique</li>
+
+          </ol>
+          <p><strong>Postconditions :</strong> Le produit posté ainsi que l'achat doivent être sauvegardés et tout activité est noté dans les métriques du vendeur </p>
+        </div>
+
+        <div class="items"> <!--Cas utilisation 13-->
           <p><strong>Cas d'utilisation : </strong>Confirmation du courriel par le revendeur</p> 
           <p></p><strong>But : </strong> Ce cas d'utilisation permet à l’utilisateur revendeur de finaliser la création de son compte</p>
           <p><strong>Préconditions : </strong>Le vendeur est déjà sur la page de son courriel et clique sur le lien envoyé. Le vendeur a un compte existant et un lien de confirmation non expiré. Les données sont envoyées à la database dans le format attendu.</p>
@@ -729,39 +803,180 @@
           </ol>
         </div>
 
-        <div class="items"> <!--Cas utilisation 12-->
-          <p><strong>Cas d'utilisation : </strong>Validation des comptes par la modération</p> 
-          <p></p><strong>But : </strong>Vendeur veut vendre un produit </p>
-          <p><strong>Préconditions : </strong>Le modérateur est déjà connecté. Il a les permissions nécessaires pour modérer. Il est sur l’interface permettant de gérer les comptes en attente. Les données sont envoyées à la database dans le format attendu.</p>
-          <p><strong>Acteurs :</strong> Utilisateur de type modérateur (principal), Utilisateur recevant son compte vérifié site web (Bénéficiaire) , Database : Reçoit les données (secondaire)</p>
+        <!-- Ajout suite à la correcction-->
+
+        <div class="items"> <!--Cas utilisation 14-->
+          <p><strong>Cas d'utilisation : </strong>Trouver un produit</p> 
+          <p></p><strong>But : </strong>Ce cas d'utilisation permet à rechercher un article précis dans le catalogue de produit </p>
+          <p><strong>Préconditions : </strong>  Le site web doit être opérationnel et accessible. Pour que les résultats de recherches soient pertinents, il faut que les
+                                                informations du catalogues de produits soient à jour.</p>
+          <p><strong>Acteurs :</strong>Un potentiel acheteur (initiateur), l'interface du site web </p>
           <p><strong>Scénario principal : </strong></p>
           <ol>
-            <li>1. Acceptation / Rejection des comptes en attente visibles sur l’interface</li>
-            <li>2. Le modérateur a accès à une liste de compte, il doit cliquer sur chacun pour scrutiner les données entrées par l’utilisateur revendeur</li>
-            <li>3. Il accepte/rejete le compte avec un bouton crochet ou un bouton x.</li>
-            <li>4. Le compte est retiré de la liste</li>
-            <li>5.Le statut du compte validé ou non-validé est mis à jour et les données sont envoyées à la database</li>
-            <li>6. Envoi d’un courriel à l’utilisateur l’informant du statut de son compte</li>
+            <li>1) L'utilisateur accède à UniShop et navigue ver la page du catalogue</li>
+            <li>2) Il écrit dans la barre de recherche le nom du produit qu'il recherche</li>
+            <li>4) Le système affiche toutes les possibilités qui correspondent aux mots que l'utilisateur à tapé</li>
+            <li>5) Le système affiche les résultats de la recherche</li>
+            <li>6) Il consulte les catégories possibles pour filtrer sa recherche</li>
+              <ol>
+                <li>6.1) Catégorie</li>
+                <li>6.2) Ordre alphabétique</li>
+                <li>6.3) Prix croissant</li>
+                <li>6.4) Prix décroissant</li>
+                <li>6.5) Popularité</li>
+              </ol>
+            <li>7) Il parcours les résultats et sélectionne le produit souhaité</li>
+            <li>8) La page du produit et ses détails sont affichés</li>
+            <li>9) L'utilisateur peut ensuite décider à partir de la liste de produits de : </li>
+              <ol>
+                <li>9.1) Ajouter le produit à son panier</li>
+                <li>9.2) Ajoutert le produit à la liste de souhait</li>
+                <li>9.3) Retourner aux résultats de rechherche</li>
+              </ol>
           </ol>
           <strong>Scénarios alternatifs : </strong>
           <ol>
-            <li><span>2.a</span> Exception lors de l’envoi des données pour la mise à jour de la base de donnée</li>
-            <li><span>2.b</span> Le compte est remis dans la liste des comptes à valider</li>
-            <li><span>2.2a.2</span> Il le reçoit et l'inscrit sur le site</li>
-          </ol>
-          <strong>Post-conditions : </strong>
-          <ol>
-            <li>Le flag de validation est ajouté au compte</li>
-            <li>Le compte gagne des accès supplémentaires si s’applique</li>
+            <li><span>5.a) </span> Aucun résultats ne corresponds à la recherche</li>
+            <ol>
+              <li><span>5.a) </span> L'utilisateur est informé qu'aucun produit ne correspond à sa recherche </li>
+              <li>5.b) Des termes de recherches alternatifs soont suggérés</li>
+            </ol>
 
+            <li><span>7.a</span> Le produit souhaité est en rupture de stock</li>
+            <ol>
+              <li><span>7.a.1) </span> Des produits similaires à la recherche sont suggérés à l'utilisateur</li>
+            </ol>
           </ol>
-          <p><strong>Postconditions :</strong> Le produit posté ainsi que l'achat doivent être sauvegardés et tout activité est noté dans les métriques du vendeur </p>
+
+          <p><strong>Postconditions :</strong> L'historique de recherche de l'utilisateur est mis à jour pour inclure la recherche récente.  </p>
         </div>
+        
+        <div class="items"> <!--Cas utilisation 15-->
+          <p><strong>Cas d'utilisation : </strong>Trouver un revendeur</p> 
+          <p></p><strong>But : </strong>Ce cas d'utilisation permet de rechercher un revendeur dans la le catalogue des vendeurs</p>
+          <p><strong>Préconditions : </strong>Le site web doit être opérationnel et accessible. Pour que les résultats de recherches soient pertinents, il faut que les
+            informations des revendeurs soient présents et à jour. </p>
+          <p><strong>Acteurs :</strong> L'utilisateur de UniShop, l'interface du site web </p>
+          <p><strong>Scénario principal :</strong> </p>
+          <ol>
+            <li>1) L'utilisateur accède à UniShop et navigue ver la page du catalogue</li>
+            <li>2) Si l'utilisateur connait le nom du revendeur il le tape dans la barre de recherches</li>
+            <li>3) L'utilisateur procède à la recherche d'un revendeur en utilisant les filfres</li>
+              <ol>
+                <li>3.1) Ordre alphabétique</li>
+                <li>3.2) Popularité</li>
+                <li>3.3) Catégorie de produits vendus</li>
+                <li>3.4) Lieu d'expédition </li>
+                  <ol>
+                    <li>3.4.1) Vendeurs locaux</li>
+                    <li>3.4.2) Vendeurs étrangers</li>
+                  </ol>
+              </ol>
+            <li>4) L'interface affiche toutes les possibilités qui correspondent aux critères</li>
+            <li>5) Les résultats de la recherche sont affichés</li>
+            <li>6) L'utilisateur parcourt les résultats et sélectionne un revendeur</li>
+            <li>7) Les détails du revendeur sont affichés,les coordonnées pour le contacter, les produits qu'ils vendent et sa note globale, etc.</li>
+          </ol>
+
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li><span>5.a) </span> Aucun résultats ne corresponds à la recherche</li>
+            <ol>
+              <li><span>5.a) </span> L'utilisateur est informé qu'aucun vendeur ne correspond à sa recherche </li>
+              <li>5.b) Des termes de recherches alternatifs sont suggérés</li>
+            </ol>
+          </ol>
+          
+            
+          <p><strong>Postconditions :</strong> L'historique de recherche de l'utilisateur est mis à jour pour inclure la recherche récente de revendeurs. </p>
+        </div>
+
+        <div class="items"> <!--Cas utilisation 16-->
+          <p><strong>Cas d'utilisation : </strong>Consulter l'état d'une commande</p> 
+          <p></p><strong>But : </strong>Ce cas d'utilisation permet à un acheteur de consulter l'état et la progression de sa commande passée sur le site web</p>
+          <p><strong>Préconditions : </strong>L'utilisateur a passé une commande sur le site web et celle-ci est payée et confirmer. </p>
+          <p><strong>Acteurs :</strong> Client acheteur (principal), site web (secondaire)  </p>
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li> 1) L'utilisateur se connecte à son compte </li>
+            <li> 2) Après s'être connecté, il accède à la page de son profil  </li>
+            <li> 3) Il clique sur le bouton  "Commandes"</li>
+            <li> 4) L'utilisateur clique sur une commande spécifique</li>
+            <li> 5) La plateforme affiche les détails de la commande </li>
+              <ol>
+                <li>5.1) Statut de la commande </li>
+                <li>5.2) Articles de la commande</li>
+                <li>5.3) Date de la commande</li>
+                <li>5.4) Total</li>
+                <li>5.5) Mode de paiement</li>
+              </ol>
+            <li>6) Le client à l'option d'annuler sa commande si elle n'est pas expédiée</li>
+            <li>7) L'acheteur passe en revues les détails de sa commande</li>
+            <li>8) Une fois terminé l'utilisateur se déconnecte de son compte</li>
+          </ol>
+
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li><span>4.a) </span>Le client n'a pas encore passé de commande</li>
+              <ol>
+                <li>4.a.1) Le client est informé qu'il n'a pas encore de commande.</li>
+                <li>4.a.2) Un lien permet de rediriger le client vers la page de principale des produits pour qu'il commence à magasiner</li>
+              </ol>   
+            <li><span>6.a)</span>Le client souhaite annuler sa commande</li>     
+              <ol>
+                <li>6.a.1) Il clique sur le bouton annuler la commande</li>
+                <li>6.a.2) Le client doit fournir une raison pour l'annulation de sa commande</li>
+                <li>6.a.3) le système vérifie que le client à founie une raison pour l'annulation de sa commande</li>
+                <li>6.a.4) Le client appuie sur le bouton "Confirmer" pour l'annulation</li>
+                <li>6.a.5) Un message de confirmation est affiché et invite l'utilisateur à consulter ses courriels pour une copie de la confirmation et les détails du remboursement</li>
+                  <ol>  
+                    <li>6.a.5.1) Le vendeur est notifié du changement du statut de la commande</li>
+                    <li>6.a.5.2) Le vendeur ne peut plus expédier les produits</li>
+                    <li>6.a.5.3) La vente est annuler du côté du vendeur</li>
+                  </ol>
+                <li>6.a.6) Les données de l'annulation sont envoyées à la base de données. </li>
+                <li>6.a.7) Le client reçoit son remboursement</li>
+          </ol>
+             
+          <p><strong>Postconditions : </strong>La commande est archivée et le statut est mis à jour </p>
       
+        </div>
+
+
+        <div class="items"> <!--Cas utilisation 17 -->
+          <p><strong>Cas d'utilisation : </strong>Changer l'état d'une commande</p> 
+          <p></p><strong>But : </strong> Ce cas d'utilisation permet à un revendeur modifier le statut de la commande pour tenir l'acheteur de la progression jusqu'au moment où le revendeur est prêt à expédier la commande</p>
+          <p><strong>Préconditions : </strong>Le paiement doit avoir été prévelé sur la carte de l'acheteur pour que le revendeur puisse procéder à la livraison </p>
+          <p><strong>Acteurs :</strong> Le revendeure et le service postale (principale), l'acheteur (secondaire)</p>
+          <p><strong>Scénario principal : </strong></p>
+          <ol>
+            <li>1) Le revendeur se connecte à son compte </li>
+            <li>2) Après s'être connecté, il accède à la page de son profil  </li>
+            <li>3) Il clique sur le bouton  "Commandes"</li>
+            <li>4) Il clique sur "commande en attente de traitement"</li>
+            <li>5) Il les trie par date d'achat la moins récente</li>
+            <li>6) Le revendeur prépare la livraison d'une commande et l'emballe </li>
+            <li>7) Le client apporte le colis au bureau de la poste</li>
+            <li>8) Le bureau de la poste lui fournit une confirmation et un numéro de suivi</li>
+            <li>9) Il retourne sur son compte pour mettre a jour le statut de la commande pour "en livraison"</li>
+            <li>10) Il confirme la modification du statut de la commande.</li>
+            <li>11) Le revendeur fournit les informations sur l'expéditeur et communique le numéro de suivi</li>
+            <li>12) Le paiement de l'acheteur est tranféré au revendeur</li>
+          </ol>
+
+          <strong>Scénarios alternatifs : </strong>
+          <ol>
+            <li><span>10.a) </span>Le revendeur ne modifie pas le statut de la commande dans un délai raisonnable</li>
+              <ol>
+                <li>10.1.b) La commande du revendeur est bloquée</li>
+                <li>10.1.2) Le revendeur doit fournir une raison pour le délai de l'expédition pour débloquer sa commande</li>
+                <li>10.1.3) Le revendeur doit fournir une solution ou un rabais à l'acheteur</li>
+              </ol>
+          <p><strong>Postconditions :</strong>Une notification est envoyée à l'acheteur pour l'informer que sa commande est en "livraison </p>
+        </div>
 
       </div>
     </div>
-
 
     <!-- Fin cas d'utilisation #...-->
     <br><hr><br>
@@ -785,6 +1000,7 @@
       <h1 style="text-align: center; padding: 50px;">Besoins non-fonctionnels</h1>
   
       <p>Les informations sensibles sont masquées du modérateur sur l’interface. </p>
+      <p>L'application est disponible 24h/24 et 7 jours/7 </p>
       <p>La saisie du mot de passe ne doit pas apparaître à l'écran.</p>
       <p>La page de redirection affiche si l’authentification est survenue ou si elle a échoué. </p>
       <p>Le mot de passe de n’affiche pas à l’écran. Les données sont ajoutées seulement si les champs sont valides.</p>
