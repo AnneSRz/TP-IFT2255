@@ -1,0 +1,23 @@
+Tâche 1 : Analyse
+Maintenant que vous êtes familier avec le modèle fonctionnel du projet UniShop, vous devez estimer ce qui est nécessaire pour mettre le système en opération. Dans un paragraphe de 100 mots (+/-10%), estimez les informations suivantes :
+•	Quelles parties seront informatisées et comment ?
+•	Où seront stockées les données ?
+•	Quel matériel sera nécessaire ?
+•	Comment le système UniShop que vous développez interagira avec les autres systèmes ?
+•	Comment les utilisateurs interagiront avec le système ?
+
+
+1.Quelles parties seront informatisées et comment?
+L’inventaire des produits, les données des utilisateurs, la gestion des serveurs, le traitement des commandes, la gestion des utilisateurs, le passage des commandes, etc. L'implémentation de ces parties se feront en Java.
+
+2.Où seront stockées les données?
+Les données pourraient être stockées dans une base de données centralisée sur un serveur sécurisé. Des mesures de sécurité telles que le cryptage des données et la sauvegarde régulière seront également importantes. En ce moment, les informations sont instanciées dans le code, mais elles seront bientôt implémentées dans un support local comme un fichier JSON, qui sert à faire des requêtes.
+
+3.Quel matériel sera nécessaire?
+Cela pourrait inclure des serveurs pour héberger la base de données et l'application, des dispositifs de stockage sécurisés, des pares-feux pour la sécurité. Pour l’instant, une machine locale avec un espace mémoire modeste (<1TB) pour gérer les requêtes (backend) et l’hébergement du serveur suffit à cette phase la Conception.
+
+4.Comment le système UniShop que vous développez interagira avec les autres systèmes?
+UniShop pourrait interagir avec d'autres systèmes par le biais d'API. La mise à jour de l’inventaire pourraît se faire par des requêtes sur les sites fournisseurs. Les institutions financières doivent être intégrées dans la prise en charge des achats et remboursements. 
+
+5.Comment les utilisateurs interagiront avec le système?
+Les utilisateurs pourraient interagir avec UniShop via une interface utilisateur conviviale qui est un site web en ce moment. Les fonctionnalités incluront la navigation des produits, la gestion du panier, le changement du profil de l'utilisateur, la visualisation de l'historique des commandes, etc. L'expérience utilisateur serait optimisée pour être intuitive et efficace.
