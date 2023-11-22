@@ -6,7 +6,7 @@ public class ListeSouhaits extends Panier {
      *
      * @param acheteur La liste de souhait d'un utilisateur
      */
-    ListeSouhaits(Utilisateur acheteur){
+    ListeSouhaits(Acheteur acheteur){
         super(acheteur);
     }
 }

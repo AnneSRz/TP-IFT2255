@@ -96,4 +96,6 @@ public abstract class Utilisateur {
         return this.attributs.get(attribut);
     }
 
+        public ArrayList<Commande> getOrders(){return this.orders;}
+
 }

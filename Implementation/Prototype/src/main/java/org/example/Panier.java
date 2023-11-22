@@ -9,12 +9,12 @@ public class Panier {
 
 
     Map<ProduitEnVente, Integer> contenu=new HashMap<ProduitEnVente, Integer>();
-    Utilisateur user;
+    Acheteur user;
 
     /**  Constructeur de la classe Panier
      *   Le panier est vide, mais il appartient à un utilisateur
      */
-    Panier(Utilisateur acheteur){
+    Panier(Acheteur acheteur){
         this.user = acheteur;
     }
 
@@ -36,7 +36,7 @@ public class Panier {
 
 
     /**
-     * Retirer une quantité d'un articledu panier
+     * Retirer une quantité d'un article du panier
      *
      * @param produit Produit en vente dans le panier
      * @param amount La quantité d'un l'article dans le panier
@@ -95,6 +95,10 @@ public class Panier {
 
     public Map<ProduitEnVente, Integer> getItems(){
         return contenu;
+    }
+
+    public Acheteur getAcheteur(){
+        return this.user;
     }
 
 }
