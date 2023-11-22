@@ -93,10 +93,10 @@
               <!-- 2 --> 
               <li><h4>Tâche 2 : Diagramme d'activités UML</h4> </li>
                 <ul> 
-                  <li><strong> Passer une commande :</strong> Shini, assisté par Émanuel</li>
+                  <li><strong>Passer une commande :</strong> Shini, assisté par Émanuel</li>
                   <li><strong>Évaluer un produit :</strong> Anne Sophie </li>
                   <li><strong>Retourner/échanger une commande :</strong> Anne Sophie assisté par Émanuel </li>
-                  <li><strong>confirmer la réception d'une commande :</strong> Chiril assité par Émanuel </li>
+                  <li><strong>Confirmer la réception d'une commande :</strong> Chiril assité par Émanuel </li>
                   <li><strong>Offrir un produit à vendre : </strong>Émanuel <li>
                 </ul>  
                 <br><br>
@@ -158,10 +158,10 @@
         
         <ul>
           <li>Hypothèse 1 (Les Diagrammes): Nous n'étions pas sur de quels diagrammes de quel cas faire et on pensait que c'était pour tous les cas d'utilisation<br>Solution : Relire l'énoncé du DM2, au final on n'en avait que 5</li>
-          <li>Hypothèse 6 (github): On pensait qu'il fallait faire un autre repository pour le travail 2 <br> Solution :  Le démonstrateur à rectifié à ce propos et nous avons travaillé sur le même repository.</li>
-          <li>Hypothèse 4 (Risques): J’ai supposé que les risques sont les risques que le développeur peut rencontrer lorsqu'on va créer le prototype <br> Solution: Ce qu'on a fait</li>
-          <li>Hypothèse 7 (Rapport HTML): Nous ne pensions pas qu'il serait similaire à la tâche 1 nous n'étions pas sure de ce qui était demandé<br>Solution: Nous nous sommes inspirés du rapport de la tâche 1 pour une partie du travail</li>
-          <li>Hypothèse 8 (Révision): Nous pension n'avoir qu'à corriger quelques fautes de frappe et de code et d'éxécution<br>Nous avons réalisé qu'il manquait quelques implémentation à la finaliter du produit. Par exemple, pour tâche 5 nous avons eu de la difficulté à déterminer ce qui était demandé.</li>
+          <li>Hypothèse 2 (github): On pensait qu'il fallait faire un autre repository pour le travail 2 <br> Solution :  Le démonstrateur à rectifié à ce propos et nous avons travaillé sur le même repository.</li>
+          <li>Hypothèse 3 (Risques): J’ai supposé que les risques sont les risques que le développeur peut rencontrer lorsqu'on va créer le prototype <br> Solution: Ce qu'on a fait</li>
+          <li>Hypothèse 4 (Rapport HTML): Nous ne pensions pas qu'il serait similaire à la tâche 1 nous n'étions pas sure de ce qui était demandé<br>Solution: Nous nous sommes inspirés du rapport de la tâche 1 pour une partie du travail</li>
+          <li>Hypothèse 5 (Révision): Nous pension n'avoir qu'à corriger quelques fautes de frappe et de code et d'éxécution<br>Nous avons réalisé qu'il manquait quelques implémentation à la finaliter du produit. Par exemple, pour tâche 5 nous avons eu de la difficulté à déterminer ce qui était demandé.</li>
         </ul>
       </p>
     </div>
@@ -189,25 +189,59 @@
               <li>Comment les utilisateurs interagiront avec le système </li>
             </ul>
            
-            1.Quelles parties seront informatisées et comment?
+            1.Quelles parties seront informatisées et comment?<br>
             L’inventaire des produits, les données des utilisateurs, la gestion des serveurs, le traitement des commandes, la gestion des utilisateurs, le passage des commandes, etc. L'implémentation de ces parties se feront en Java. <br><br>
 
-            2.Où seront stockées les données?
+            2.Où seront stockées les données?<br>
             Les données pourraient être stockées dans une base de données centralisée sur un serveur sécurisé. Des mesures de sécurité telles que le cryptage des données et la sauvegarde régulière seront également importantes. En ce moment, les informations sont instanciées dans le code, mais elles seront bientôt implémentées dans un support local comme un fichier JSON, qui sert à faire des requêtes. <br><br>
 
-            3.Quel matériel sera nécessaire?
+            3.Quel matériel sera nécessaire?<br>
             Cela pourrait inclure des serveurs pour héberger la base de données et l'application, des dispositifs de stockage sécurisés, des pares-feux pour la sécurité. Pour l’instant, une machine locale avec un espace mémoire modeste (moins que 1TB) pour gérer les requêtes (backend) et l’hébergement du serveur suffit à cette phase la Conception. <br><br>
 
-            4.Comment le système UniShop que vous développez interagira avec les autres systèmes?
+            4.Comment le système UniShop que vous développez interagira avec les autres systèmes?<br>
             UniShop pourrait interagir avec d'autres systèmes par le biais d'API. La mise à jour de l’inventaire pourraît se faire par des requêtes sur les sites fournisseurs. Les institutions financières doivent être intégrées dans la prise en charge des achats et remboursements.  <br><br>
 
-            5.Comment les utilisateurs interagiront avec le système?
+            5.Comment les utilisateurs interagiront avec le système?<br>
             Les utilisateurs pourraient interagir avec UniShop via une interface utilisateur conviviale qui est un site web en ce moment. Les fonctionnalités incluront la navigation des produits, la gestion du panier, le changement du profil de l'utilisateur, la visualisation de l'historique des commandes, etc. L'expérience utilisateur serait optimisée pour être intuitive et efficace.<br><br>
 
 
       </p>
     </div>
+
     <br><hr><br>
+    
+    <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto; height:1000px" >
+      <h1 style="text-align: center; padding: 10px;">Diagramme d'activités</h1>
+
+      <div class="image">
+        <h5 style="text-align: center; padding: 10px;">Passer une commande </h5>
+        <a href="ACT1_Passer_commande.svg"><img c style="height:900px;" mar src="UniShop diagramActivite.svg"></a>
+      </div>
+
+      <div class="image">
+        <h5 style="text-align: center; padding: 10px;">Évaluer un produit </h5>
+        <a href="ACT1_Evaluer_produit.svg"><img c style="height:900px;" mar src="UniShop diagramActivite.svg"></a>
+      </div>
+
+      <div class="image">
+        <h5 style="text-align: center; padding: 10px;">Retourner et/ou échanger une commande </h5>
+        <a href="ACT1_Retourner_echanger_produit.svg"><img c style="height:900px;" mar src="UniShop diagramActivite.svg"></a>
+      </div>
+
+      <div class="image">
+        <h5 style="text-align: center; padding: 10px;">Confirmer la réception d'une commande</h5>
+        <a href="ACT1_Confirmer_commande.svg"><img c style="height:900px;" mar src="UniShop diagramActivite.svg"></a>
+      </div>
+
+      <div class="image">
+        <h5 style="text-align: center; padding: 10px;">Offrir un produit à vendre</h5>
+        <a href="ACT1_Offrir_produit_vendre.svg"><img c style="height:900px;" mar src="UniShop diagramActivite.svg"></a>
+      </div>
+
+
+
+    <br><hr><br>
+
     <div style=" width:90%; text-align: justify; margin:0 auto; background-color: aliceblue; padding:50px;">
       <h1 style="text-align: center;">Les statistiques de GitHub</h1>
       <p style="text-align: center;">

@@ -2,20 +2,16 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.HashMap;
 
 public class ProduitEnVente {
-    String titre;
-    String description;
-    Integer pointsParDollar;
-    ArrayList<Catalogue> type = new ArrayList<Catalogue>(); ;
+    int pointsParDollar;
+    Map<String,String> attributs = new HashMap<String,String>();
+    ArrayList<Utilisateur> popularite = new ArrayList<Utilisateur>();
+    ArrayList<Evaluation> listeEvaluations = new ArrayList<Evaluation>();
     Integer quantite;
     Double prix;
     Float noteMoyenne;
-    ArrayList<Utilisateur> popularite = new ArrayList<Utilisateur>();
-    String imagePath;
-    String videoPath;
-    ArrayList<Evaluation> listeEvaluations = new ArrayList<Evaluation>();
-    String id;
     Revendeur vendeur;
     Catalogue cat;
 
@@ -34,17 +30,17 @@ public class ProduitEnVente {
      */
     public ProduitEnVente(Revendeur vendeur, String titre, String description, int pointsParDollar, int quantite, double prix,
                           float noteMoyenne, String imagePath, String videoPath, String id,Catalogue cat) {
+        this.attributs.put("titre",titre);
+        this.attributs.put("description",description);
+        this.attributs.put("videoPath",videoPath);
+        this.attributs.put("id",id);
+        
         this.cat=cat;
         this.vendeur=vendeur;
-        this.titre = titre;
-        this.description = description;
         this.pointsParDollar = pointsParDollar;
         this.quantite = quantite;
         this.prix = prix;
         this.noteMoyenne = noteMoyenne;
-        this.imagePath = imagePath;
-        this.videoPath = videoPath;
-        this.id = id;
     }
 
     /**Cette fonction d'ajouter l'avis que l'utilisateur à laissé par rapport à sa satisfaction du produit qu'il a
@@ -85,4 +81,12 @@ public class ProduitEnVente {
      * @return Le revendeur du produit
      */
     public Revendeur getRevendeur(){return this.vendeur;}
+
+    public Catalogue getCatalogue(){return this.cat;}
+
+    public String get(String attribut){return this.attributs.get(attribut);}
+
+    public Integer getQty(){return this.quantite;}
+
+    public Float getNote(){return this.noteMoyenne;}
 }

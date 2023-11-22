@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
 
 public class Commande {
         static Integer nbCommandes=0;
-        int numeroCommande;
+        Integer numeroCommande;
         String etat="En production";
         LocalDate dateCommande;
         Map<ProduitEnVente, Integer> produits;
@@ -67,6 +67,8 @@ public class Commande {
         }
     }
 
+
+    public Integer getNoCommande(){return this.numeroCommande;}
     /**
      * Lorsque les articles arrivent aux portes du client, il peut confirmer la reception de sa commande.
      * La réception peut être confirmée que si la commande est en cours de livraison, dans le cas contraire, ce n'est

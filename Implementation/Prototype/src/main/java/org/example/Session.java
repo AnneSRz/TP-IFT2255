@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Session {
-    LocalDate start;
-    LocalDate end;
-    Acheteur user;
+    LocalDateTime start;
+    LocalDateTime end;
+    Utilisateur user;
 
 
     /**
@@ -15,9 +15,9 @@ public class Session {
      *
      * @param user utilisateur associé à la session
      */
-    Session (Acheteur user){
-        this.start = LocalDate.now();
-        this.end = LocalDate.now().plusDays(1);
+    Session (Utilisateur user){
+        this.start = LocalDateTime.now();
+        this.end = LocalDateTime.now().plusHours(1);
         this.user=user;
     }
 
@@ -29,14 +29,10 @@ public class Session {
      * @return Si la session est expirée, on retourne true sinon false
      */
     public boolean isExpired() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        Duration tempsSession = Duration.between(start, currentDateTime);
-        long hoursElapsed = tempsSession.toHours();
-
-        return hoursElapsed >= 24;
+        return LocalDateTime.now().isAfter(this.end);
     }
 
-    public Acheteur user(){
+    public Utilisateur user(){
         return this.user;
     }
 
