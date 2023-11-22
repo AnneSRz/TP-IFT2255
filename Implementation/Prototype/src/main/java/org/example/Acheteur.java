@@ -80,6 +80,11 @@ public class Acheteur extends Utilisateur {
         return this.infosAchat;
     }
 
+    /**
+     * Récupère le panier associées aux articles que l'acheteur à ajouté
+     *
+     * @return Le panier de l'acheteur
+     */
     public Panier getPanier(){
         return this.panier;
     }

@@ -17,7 +17,8 @@ public class MenuAcheteur {
         this.session=session;
     }
 
-    /**Fait les vérifications et les appels systeme pour faire un achat d'un panier d'items via les coordonnees du profil
+    /**
+     * Fait les vérifications et les appels systeme pour faire un achat d'un panier d'items via les coordonnees du profil
      *
      * @param panier
      * @param infos

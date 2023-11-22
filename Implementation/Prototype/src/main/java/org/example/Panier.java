@@ -97,6 +97,11 @@ public class Panier {
         return contenu;
     }
 
+    /**
+     * Getter
+     *
+     * @return Retourne l'attribut de l'acheteur
+     */
     public Acheteur getAcheteur(){
         return this.user;
     }

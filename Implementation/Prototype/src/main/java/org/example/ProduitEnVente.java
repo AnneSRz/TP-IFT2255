@@ -77,16 +77,37 @@ public class ProduitEnVente {
     }
 
     /**
+     * Getter
      *
-     * @return Le revendeur du produit
+     * @return Retourne l'attribut du revendeur du produit
      */
     public Revendeur getRevendeur(){return this.vendeur;}
 
+    /**
+     * Getter
+     *
+     * @return Retoourne l'attribut du Catalogue
+     */
     public Catalogue getCatalogue(){return this.cat;}
 
+    /**
+     * Récupère la valeur associée à un attribut de produit en vente
+     *
+     * @param attribut Le nom de l'attribut à recuperer
+     * @return Retourne le Billet associé à cet attribut
+     */
     public String get(String attribut){return this.attributs.get(attribut);}
 
+    /**
+     * Récupère la valeur associée à la quantité de produit en vente
+     *
+     * @return Retourne la quantité
+     */
     public Integer getQty(){return this.quantite;}
 
+    /**
+     * Récupère la note associée au produit
+     * @return Retourne la note
+     */
     public Float getNote(){return this.noteMoyenne;}
 }

@@ -32,6 +32,10 @@ public class Session {
         return LocalDateTime.now().isAfter(this.end);
     }
 
+    /**
+     *
+     * @return Retourne l'attribut de l'utilisateur
+     */
     public Utilisateur user(){
         return this.user;
     }
