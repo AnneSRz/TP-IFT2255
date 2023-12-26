@@ -14,15 +14,15 @@ public class Coordonnees {
 
 
     /**
-     * Rassemble les informations du client qui sont necessaire pour notamment la comamnde et la livraison
+     * Rassemble les informations du client qui sont necessaire pour notamment la commande et la livraison
      * @param nom Nom de famille
-     * @param prenom Nom personnel desigant la persone
-     * @param adresse Où le client vit et ou sa commande peut lui être livré
+     * @param prenom Nom personnel desigant la personne
+     * @param adresse Où le client vit et où sa commande peut lui être livré
      * @param telephone Le numéro de téléphone où il est possible de joindre l'acheteur
      * @param courriel Le courril où il est possible d'envoyer un message à l'acheteur
-     * @param cc
-     * @param conf
-     * @param exp
+     * @param cc Le numéro de validation de la carte de crédit
+     * @param conf Le numéro de confirmation de la carte de crédit
+     * @param exp La date d'expiration de la carte de crédit
      */
     public Coordonnees(String nom, String prenom, String adresse, String telephone, String courriel, String cc, String conf, String exp){
         this.nom = nom;
