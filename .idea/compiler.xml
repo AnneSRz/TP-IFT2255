@@ -11,6 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="application" target="1.8" />
       <module name="Implementation" target="19" />
       <module name="ImplementationDM3" target="1.8" />
       <module name="Prototype" target="19" />
