@@ -31,6 +31,8 @@ import java.util.ResourceBundle;
 
 
 
+
+
 public class UniShopController implements Initializable {
     @FXML
     private AnchorPane pane;
@@ -195,7 +197,7 @@ public class UniShopController implements Initializable {
 
          try {
              // Charger le fichier JSON
-             Object obj = parser.parse(new FileReader("src/main/data/listeUtilisateurs.json"));
+             Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json"));
 
              // Convertir l'objet en tableau JSON
              JSONArray utilisateurs = (JSONArray) obj;
@@ -334,7 +336,7 @@ public class UniShopController implements Initializable {
             motDePasse, String userType) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        File jsonFile = new File("src/main/data/listeUtilisateurs.json");
+        File jsonFile = new File("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json");
 
         try {
             // Step 1: Lire le contenu du fichier JSON
@@ -461,7 +463,7 @@ public class UniShopController implements Initializable {
 
         try {
             // Charger le fichier JSON
-            Object obj = parser.parse(new FileReader("src/main/data/listeUtilisateurs.json"));
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json"));
 
             // Convertir l'objet en tableau JSON
             JSONArray acheteurs = (JSONArray) obj;
@@ -508,7 +510,7 @@ public class UniShopController implements Initializable {
 
         try {
             // Charger le fichier JSON
-            Object obj = parser.parse(new FileReader("src/main/data/listeUtilisateurs.json"));
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json"));
 
             // Convertir l'objet en tableau JSON
             JSONArray revendeurs = (JSONArray) obj;
@@ -647,7 +649,7 @@ public class UniShopController implements Initializable {
 
         try {
             // Charger le fichier JSON
-            Object obj = parser.parse(new FileReader("src/main/data/listeUtilisateurs.json"));
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json"));
 
             // Convertir l'objet en tableau JSON
             JSONArray utilisateurs = (JSONArray) obj;
@@ -671,7 +673,7 @@ public class UniShopController implements Initializable {
                     utilisateur.put("paiement", paiement);
 
                     // Écrire la liste mise à jour dans le fichier JSON
-                    try (FileWriter file = new FileWriter("src/main/data/listeUtilisateurs.json")) {
+                    try (FileWriter file = new FileWriter("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json")) {
                         file.write(utilisateurs.toJSONString());
                         file.flush();
                     }
@@ -700,7 +702,7 @@ public class UniShopController implements Initializable {
 
         try {
             // Charger le fichier JSON
-            Object obj = parser.parse(new FileReader("src/main/data/produits.json"));
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/produits.json"));
 
             // Convertir l'objet en tableau JSON
             JSONArray produits = (JSONArray) obj;
