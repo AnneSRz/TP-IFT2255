@@ -261,7 +261,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="acheteurMsgs" mnemonicParsing="false" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Mes Messages">
+                                    <Button fx:id="acheteurMsgs" mnemonicParsing="false" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Mes Notifications">
                                        <graphic>
                                           <FontAwesomeIconView glyphName="BELL" />
                                        </graphic>
@@ -453,7 +453,6 @@
                                           </Button>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="dashboardPane" prefHeight="699.0" prefWidth="914.0" style="-fx-background-color: #D2E0FB;" />
                                     <AnchorPane fx:id="cataloguePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
                                        <children>
                                           <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="688.0" prefWidth="545.0" style="-fx-background-color: white; -fx-background-radius: 25;">
@@ -515,6 +514,10 @@
                                     <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane fx:id="dashboardPane" prefHeight="699.0" prefWidth="914.0" style="-fx-background-color: #D2E0FB;">
+                                       <children>
+                                          <HBox layoutX="25.0" layoutY="19.0" prefHeight="211.0" prefWidth="840.0" />
+                                       </children></AnchorPane>
                                  </children>
                               </StackPane>
                            </children>
