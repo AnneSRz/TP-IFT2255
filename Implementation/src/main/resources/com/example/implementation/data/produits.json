@@ -8,7 +8,7 @@
     "quantite" : "100",
     "prix" : "460.00",
     "noteMoyenne" : "10",
-    "imagePath" : "src/main/data/background.jpg",
+    "imagePath" : "images/images.jpeg",
     "videoPath" : "",
     "categorie" : "Matériel informatique"
   },

@@ -348,7 +348,7 @@ public class UniShopController implements Initializable {
                 String existingPseudos = utilisateurNode.path("pseudo").asText("");
                 String existingNames = utilisateurNode.path("nom").asText("");
 
-                if (existingEmails.equalsIgnoreCase(email)) {
+                if (existingEmails.equalsIgnoreCase(email) || existingPseudos.equalsIgnoreCase(pseudo) ||existingNames.equalsIgnoreCase(nom)) {
                     this.userError.setStyle("-fx-text-fill: transparent; -fx-border-color: transparent");
                     this.emailError.setStyle("-fx-text-fill: red; -fx-border-color: transparent");
                     this.nameError.setStyle("-fx-text-fill: transparent; -fx-border-color: transparent");
@@ -366,7 +366,7 @@ public class UniShopController implements Initializable {
                     this.nameError.setStyle("-fx-text-fill: transparent; -fx-border-color: transparent");
                     return false;
                 } else {
-                    // Step  2: Ajouter un nouvel utilisateur
+                    // Step 2: Ajouter un nouvel utilisateur
                     ObjectNode nouvelUtilisateur = JsonNodeFactory.instance.objectNode();
 
                     //Utilise la taille  de la liste comme nouvel ID
@@ -432,7 +432,6 @@ public class UniShopController implements Initializable {
      * Cette méthode permet de validerle format de l'email que l'utilisateur à inscrit
      *
      * @param courriel Prend en paramètre le texte que l'utilisateur a entré qui correspond à l'email qui doit être validé.
-     * @return true - l'adresse email est valide. Sinon false
      */
     // Valider le Email qui respecte le bon format
     private static boolean emailValidation(String courriel) {
@@ -448,7 +447,6 @@ public class UniShopController implements Initializable {
 
     /**
      * @param tel Prend en paramètre le texte que l'utilisateur a entré qui correspond au matricule qui doit être validé.
-     * @return true -  l'adresse email est valide. Sinon false
      */
     // Valider le matricule que le matricule respecte le bon format
 
@@ -639,9 +637,9 @@ public class UniShopController implements Initializable {
 
 
 
-        // Update other fields as needed
-
         // Add logic to switch panes or display a success message
+
+        // logic pour valider les champs
     }
 
     private void updateUserData(Acheteur acheteur) {
@@ -690,8 +688,8 @@ public class UniShopController implements Initializable {
     @FXML
     public void handleCatalogue(ActionEvent event) {
         this.navAcheteur.getChildren().add(cataloguePane);
-        //this.navAcheteur.getChildren().remove(dashboardPane);
-        //this.navAcheteur.getChildren().remove(profilPane);
+        this.navAcheteur.getChildren().remove(dashboardPane);
+        this.navAcheteur.getChildren().remove(profilPane);
 
         showProductLists();
     }

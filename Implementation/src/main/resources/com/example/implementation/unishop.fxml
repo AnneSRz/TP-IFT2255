@@ -10,6 +10,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -203,22 +205,13 @@
                      <left>
                         <AnchorPane prefHeight="711.0" prefWidth="225.0" style="-fx-background-color: #C2D9FF;" BorderPane.alignment="CENTER">
                            <children>
-                              <FontAwesomeIconView glyphName="USER_CIRCLE" layoutX="81.0" layoutY="72.0" size="70" wrappingWidth="70.368332862854" />
-                              <Label fx:id="acheteurName" layoutX="1.0" layoutY="124.0" prefHeight="23.0" prefWidth="225.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="#190482">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="20.0" />
-                                 </font></Label>
+                              <FontAwesomeIconView glyphName="USER_CIRCLE" layoutX="68.0" layoutY="112.0" size="90" text="" wrappingWidth="90.83435916900635" />
                               <Line endX="128.68287658691406" layoutX="101.0" layoutY="154.0" startX="-103.0" />
                               <Button fx:id="logOut" layoutX="2.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleLogoutacheteur" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: transparent;">
                                  <graphic>
                                     <FontAwesomeIconView glyphName="SIGN_OUT" size="40" />
                                  </graphic>
                               </Button>
-                              <Label layoutX="61.0" layoutY="90.0" text="Bienvenue !">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="20.0" />
-                                 </font>
-                              </Label>
                               <VBox layoutY="166.0" prefHeight="486.0" prefWidth="232.0">
                                  <children>
                                     <Button fx:id="dashboard" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Tableau de Bord">
@@ -279,6 +272,67 @@
                            <children>
                               <StackPane prefHeight="700.0" prefWidth="916.0">
                                  <children>
+                                    <AnchorPane fx:id="cataloguePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                       <children>
+                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="688.0" prefWidth="545.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                                             <children>
+                                                <ScrollPane layoutX="8.0" layoutY="8.0" prefHeight="672.0" prefWidth="526.0" style="-fx-border-radius: 30; -fx-background-color: transparent;">
+                                                   <content>
+                                                      <GridPane fx:id="listeProduitsGrid">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </GridPane>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="572.0" layoutY="10.0" prefHeight="688.0" prefWidth="331.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                                             <children>
+                                                <Label layoutX="125.0" layoutY="5.0" text="Panier">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="30.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView fx:id="panier" layoutX="7.0" layoutY="59.0" prefHeight="352.0" prefWidth="311.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="nomPanier" prefWidth="151.20123291015625" text="Nom" />
+                                                    <TableColumn fx:id="qtPanier" prefWidth="81.50067138671875" text="Quantité" />
+                                                      <TableColumn fx:id="prixPanier" prefWidth="77.9991455078125" text="Prix ($)" />
+                                                  </columns>
+                                                </TableView>
+                                                <Label layoutX="76.0" layoutY="533.0" prefHeight="28.0" prefWidth="90.0" text="Total : ">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="180.0" layoutY="532.0" prefHeight="28.0" prefWidth="94.0" text="0.00">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="retirerPanier" layoutX="186.0" layoutY="427.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" style="-fx-background-color: #190482;" text="Retirer" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children></AnchorPane>
+                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="profilPane" prefHeight="721.0" prefWidth="916.0" style="-fx-background-color: #D2E0FB;">
                                        <children>
                                           <Label layoutX="47.0" layoutY="18.0" prefHeight="43.0" prefWidth="391.0" text="DÉTAILS DU PROFIL" textFill="WHITE">
@@ -453,70 +507,148 @@
                                           </Button>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="cataloguePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
-                                       <children>
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="688.0" prefWidth="545.0" style="-fx-background-color: white; -fx-background-radius: 25;">
-                                             <children>
-                                                <ScrollPane layoutX="8.0" layoutY="8.0" prefHeight="672.0" prefWidth="526.0" style="-fx-border-radius: 30; -fx-background-color: transparent;">
-                                                   <content>
-                                                      <GridPane fx:id="listeProduitsGrid">
-                                                        <columnConstraints>
-                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                        </columnConstraints>
-                                                        <rowConstraints>
-                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        </rowConstraints>
-                                                         <padding>
-                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                                         </padding>
-                                                      </GridPane>
-                                                   </content>
-                                                </ScrollPane>
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane layoutX="572.0" layoutY="10.0" prefHeight="688.0" prefWidth="331.0" style="-fx-background-color: white; -fx-background-radius: 25;">
-                                             <children>
-                                                <Label layoutX="125.0" layoutY="5.0" text="Panier">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="30.0" />
-                                                   </font>
-                                                </Label>
-                                                <TableView fx:id="panier" layoutX="7.0" layoutY="59.0" prefHeight="352.0" prefWidth="311.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="nomPanier" prefWidth="151.20123291015625" text="Nom" />
-                                                    <TableColumn fx:id="qtPanier" prefWidth="81.50067138671875" text="Quantité" />
-                                                      <TableColumn fx:id="prixPanier" prefWidth="77.9991455078125" text="Prix ($)" />
-                                                  </columns>
-                                                </TableView>
-                                                <Label layoutX="76.0" layoutY="533.0" prefHeight="28.0" prefWidth="90.0" text="Total : ">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="180.0" layoutY="532.0" prefHeight="28.0" prefWidth="94.0" text="0.00">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Button>
-                                                <Button fx:id="retirerPanier" layoutX="186.0" layoutY="427.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" style="-fx-background-color: #190482;" text="Retirer" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
-                                       </children></AnchorPane>
-                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" />
-                                    <AnchorPane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" />
-                                    <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane fx:id="mainProfilPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D2E0FB;" />
                                     <AnchorPane fx:id="dashboardPane" prefHeight="699.0" prefWidth="914.0" style="-fx-background-color: #D2E0FB;">
                                        <children>
-                                          <HBox layoutX="25.0" layoutY="19.0" prefHeight="211.0" prefWidth="840.0" />
+                                          <HBox alignment="CENTER" layoutX="30.0" layoutY="13.0" prefHeight="91.0" prefWidth="864.0" style="-fx-background-color: white;">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="194.0" prefWidth="481.0">
+                                                   <children>
+                                                      <Label text="Bienvenue !">
+                                                         <font>
+                                                            <Font name="Microsoft Sans Serif" size="35.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="acheteurName" prefHeight="23.0" prefWidth="225.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="#190482">
+                                                         <font>
+                                                            <Font name="Microsoft Sans Serif" size="29.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="194.0" prefWidth="363.0">
+                                                   <children>
+                                                      <ImageView fitHeight="194.0" fitWidth="452.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children></HBox>
+                                          <Label layoutX="30.0" layoutY="224.0" text="Articles populaires">
+                                             <font>
+                                                <Font name="Microsoft Sans Serif" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox layoutX="30.0" layoutY="263.0" prefHeight="174.0" prefWidth="863.0">
+                                             <children>
+                                                <VBox prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="121.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="434.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children></HBox>
+                                          <Label layoutX="30.0" layoutY="455.0" text="Revendeurs en vedettes">
+                                             <font>
+                                                <Font name="Microsoft Sans Serif" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox layoutX="30.0" layoutY="500.0" prefHeight="174.0" prefWidth="863.0">
+                                             <children>
+                                                <VBox layoutX="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="121.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="434.0" layoutY="10.0" prefHeight="174.0" prefWidth="200.0">
+                                                   <padding>
+                                                      <Insets right="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ImageView fitHeight="174.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/images.jpeg" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
                                        </children></AnchorPane>
                                  </children>
                               </StackPane>
