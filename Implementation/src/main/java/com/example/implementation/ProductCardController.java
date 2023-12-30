@@ -42,7 +42,7 @@ public class ProductCardController implements Initializable {
         //Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()));
         //cardImage.setImage(image);
         try {
-            Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()));
+            Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()), 230,102,false,true);
             cardImage.setImage(image);
         } catch (Exception e) {
             e.printStackTrace();
