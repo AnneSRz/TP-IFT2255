@@ -198,7 +198,8 @@
     "mdp": "gadget123",
     "telephone": 4165558765,
     "adresse": "303 Birch Street, Ottawa, ON K1K 1K1",
-    "userType": "Revendeur"
+    "userType": "Revendeur",
+    "note" : "5"
   },
   {
     "id" : 11,
@@ -209,7 +210,8 @@
     "mdp" : "wholesale123",
     "telephone" : 6135557654,
     "adresse" : "404 Elm Avenue, Winnipeg, MB R2R 2R2",
-    "userType" : "Revendeur"
+    "userType" : "Revendeur",
+    "note" : "3"
   },
   {
     "id" : 12,
@@ -220,7 +222,8 @@
     "mdp" : "empire456",
     "telephone" : 2045556543,
     "adresse" : "505 Pine Lane, Halifax, NS B3B 3B3",
-    "userType" : "Revendeur"
+    "userType" : "Revendeur",
+    "note" : "4"
   },
   {
     "id" : 13,
@@ -231,7 +234,8 @@
     "mdp" : "sports567",
     "telephone" : 9025555432,
     "adresse" : "606 Cedar Road, Saskatoon, SK S4S 4S4",
-    "userType" : "Revendeur"
+    "userType" : "Revendeur",
+    "note" : "4"
   },
   {
     "id" : 14,
@@ -242,5 +246,6 @@
     "mdp" : "luxury789",
     "telephone" : 3065554321,
     "adresse" : "707 Oak Lane, Regina, SK S7S 7S7",
-    "userType" : "Revendeur"
+    "userType" : "Revendeur",
+    "note" : "2"
   }, { } ]

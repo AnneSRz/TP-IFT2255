@@ -14,9 +14,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.Window;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -72,7 +74,7 @@ public class UniShopController implements Initializable {
     @FXML
     private Label acheteurName, userEdit;
     @FXML
-    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs;
+    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like;
     @FXML
     private TextField prenomEdit, nomEdit, emailEdit, telEdit, adresseEdit;
     @FXML
@@ -81,6 +83,8 @@ public class UniShopController implements Initializable {
     private TableColumn nomPanier, qtPanier, prixPanier;
     @FXML
     private GridPane listeProduitsGrid;
+    @FXML
+    ScrollPane listeProduitsScroll;
 
     // De la page du Menu revendeur
     @FXML
@@ -96,7 +100,7 @@ public class UniShopController implements Initializable {
 
     //private ObservableList<ProduitEnVente> carteProduit = FXCollections.observableArrayList();
     //private List<ProduitEnVente> produits = new ArrayList<>();
-    private List<ProduitEnVente> carteProduit = new ArrayList<>();
+    private ObservableList<ProduitEnVente> carteProduits = FXCollections.observableArrayList();
 
 
 
@@ -108,6 +112,8 @@ public class UniShopController implements Initializable {
 
         ObservableList<String> userTypes = FXCollections.observableArrayList("Acheteur", "Revendeur");
         choixMenuInscription.setItems(userTypes);
+
+        showProductLists();
 
     }
 
@@ -695,7 +701,7 @@ public class UniShopController implements Initializable {
     }
 
 
-    public List<ProduitEnVente> menuData() {
+    public ObservableList<ProduitEnVente> menuData() {
         JSONParser parser = new JSONParser();
 
         try {
@@ -705,7 +711,7 @@ public class UniShopController implements Initializable {
             // Convertir l'objet en tableau JSON
             JSONArray produits = (JSONArray) obj;
 
-            List<ProduitEnVente> products = new ArrayList<>();
+            ObservableList<ProduitEnVente> products = FXCollections.observableArrayList();
             ProduitEnVente product;
 
             // Parcourir la liste des utilisateurs
@@ -745,18 +751,19 @@ public class UniShopController implements Initializable {
         }
     }
     public void showProductLists(){
-        carteProduit.addAll(menuData());
+        carteProduits.clear();
+        carteProduits.addAll(menuData());
 
         int rangee = 0;
         int colonne = 0;
 
         try {
-            for (int i = 0; i < carteProduit.size(); i++) {
+            for (int i = 0; i < carteProduits.size(); i++) {
                 FXMLLoader load = new FXMLLoader(getClass().getResource("carteProduit.fxml"));
                 AnchorPane pane = load.load();
 
                 ProductCardController cardController = load.getController();
-                cardController.setData(carteProduit.get(i));
+                cardController.setData(carteProduits.get(i));
 
                 if (colonne == 3) {
                     colonne = 0;
@@ -765,16 +772,26 @@ public class UniShopController implements Initializable {
 
                 System.out.println("colonne: " + colonne + ", rangee: " + rangee);
 
-                this.listeProduitsGrid.add(pane, colonne++, rangee);
 
-                
-                pane.setPadding(new Insets(1));
-                GridPane.setMargin(pane, new Insets(1));
+                pane.setPadding(new Insets(10));
+
+                this.listeProduitsGrid.add(pane, colonne++, rangee);
+                //set grid width
+                listeProduitsGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                listeProduitsGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                listeProduitsGrid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                listeProduitsGrid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                listeProduitsGrid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                listeProduitsGrid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(pane, new Insets(10));
 
             }
             // Check if the list is not empty before accessing its elements
-            if (!carteProduit.isEmpty()) {
-                System.out.println("Image path du produit : " + carteProduit.get(0).getImagePath());
+            if (!carteProduits.isEmpty()) {
+                System.out.println("Image path du produit : " + carteProduits.get(0).getImagePath());
             }else
                 System.out.println ("NOT WORKEY ");
 
@@ -792,7 +809,12 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 2 : Gérer ses suiveurs
 
     //Fonctionnalité 3 : Suivre un utilisateur
+
     //Fonctionnalité 4 : Liker un produit
+    //@FXML
+    //public void likeButton(ActionEvent event) {
+
+   // }
     //Fonctionnalité 5 : Placer une commande
     //Fonctionnalité 6 : Payer pour une commande
     //Fonctionnalité 7 : Gérer ses commandes
