@@ -34,7 +34,7 @@ public class ProduitEnVente {
      * @param noteMoyenne La moyenne des notes qui ont été donné par les clients sur le produit.
      * @param imagePath Une image du produit en vente
      * @param videoPath Une video du produit en evente
-     * @param id Une identifiant unique permettant d'identifier le produit
+     * @param id Un identifiant unique permettant d'identifier le produit
      */
     /**public ProduitEnVente(Revendeur vendeur, String titre, String description, int pointsParDollar, int quantite, double prix,
                           float noteMoyenne, String imagePath, String videoPath, String id,Catalogue cat) {

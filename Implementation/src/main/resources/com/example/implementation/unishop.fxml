@@ -28,7 +28,7 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: 0000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UniShopController">
    <children>
-      <StackPane layoutY="-1.0" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #ffffff;">
+      <StackPane layoutY="-1.0" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0">
          <children>
             <AnchorPane fx:id="menuRevendeur" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
             <AnchorPane fx:id="acceuilInscription" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
@@ -470,7 +470,7 @@
                                                    <children>
                                                       <ImageView fitHeight="194.0" fitWidth="452.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@images/single-one-line-drawing-young-woman-shopping-online-via-giant-computer-screen-with-shopping-cart-inside-digital-lifestyle-consumerism-concept-continuous-line-draw-design-graphic-illustration-png.png" />
+                                                            <Image url="@images/homescreen.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
