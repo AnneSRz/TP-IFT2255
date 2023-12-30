@@ -130,5 +130,10 @@ public class Commande {
         this.billet = signalement;
     }
 
+    public Map<ProduitEnVente, Integer>  getProduits(){
+        return this.produits;
+    }
+
+
 }
 

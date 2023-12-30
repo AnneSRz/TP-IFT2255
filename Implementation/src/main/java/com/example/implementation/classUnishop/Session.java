@@ -45,6 +45,8 @@ public class Session {
         this.utilisateurConnecte = null;
     }
 
+    
+
 
     /**
      * Vérifie si la session est expirée en comparant la date de début de la session avec la date et l'heure actuelles.
