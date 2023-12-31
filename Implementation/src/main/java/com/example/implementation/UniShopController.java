@@ -94,8 +94,13 @@ public class UniShopController implements Initializable {
     private TableColumn<Panier, Double> prixPanier;
     @FXML
     private Label totalPanier;
-
     private ObservableList<Panier> produitsPanier = FXCollections.observableArrayList();
+    @FXML
+    private TableView<ProduitEnVente> listeDeSouhait;
+    @FXML
+    private TableColumn<ProduitEnVente, String> wishName;
+    @FXML
+    private TableColumn<ProduitEnVente, Integer> wishDescription;
 
     // De la page du Menu revendeur
     @FXML
@@ -131,6 +136,10 @@ public class UniShopController implements Initializable {
         this.nomPanier.setCellValueFactory(new PropertyValueFactory<>("nomPanier"));
         this.qtPanier.setCellValueFactory(new PropertyValueFactory<>("qtPanier"));
         this.prixPanier.setCellValueFactory(new PropertyValueFactory<>("prixPanier"));
+
+        this.listeDeSouhait.setItems(FXCollections.observableArrayList());
+        this.wishName.setCellValueFactory(new PropertyValueFactory<>("wishName"));
+        this.wishDescription.setCellValueFactory(new PropertyValueFactory<>("wishDescription"));
     }
 
     @FXML
@@ -178,7 +187,7 @@ public class UniShopController implements Initializable {
     }
 
     @FXML
-    public void handleLogin(ActionEvent event) throws IOException {
+    public void handleLogin(ActionEvent event) throws Exception {
 
         // Step 1 : Obtenir les données associéas à la connection de l'utilisateur que ce dernier à entré
         this.pseudo = connectionUtilisateur.getText();
@@ -248,7 +257,8 @@ public class UniShopController implements Initializable {
                          this.pane.getChildren().add(menuAcheteur);
                          this.navAcheteur.getChildren().add(dashboardPane);
                          this.acheteurName.setText(username);
-                         // his.dashboard.setStyle("-fx-background-color: #190482; -fx-text-fill: white");
+
+                         this.acheteur.chargerListeSouhaits(utilisateur);
 
                          return true;
 
@@ -843,8 +853,51 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
-    public void likerProduit(){
+    @FXML
+    public void handleWishlist(ActionEvent event) {
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(true);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
 
+        afficherListeDeSouhaits();
+    }
+    public void addWishList(ProduitEnVente produit) {
+        acheteur.getWishlist().getSouhaits().add(produit);
+        majJson(acheteur);
+        afficherListeDeSouhaits();
+    }
+
+    public void majJson(Acheteur acheteur){
+
+    }
+
+    public void afficherListeDeSouhaits() {
+        Acheteur acheteur = this.acheteur;
+        System.out.println("Wishlist data in afficherListeDeSouhaits: " + acheteur.getWishlist().getSouhaits());
+
+        ObservableList<ProduitEnVente> wishlist = FXCollections.observableArrayList(acheteur.getWishlist().getSouhaits());
+        this.listeDeSouhait.setItems(wishlist);
+    }
+
+    @FXML
+    private void retirerDeLaListe(ActionEvent event) {
+        ProduitEnVente itemARetirer = listeDeSouhait.getSelectionModel().getSelectedItem();
+
+        if (itemARetirer != null) {
+            // Use the Acheteur method to remove the item
+            acheteur.retirerDeLaListeDeSouhait(itemARetirer);
+
+            // Refresh the TableView
+            afficherListeDeSouhaits();
+
+            showAlert(Alert.AlertType.CONFIRMATION, listeDeSouhait.getScene().getWindow(), "Produit retiré de la liste de souhaits avec succès.");
+        } else {
+            showAlert(Alert.AlertType.WARNING, listeDeSouhait.getScene().getWindow(), "Veuillez sélectionner un article à retirer.");
+        }
     }
 
     //Fonctionnalité 5 : Placer une commande
@@ -899,6 +952,11 @@ public class UniShopController implements Initializable {
             showAlert(Alert.AlertType.WARNING, panier.getScene().getWindow(), "Veuillez sélectionner un article à retirer.");
         }
 
+    }
+    @FXML
+    public void passerCommande(ActionEvent event) {
+        showAlert(Alert.AlertType.CONFIRMATION, panier.getScene().getWindow(), "Votre commande à été passer avec succès");
+        panier.getItems().clear();
     }
 
 

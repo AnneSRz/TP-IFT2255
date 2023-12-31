@@ -77,7 +77,7 @@ public class ProduitEnVente {
         return description;
     }
 
-    /**Cette fonction d'ajouter l'avis que l'utilisateur à laissé par rapport à sa satisfaction du produit qu'il a
+    /**Cette fonction d'ajouter l'avis que l'utilisateur à laisser par rapport à sa satisfaction du produit qu'il a
      * acheté sur la pgae du produit.
      *
      * @param evaluation Une note et un commentaire laissé par le client qui a acheté le produit
