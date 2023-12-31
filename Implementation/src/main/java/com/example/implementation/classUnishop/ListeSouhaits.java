@@ -5,11 +5,15 @@ import java.util.List;
 
 public class ListeSouhaits {
     private final Acheteur acheteur;
-    private final List<Panier> souhaits;
+    private final List<ProduitEnVente> souhaits;
 
     public ListeSouhaits(Acheteur acheteur) {
         this.acheteur = acheteur;
         this.souhaits = new ArrayList<>();
+    }
+
+    public List<ProduitEnVente> getSouhaits() {
+        return this.souhaits;
     }
 }
 

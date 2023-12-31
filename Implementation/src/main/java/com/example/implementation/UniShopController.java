@@ -94,8 +94,15 @@ public class UniShopController implements Initializable {
     private TableColumn<Panier, Double> prixPanier;
     @FXML
     private Label totalPanier;
+    @FXML
+    TableView<ProduitEnVente> listeDeSouhait;
+    @FXML
+    private TableColumn<ProduitEnVente, String> wishName;
+    @FXML
+    private TableColumn<ProduitEnVente, String> wishDescription;
 
     private ObservableList<Panier> produitsPanier = FXCollections.observableArrayList();
+    private ObservableList<ProduitEnVente> souhaits = FXCollections.observableArrayList();
 
     // De la page du Menu revendeur
     @FXML
@@ -107,7 +114,7 @@ public class UniShopController implements Initializable {
     private Coordonnees coordonnees;
     private Catalogue catalogue;
     private List<Revendeur> revendeurInscrits = new ArrayList<>();
-    private List<Acheteur> acheteurInscrits = new ArrayList<>();
+    private ObservableList<Acheteur> acheteurInscrits = FXCollections.observableArrayList();
 
     //private ObservableList<ProduitEnVente> carteProduit = FXCollections.observableArrayList();
     //private List<ProduitEnVente> produits = new ArrayList<>();
@@ -131,6 +138,12 @@ public class UniShopController implements Initializable {
         this.nomPanier.setCellValueFactory(new PropertyValueFactory<>("nomPanier"));
         this.qtPanier.setCellValueFactory(new PropertyValueFactory<>("qtPanier"));
         this.prixPanier.setCellValueFactory(new PropertyValueFactory<>("prixPanier"));
+
+
+        listeDeSouhait.setItems((FXCollections.observableArrayList()));
+        this.wishName.setCellValueFactory(new PropertyValueFactory<>("wishName"));
+        this.wishDescription.setCellValueFactory(new PropertyValueFactory<>("wishDescription"));
+
     }
 
     @FXML
@@ -178,7 +191,7 @@ public class UniShopController implements Initializable {
     }
 
     @FXML
-    public void handleLogin(ActionEvent event) throws IOException {
+    public void handleLogin(ActionEvent event) throws Exception {
 
         // Step 1 : Obtenir les données associéas à la connection de l'utilisateur que ce dernier à entré
         this.pseudo = connectionUtilisateur.getText();
@@ -249,6 +262,9 @@ public class UniShopController implements Initializable {
                          this.navAcheteur.getChildren().add(dashboardPane);
                          this.acheteurName.setText(username);
                          // his.dashboard.setStyle("-fx-background-color: #190482; -fx-text-fill: white");
+
+                         acheteur.chargerListeSouhaits(utilisateur);
+
 
                          return true;
 
@@ -488,7 +504,7 @@ public class UniShopController implements Initializable {
         return tel.matches("^[0-9]{10}$");
     }
 
-    public List<Acheteur> listeAcheteurs() {
+    public ObservableList<Acheteur> listeAcheteurs() {
 
         JSONParser parser = new JSONParser();
 
@@ -520,6 +536,7 @@ public class UniShopController implements Initializable {
 
                     this.acheteurInscrits.add(buyer);
                     //System.out.println(products);
+
                 }
                 //System.out.println(products.get(1).getTitre());
                 return this.acheteurInscrits;
@@ -834,8 +851,6 @@ public class UniShopController implements Initializable {
         }
     }
 
-
-
     // ... other methods ...
 
     //Fonctionnalité 2 : Gérer ses suiveurs
@@ -843,9 +858,58 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
-    public void likerProduit(){
 
+    @FXML
+    public void handleWishlist(ActionEvent event) {
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(true);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
+
+        afficherListeDeSouhaits();
     }
+
+    public void addWishList(ProduitEnVente produit) {
+        acheteur.getWishlist().getSouhaits().add(produit);
+        majJson(acheteur);
+        afficherListeDeSouhaits();
+    }
+
+    private void majJson(Acheteur acheteur) {
+        // Mise à jour du fichier JSON avec la liste de souhaits de l'acheteur
+        // ...
+    }
+
+    public void afficherListeDeSouhaits() {
+        Acheteur acheteur = this.acheteur;
+        System.out.println("Wishlist data in afficherListeDeSouhaits: " + acheteur.getWishlist().getSouhaits());
+
+        ObservableList<ProduitEnVente> wishlist = FXCollections.observableArrayList(acheteur.getWishlist().getSouhaits());
+        listeDeSouhait.setItems(wishlist);
+    }
+
+
+    @FXML
+    private void retirerDeLaListe(ActionEvent event) {
+        ProduitEnVente itemARetirer = listeDeSouhait.getSelectionModel().getSelectedItem();
+
+        if (itemARetirer != null) {
+            // Use the Acheteur method to remove the item
+            acheteur.retirerDeLaListeDeSouhait(itemARetirer);
+
+            // Refresh the TableView
+            afficherListeDeSouhaits();
+
+            showAlert(Alert.AlertType.CONFIRMATION, listeDeSouhait.getScene().getWindow(), "Produit retiré de la liste de souhaits avec succès.");
+        } else {
+            showAlert(Alert.AlertType.WARNING, listeDeSouhait.getScene().getWindow(), "Veuillez sélectionner un article à retirer.");
+        }
+    }
+
+
 
     //Fonctionnalité 5 : Placer une commande
     //Fonctionnalité 6 : Payer pour une commande
@@ -900,17 +964,23 @@ public class UniShopController implements Initializable {
 
     }
 
-
-
-
+    @FXML
+    public void passerCommande(ActionEvent event) {
+        showAlert(Alert.AlertType.CONFIRMATION, panier.getScene().getWindow(), "Votre commande à été passer avec succès");
+        panier.getItems().clear();
+    }
 
     //Fonctionnalité 7 : Gérer ses commandes
     //Fonctionnalité 8 : Confirmer la réception d'une commande
     //Fonctionnalité 9 : Signaler un problème à une de ses commandes
     //Fonctionnalité 10 : Retourner ou échanger les produits d'une de ses commandes
+
+
     //Fonctionnalité 11 : Liker un revendeur
     //Fonctionnalité 12: Voir ses points du programme de fidélité
     //Fonctionnalité 13 : Donner une note et écrire une évaluation à un produit
+
+
     //Fonctionnalité 14 : Voir ses métriques
     //Fonctionnalité 15 : Voir ses notifications
 

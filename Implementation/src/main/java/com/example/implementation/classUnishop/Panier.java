@@ -19,7 +19,6 @@ public class Panier {
         this.quantity = quantity;
     }
 
-    //public Panier(Acheteur acheteur){this.user = acheteur;}
 
     public ProduitEnVente getProduct() {
         return product;

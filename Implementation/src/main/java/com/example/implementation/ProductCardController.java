@@ -38,7 +38,8 @@ public class ProductCardController implements Initializable {
     private SpinnerValueFactory<Integer> spinQuantity;
     private Integer quantite;
     private String prodId;
-    private Alert alert;
+    @FXML
+    private Button like;
 
     private UniShopController uniShopController;
 
@@ -104,6 +105,10 @@ public class ProductCardController implements Initializable {
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setQuantity();
+            like.setOnAction(event -> {
+                // Ajouter le produit à la liste des souhaits
+                uniShopController.addWishList(produitEnVente);
+            });
     }
 }
 

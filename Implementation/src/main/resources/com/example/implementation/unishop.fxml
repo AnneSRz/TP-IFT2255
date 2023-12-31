@@ -237,7 +237,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="wishlist" mnemonicParsing="false" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Ma Liste">
+                                    <Button fx:id="wishlist" mnemonicParsing="false" onAction="#handleWishlist" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Ma Liste">
                                        <graphic>
                                           <FontAwesomeIconView glyphName="LIST" />
                                        </graphic>
@@ -905,7 +905,7 @@
                                                       <Font name="Microsoft Sans Serif" size="25.0" />
                                                    </font>
                                                 </Label>
-                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
+                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" onAction="#passerCommande" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
                                                    <font>
                                                       <Font name="Microsoft Sans Serif" size="25.0" />
                                                    </font>
@@ -925,14 +925,13 @@
                                                 <Font name="Microsoft Sans Serif" size="30.0" />
                                              </font>
                                           </Label>
-                                          <TableView fx:id="listeDeShouhait" layoutX="25.0" layoutY="111.0" prefHeight="509.0" prefWidth="864.0">
+                                          <TableView fx:id="listeDeSouhait" layoutX="25.0" layoutY="111.0" prefHeight="509.0" prefWidth="864.0">
                                             <columns>
-                                              <TableColumn fx:id="wishItem" prefWidth="251.66668701171875" text="Item" />
-                                              <TableColumn fx:id="wishName" minWidth="0.0" prefWidth="302.66668701171875" text="Nom" />
-                                                <TableColumn fx:id="wishDescription" prefWidth="308.0" text="Description" />
+                                              <TableColumn fx:id="wishName" minWidth="0.0" prefWidth="323.0" text="Nom" />
+                                               <TableColumn fx:id="wishDescription" prefWidth="288.0" text="Description" />
                                             </columns>
                                           </TableView>
-                                          <Button fx:id="wishRetirer" layoutX="703.0" layoutY="637.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="166.0" text="Retirer">
+                                          <Button fx:id="wishRetirer" layoutX="703.0" layoutY="637.0" mnemonicParsing="false" onAction="#retirerDeLaListe" prefHeight="57.0" prefWidth="166.0" text="Retirer">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>

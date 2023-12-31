@@ -11,7 +11,7 @@
     "paiement" : {"cc" : "1234567891011121", "exp" : "0130", "conf" : "013"},
     "userType" : "Acheteur",
     "orders" : [ {"orderId" : 10001}, {"orderId" : 10002} ],
-    "souhaits" : [ {"wishId" : 2}, {"orderId" : 5}, {"orderId" : 8} ]
+    "souhaits" : [ {"wishId": "2"}, {"wishId": "5"}, {"wishId": "8"} ]
   },
   {
     "id" : 1,
@@ -35,7 +35,7 @@
     }, {
       "orderId" : 10005
     } ],
-    "souhaits" : [ {"wishId" : 9}, {"orderId" : 14}, {"orderId" : 15} ]
+    "souhaits" : [ {"wishId" : "9"}, {"orderId" : "14"}, {"orderId" : "15"} ]
   },
   {
     "id" : 2,

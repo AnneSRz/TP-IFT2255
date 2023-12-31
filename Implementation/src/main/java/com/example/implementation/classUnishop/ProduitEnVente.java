@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProduitEnVente {
-
     private int pointsParDollar;
-
     public Map<String,String> attributs = new HashMap<String,String>();
     ArrayList<Utilisateur> popularite = new ArrayList<Utilisateur>();
     ArrayList<Evaluation> listeEvaluations = new ArrayList<Evaluation>();
@@ -21,7 +19,6 @@ public class ProduitEnVente {
     private Float noteMoyenne;
     private Revendeur vendeur;
     private Catalogue cat;
-
 
     /**Le constructeur de la classe ProduitEnVente
      *
@@ -72,6 +69,14 @@ public class ProduitEnVente {
             this.noteMoyenne = noteMoyenne;
     }
 
+    public String getWishName() {
+        return titre;
+    }
+
+    public String getWishDescription() {
+        return description;
+    }
+
     /**Cette fonction d'ajouter l'avis que l'utilisateur à laissé par rapport à sa satisfaction du produit qu'il a
      * acheté sur la pgae du produit.
      *
@@ -80,7 +85,7 @@ public class ProduitEnVente {
     public void ajouterEvaluation(Evaluation evaluation){this.listeEvaluations.add(evaluation);}
 
 
-    /** Cette fonction d'ajouter la mention j'aime que l'utilisateur à laissé sur la pgae du produit.
+    /** Cette fonction d'ajouter la mention j'aime que l'utilisateur a laissé sur la pgae du produit.
      * @param user Utilisateur/Client qui aime le produit
      */
     public void like(Utilisateur user){

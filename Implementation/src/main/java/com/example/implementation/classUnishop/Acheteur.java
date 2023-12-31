@@ -1,6 +1,15 @@
 package com.example.implementation.classUnishop;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Acheteur extends Utilisateur {
 
@@ -10,6 +19,7 @@ public class Acheteur extends Utilisateur {
     ArrayList<ProduitEnVente> likes = new ArrayList<ProduitEnVente>();
     Panier panier;
     ListeSouhaits whishlist;
+    Catalogue catalogue;
 
     /**
      * @param username Le nom d'utilisateur de l'acheteur pour la connection.
@@ -21,9 +31,94 @@ public class Acheteur extends Utilisateur {
         super(username, password);
         this.infosAchat = infos;
         //panier = new Panier(this);
-        whishlist = new ListeSouhaits(this);
+        this.whishlist = new ListeSouhaits(this);
         this.categorieUtilisateur = "acheteur";
     }
+
+
+    public void chargerListeSouhaits(JSONObject acheteurJSON) {
+        JSONArray souhaitsJSON = (JSONArray) acheteurJSON.get("souhaits");
+
+        for (Object wish : souhaitsJSON) {
+            JSONObject wishJSON = (JSONObject) wish;
+            Object wishIdObj = wishJSON.get("wishId");
+
+            if (wishIdObj != null) {
+                String wishId = wishIdObj.toString();
+
+                ProduitEnVente produit = chargerProduit(wishId);
+
+                // Ajoutez le produit à la liste de souhaits
+                whishlist.getSouhaits().add(produit);
+            } else {
+                System.out.println("Skipping a JSON object with null 'wishId'");
+            }
+        }
+    }
+
+    private ProduitEnVente chargerProduit(String productId) {
+// Charger le fichier JSON des produits
+        JSONParser parser = new JSONParser();
+        try {
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/produits.json"));
+
+            JSONArray produits = (JSONArray) obj;
+
+            // Parcourir la liste des produits
+            for (Object produitObj : produits) {
+                JSONObject produitJSON = (JSONObject) produitObj;
+                String produitId = (String) produitJSON.get("id");
+
+                if (produitId.equals(productId)) {
+                    Revendeur revendeur = null;
+                    Object revendeurJSON = produitJSON.get("revendeur");
+
+                    if (revendeurJSON != null && revendeurJSON instanceof JSONObject) {
+                        JSONObject revendeurObj = (JSONObject) revendeurJSON;
+
+                        revendeur = new Revendeur(
+                                (String) revendeurObj.get("pseudo"),
+                                (String) revendeurObj.get("mdp"),
+                                (String) revendeurObj.get("courriel"),
+                                String.valueOf(revendeurObj.get("telephone")),
+                                (String) revendeurObj.get("adresse")
+                        );
+                    }
+
+                    // Récupérer les informations des produits
+                    String storedTId = (String) produitJSON.get("id");
+                    String storedTitle = (String) produitJSON.get("titre");
+                    String storedDescriptions = (String) produitJSON.get("description");
+                    int storedPoints = Integer.parseInt((String) produitJSON.get("pointsParDollar"));
+                    int storedQuantite = Integer.parseInt((String) produitJSON.get("quantite"));
+                    double storedPrix = Double.parseDouble((String) produitJSON.get("prix"));
+                    float storedNote = Float.parseFloat((String) produitJSON.get("noteMoyenne"));
+                    String storedImage = (String) produitJSON.get("imagePath");
+                    String storedVideo = (String) produitJSON.get("videoPath");
+
+                    return new ProduitEnVente(
+                            revendeur,
+                            storedTitle, storedDescriptions, storedPoints,
+                            storedQuantite, storedPrix, storedNote, storedImage, storedVideo,
+                            storedTId, this.catalogue);
+                }
+            }
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+            // Gérer les exceptions selon vos besoins
+        }
+        return null;
+    }
+
+    public ListeSouhaits getWishlist() {
+        return this.whishlist;
+    }
+    public void retirerDeLaListeDeSouhait(ProduitEnVente produit) {
+        this.whishlist.getSouhaits().remove(produit);
+    }
+
+
 
     /**
      * Ajoute un ami à la liste de l'acheteur, s'il n'est pas déjà présent dans arraylist amis
