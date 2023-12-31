@@ -271,7 +271,6 @@
                            <children>
                               <StackPane prefHeight="700.0" prefWidth="916.0">
                                  <children>
-                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="profilPane" prefHeight="721.0" prefWidth="916.0" style="-fx-background-color: #D2E0FB;">
@@ -918,6 +917,26 @@
                                                 </Button>
                                              </children>
                                           </AnchorPane>
+                                       </children></AnchorPane>
+                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                       <children>
+                                          <Label layoutX="318.0" layoutY="40.0" prefHeight="36.0" prefWidth="295.0" text="LISTE DE SOUHAITS">
+                                             <font>
+                                                <Font name="Microsoft Sans Serif" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="listeDeShouhait" layoutX="25.0" layoutY="111.0" prefHeight="509.0" prefWidth="864.0">
+                                            <columns>
+                                              <TableColumn fx:id="wishItem" prefWidth="251.66668701171875" text="Item" />
+                                              <TableColumn fx:id="wishName" minWidth="0.0" prefWidth="302.66668701171875" text="Nom" />
+                                                <TableColumn fx:id="wishDescription" prefWidth="308.0" text="Description" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="wishRetirer" layoutX="703.0" layoutY="637.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="166.0" text="Retirer">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
                                        </children></AnchorPane>
                                  </children>
                               </StackPane>

@@ -834,6 +834,9 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
+    public void likerProduit(){
+
+    }
 
     //Fonctionnalité 5 : Placer une commande
     //Fonctionnalité 6 : Payer pour une commande
