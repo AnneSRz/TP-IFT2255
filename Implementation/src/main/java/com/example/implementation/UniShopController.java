@@ -109,6 +109,11 @@ public class UniShopController implements Initializable {
     private List<Revendeur> revendeurInscrits = new ArrayList<>();
     private List<Acheteur> acheteurInscrits = new ArrayList<>();
 
+    
+    /** 
+     * @param url
+     * @param resourceBundle
+     */
     //private ObservableList<ProduitEnVente> carteProduit = FXCollections.observableArrayList();
     //private List<ProduitEnVente> produits = new ArrayList<>();
 
@@ -172,11 +177,23 @@ public class UniShopController implements Initializable {
         acheteurMsgs.setOnMouseExited(e -> acheteurMsgs.setStyle("-fx-background-color:   transparent;"));
     }
 
+    
+    /** 
+     * @param event  bouton ayant été triggered
+     * fx publique servant à afficher le menu de connexion
+     */
     @FXML
     public void handleSignIn(ActionEvent event) {
         pane.getChildren().add(acceuilInscription);
     }
 
+    
+    /** 
+     * @param event   même event (bouton)
+     * @throws IOException   si erreur dans le format d'entrée des champs d'authentification
+     * 
+     * prend les champs en entrée et les envoie à authentificationUser
+     */
     @FXML
     public void handleLogin(ActionEvent event) throws IOException {
 
@@ -293,6 +310,13 @@ public class UniShopController implements Initializable {
          return true;
      }
 
+    
+    /** 
+     * @param event
+     * 
+     * Vérifie si les champs sont valides, sinon on affiche alerte
+     * Sinon on appelle inscriptionProcess avec les champs
+     */
     @FXML
     public void handleInscription(ActionEvent event) {
         // Step 1 : Obtenir les données associéas à la connection de l'utilisateur que ce dernier à entré
@@ -359,17 +383,28 @@ public class UniShopController implements Initializable {
     }
 
 
+    
+    /** 
+     * 
+     * paramètres issus des champs récoltés par handleInscription
+     * @param pseudo
+     * @param prenom
+     * @param nom
+     * @param email
+     * @param StringmotDePasse
+     * @param userType
+     * 
+     * fx privée stockant dans un json local les données d'inscription pré formattées
+     * si success retourne true
+     * @return boolean
+     */
     @FXML
     private boolean inscriptionProcess(String pseudo, String prenom, String nom, String email, String
-            motDePasse, String userType) throws Exception {
+            motDePasse, String userType) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         File jsonFile = new File("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json");
 
-
-        if(pseudo==null || prenom ==null || nom==null || email==null || motDePasse==null ||userType==null){
-            throw new Exception("null in inscriptionProcess");
-        }
 
         try {
             // Step 1: Lire le contenu du fichier JSON
@@ -443,6 +478,15 @@ public class UniShopController implements Initializable {
         return true;
     }
 
+    
+    /** 
+     * Show alerte affiche une fenêtre à l'utilisateur sur le GUI
+     * Utilisé lors de certaines erreurs
+     * On définit le contenu de la fenêtre avec les paramètres:
+     * @param error 
+     * @param window 
+     * @param Message
+     */
     private void showAlert(Alert.AlertType error, Window window, String Message) {
         Alert messageAlert = new Alert(error);
         String messageErreur = "Message";
@@ -452,6 +496,11 @@ public class UniShopController implements Initializable {
         messageAlert.show();
     }
 
+    
+    /** FX triggered par un bouton
+     * Ferme la fenêtre d'inscription et ouvre celle de l'accueil
+     * @param event
+     */
     @FXML
     public void handleRetour(ActionEvent event) {
         //Retourne à la page de connection
@@ -471,6 +520,11 @@ public class UniShopController implements Initializable {
         return courriel.matches("^[\\w!#$%&'*+/=?`{|}~^.-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^.-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$");
     }
 
+    
+    /** Regex servant à vérifier la validité d'un mot de passe à l'inscription
+     * @param mdp
+     * @return boolean
+     */
     //(?=.*[0-9])   Au moins 1 nombre, (?=.*[a-z])  au moins une lettre minuscule
     //(?=\S+$)  pas d'espace
     //.{8,} au moins 8 caractères
@@ -482,12 +536,14 @@ public class UniShopController implements Initializable {
      * @param tel Prend en paramètre le texte que l'utilisateur a entré qui correspond au matricule qui doit être validé.
      */
     // Valider le matricule que le matricule respecte le bon format
-
-
     private static boolean telValidation(String tel) {
         return tel.matches("^[0-9]{10}$");
     }
 
+    
+    /** Fetches tous les acheteurs de la database dans une liste d'objets Acheteurs
+     * @return List<Acheteur>
+     */
     public List<Acheteur> listeAcheteurs() {
 
         JSONParser parser = new JSONParser();
@@ -535,6 +591,10 @@ public class UniShopController implements Initializable {
         return null;
     }
 
+    
+    /** Fetches tous les revendeurs de la database json en une liste d'objets Revendeurs
+     * @return List<Revendeur>
+     */
     public List<Revendeur> listeRevendeurs() {
 
         JSONParser parser = new JSONParser();
@@ -583,6 +643,9 @@ public class UniShopController implements Initializable {
         return null;
     }
 
+
+/** clears all fields
+ */
     private void resetUnishop() {
         // Réinitialiser les champs de connexion
         connectionUtilisateur.clear();
@@ -598,6 +661,10 @@ public class UniShopController implements Initializable {
     }
 
 
+
+/** 
+ * @param event event bouton ; affiche les différentes fenêtres du dashboard quand triggered
+ */
 ///////////////////////////////////////////////////Partie Acheteur//////////////////////////////////////////////////////
 
     //Etape #1 : button management
@@ -613,6 +680,10 @@ public class UniShopController implements Initializable {
 
     }
 
+    
+    /** 
+     * @param event event bouton : affiche tous les champs servant à modifier le profil lorsque triggered
+     */
     //////Fonctionnalité 1 : Modifier son profil////
     @FXML
     public void handleProfil(ActionEvent event) {
@@ -647,6 +718,13 @@ public class UniShopController implements Initializable {
 
     }
 
+
+
+    
+    /** Met à jour l'objet coordonées
+     * 
+     * @param event
+     */
     @FXML
     public void saveProfilEdit(ActionEvent event) {
 
@@ -681,6 +759,10 @@ public class UniShopController implements Initializable {
         // logic pour valider les champs
     }
 
+    
+    /** Mise à jour du JSON avec les données de l'objet Acheteur
+     * @param acheteur
+     */
     private void updateUserData(Acheteur acheteur) {
         JSONParser parser = new JSONParser();
 
@@ -724,6 +806,12 @@ public class UniShopController implements Initializable {
         }
     }
 
+
+
+    
+    /** Masque les panes 
+     * @param event
+     */
     @FXML
     public void handleCatalogue(ActionEvent event) {
         dashboardPane.setVisible(false);
@@ -739,6 +827,10 @@ public class UniShopController implements Initializable {
     }
 
 
+    
+    /** 
+     * @return ObservableList<ProduitEnVente>
+     */
     public ObservableList<ProduitEnVente> menuData() {
         JSONParser parser = new JSONParser();
 
@@ -788,6 +880,9 @@ public class UniShopController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Loads every pane for every object 
+     */
     public void showProductLists(){
         carteProduits.clear();
         carteProduits.addAll(menuData());
@@ -836,6 +931,11 @@ public class UniShopController implements Initializable {
 
 
 
+    
+    /** Ajouter un article au panier via les panes
+     * @param produit objet panier
+     * @param quantity int qty
+     */
     // ... other methods ...
 
     //Fonctionnalité 2 : Gérer ses suiveurs
@@ -843,9 +943,6 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
-    public void likerProduit(){
-
-    }
 
     //Fonctionnalité 5 : Placer une commande
     //Fonctionnalité 6 : Payer pour une commande
@@ -869,6 +966,9 @@ public class UniShopController implements Initializable {
         updateTotal();
     }
 
+    /**
+     *  Calculer le prix des items dans le panier
+     */
     public void updateTotal() {
         // Calculate the total price of items in the cart
         double total = this.produitsPanier.stream()
@@ -882,6 +982,10 @@ public class UniShopController implements Initializable {
         panier.setItems(FXCollections.observableArrayList(this.produitsPanier));
     }
 
+    
+    /** Retier un item du panier suite à un trigger
+     * @param event Button trigger
+     */
     public void retirerDuPanier(ActionEvent event) {
         Panier itemARetirer = panier.getSelectionModel().getSelectedItem();
 
@@ -904,6 +1008,11 @@ public class UniShopController implements Initializable {
 
 
 
+    
+    /**  fires after button trigger
+     * "logs off" the user / removes the pane from view
+     * @param event 
+     */
     //Fonctionnalité 7 : Gérer ses commandes
     //Fonctionnalité 8 : Confirmer la réception d'une commande
     //Fonctionnalité 9 : Signaler un problème à une de ses commandes
@@ -914,6 +1023,11 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 14 : Voir ses métriques
     //Fonctionnalité 15 : Voir ses notifications
 
+
+    /** Hides panes from view
+     * Fired when logout button clicked
+     * @param event 
+     */
     @FXML
     private void handleLogoutacheteur(ActionEvent event) {
         if (acheteur != null) {

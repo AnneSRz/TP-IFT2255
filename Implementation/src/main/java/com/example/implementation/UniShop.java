@@ -10,6 +10,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class UniShop extends Application {
+    
+    /** Builds the backbone of the javaFX scene/app
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UniShop.class.getResource("unishop.fxml"));
