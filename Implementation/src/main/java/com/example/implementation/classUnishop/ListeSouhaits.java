@@ -1,12 +1,15 @@
 package com.example.implementation.classUnishop;
 
-public class ListeSouhaits extends Panier {
+import java.util.ArrayList;
+import java.util.List;
 
-    /** Constructeur de la classe Listesouhaits
-     *
-     * @param acheteur La liste de souhait d'un utilisateur
-     */
-    ListeSouhaits(Acheteur acheteur){
-        super(acheteur);
+public class ListeSouhaits {
+    private final Acheteur acheteur;
+    private final List<Panier> souhaits;
+
+    public ListeSouhaits(Acheteur acheteur) {
+        this.acheteur = acheteur;
+        this.souhaits = new ArrayList<>();
     }
 }
+

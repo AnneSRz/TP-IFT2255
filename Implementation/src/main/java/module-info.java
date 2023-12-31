@@ -6,5 +6,6 @@ module com.example.implementation {
 
 
     opens com.example.implementation to javafx.fxml;
+    opens com.example.implementation.classUnishop to javafx.base;
     exports com.example.implementation;
 }

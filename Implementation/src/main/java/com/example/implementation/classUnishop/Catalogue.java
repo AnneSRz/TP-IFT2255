@@ -27,7 +27,7 @@ public abstract class Catalogue {
 
     /**
      * Modifie la valeur associée à un attribut spécifié du catalogue.
-     * @param nomAttribut nom de l'attribut dont on veut modifié la valeur
+     * @param nomAttribut nom de l'attribut dont on veut modifier la valeur
      * @param valeur La nouvelle valeur à associé à l'attribut.
      */
     public void set(String nomAttribut, String valeur){

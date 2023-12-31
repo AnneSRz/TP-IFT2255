@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -29,6 +30,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -70,21 +72,32 @@ public class UniShopController implements Initializable {
 
     // De la page du menuAcheteur
     @FXML
-    private AnchorPane menuAcheteur, navAcheteur,dashboardPane, profilPane,cataloguePane, wishlistPane, orderPane, messagePane;
+    private AnchorPane menuAcheteur, navAcheteur,dashboardPane, profilPane,cataloguePane, mainProfilPane, wishlistPane, orderPane, messagePane;
     @FXML
     private Label acheteurName, userEdit;
     @FXML
-    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like;
+    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like, retirerPanier;
     @FXML
     private TextField prenomEdit, nomEdit, emailEdit, telEdit, adresseEdit;
     @FXML
     private PasswordField mdpEdit, paiementEdit, ccEdit, expEdit;
     @FXML
-    private TableColumn nomPanier, qtPanier, prixPanier;
-    @FXML
     private GridPane listeProduitsGrid;
     @FXML
     ScrollPane listeProduitsScroll;
+    private ObservableList<ProduitEnVente> carteProduits = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Panier> panier;
+    @FXML
+    private TableColumn<Panier, String> nomPanier;
+    @FXML
+    private TableColumn<Panier, Integer> qtPanier;
+    @FXML
+    private TableColumn<Panier, Double> prixPanier;
+    @FXML
+    private Label totalPanier;
+
+    private ObservableList<Panier> produitsPanier = FXCollections.observableArrayList();
 
     // De la page du Menu revendeur
     @FXML
@@ -100,7 +113,6 @@ public class UniShopController implements Initializable {
 
     //private ObservableList<ProduitEnVente> carteProduit = FXCollections.observableArrayList();
     //private List<ProduitEnVente> produits = new ArrayList<>();
-    private ObservableList<ProduitEnVente> carteProduits = FXCollections.observableArrayList();
 
 
 
@@ -115,6 +127,12 @@ public class UniShopController implements Initializable {
 
         showProductLists();
 
+
+        // Initialise la TableView et ses colonnes
+        this.panier.setItems(FXCollections.observableArrayList());
+        this.nomPanier.setCellValueFactory(new PropertyValueFactory<>("nomPanier"));
+        this.qtPanier.setCellValueFactory(new PropertyValueFactory<>("qtPanier"));
+        this.prixPanier.setCellValueFactory(new PropertyValueFactory<>("prixPanier"));
     }
 
     @FXML
@@ -573,12 +591,16 @@ public class UniShopController implements Initializable {
 
 ///////////////////////////////////////////////////Partie Acheteur//////////////////////////////////////////////////////
 
-    //Etape #1 : Afficher le menu de l'acheteur
+    //Etape #1 : button management
     @FXML
     public void handleDashboard(ActionEvent event) {
-        this.navAcheteur.getChildren().add(dashboardPane);
-        this.navAcheteur.getChildren().remove(profilPane);
-        this.navAcheteur.getChildren().remove(cataloguePane);
+        dashboardPane.setVisible(true);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(false);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
 
     }
 
@@ -606,10 +628,13 @@ public class UniShopController implements Initializable {
             ccEdit.setText(conf);
             expEdit.setText(exp);
         }
-        this.navAcheteur.getChildren().add(profilPane);
-        this.navAcheteur.getChildren().remove(dashboardPane);
-        this.navAcheteur.getChildren().remove(cataloguePane);
-
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(true);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(false);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
 
     }
 
@@ -632,7 +657,6 @@ public class UniShopController implements Initializable {
         System.out.println(" ");
         System.out.println("Informations M.A.J de l'acheteur : " + acheteur);
         System.out.println("Coordonnes M.A.J : " + acheteur.getCoordonnees());
-
 
 
         // Update "paiement" field in Coordonnees
@@ -693,9 +717,14 @@ public class UniShopController implements Initializable {
 
     @FXML
     public void handleCatalogue(ActionEvent event) {
-        this.navAcheteur.getChildren().add(cataloguePane);
-        this.navAcheteur.getChildren().remove(dashboardPane);
-        this.navAcheteur.getChildren().remove(profilPane);
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(true);
+        wishlistPane.setVisible(false);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
+
 
         showProductLists();
     }
@@ -763,6 +792,9 @@ public class UniShopController implements Initializable {
                 AnchorPane pane = load.load();
 
                 ProductCardController cardController = load.getController();
+
+                cardController.setController(this);
+
                 cardController.setData(carteProduits.get(i));
 
                 if (colonne == 3) {
@@ -776,15 +808,6 @@ public class UniShopController implements Initializable {
                 pane.setPadding(new Insets(10));
 
                 this.listeProduitsGrid.add(pane, colonne++, rangee);
-                //set grid width
-                listeProduitsGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                listeProduitsGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                listeProduitsGrid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                listeProduitsGrid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                listeProduitsGrid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                listeProduitsGrid.setMaxHeight(Region.USE_PREF_SIZE);
 
                 GridPane.setMargin(pane, new Insets(10));
 
@@ -811,12 +834,64 @@ public class UniShopController implements Initializable {
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
-    //@FXML
-    //public void likeButton(ActionEvent event) {
 
-   // }
     //Fonctionnalité 5 : Placer une commande
     //Fonctionnalité 6 : Payer pour une commande
+    public void ajouterAuPanier(ProduitEnVente produit, int quantity) {
+        // Check if the product is already in the cart
+        Optional<Panier> existingItem = produitsPanier.stream()
+                .filter(item -> item.getProduct().equals(produit))
+                .findFirst();
+
+        if (existingItem.isPresent()) {
+            Panier item= existingItem.get();
+            item.setQuantity(item.getQuantity() + quantity);
+        } else {
+            Panier newItem = new Panier(produit, quantity);
+            this.produitsPanier.add(newItem);
+        }
+
+        // Cart View
+        panier.setItems(this.produitsPanier);
+
+        updateTotal();
+    }
+
+    public void updateTotal() {
+        // Calculate the total price of items in the cart
+        double total = this.produitsPanier.stream()
+                .mapToDouble(item -> item.getProduct().getPrix() * item.getQuantity())
+                .sum();
+
+        // Update the totalPanier label
+        totalPanier.setText(String.format("%.2f", total));
+
+        // Mise à jour de la TableView
+        panier.setItems(FXCollections.observableArrayList(this.produitsPanier));
+    }
+
+    public void retirerDuPanier(ActionEvent event) {
+        Panier itemARetirer = panier.getSelectionModel().getSelectedItem();
+
+        if (itemARetirer != null) {
+            // Retirer l'article sélectionné du panier
+            produitsPanier.remove(itemARetirer);
+
+            // Mettre à jour la TableView
+            panier.setItems(FXCollections.observableArrayList(produitsPanier));
+
+            // Mettre à jour le total
+            updateTotal();
+        } else {
+            showAlert(Alert.AlertType.WARNING, panier.getScene().getWindow(), "Veuillez sélectionner un article à retirer.");
+        }
+
+    }
+
+
+
+
+
     //Fonctionnalité 7 : Gérer ses commandes
     //Fonctionnalité 8 : Confirmer la réception d'une commande
     //Fonctionnalité 9 : Signaler un problème à une de ses commandes
