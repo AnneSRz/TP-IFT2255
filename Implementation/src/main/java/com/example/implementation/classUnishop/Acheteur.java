@@ -3,26 +3,26 @@ package com.example.implementation.classUnishop;
 import java.util.ArrayList;
 
 public class Acheteur extends Utilisateur {
+
     Coordonnees infosAchat;
-    ArrayList<Acheteur> amis=new ArrayList<Acheteur>();
-    ArrayList<Revendeur> vendeursSuivis=new ArrayList<Revendeur>();
-    ArrayList<ProduitEnVente> likes=new ArrayList<ProduitEnVente>();
+    ArrayList<Acheteur> amis = new ArrayList<Acheteur>();
+    ArrayList<Revendeur> vendeursSuivis = new ArrayList<Revendeur>();
+    ArrayList<ProduitEnVente> likes = new ArrayList<ProduitEnVente>();
     Panier panier;
     ListeSouhaits whishlist;
 
     /**
-     *
      * @param username Le nom d'utilisateur de l'acheteur pour la connection.
      * @param password Le mot de passe de l'acheteur pour la connection.
-     * @param infos Les oordonnées associées aux informations de l'acheteur qui servira à l'achat.
+     * @param infos    Les oordonnées associées aux informations de l'acheteur qui servira à l'achat.
      */
 
-    public Acheteur(String username, String password, Coordonnees infos){
+    public Acheteur(String username, String password, Coordonnees infos) {
         super(username, password);
-        this.infosAchat=infos;
+        this.infosAchat = infos;
         //panier = new Panier(this);
         whishlist = new ListeSouhaits(this);
-        this.categorieUtilisateur="acheteur";
+        this.categorieUtilisateur = "acheteur";
     }
 
     /**
@@ -31,7 +31,10 @@ public class Acheteur extends Utilisateur {
      * @param ami L'acheteur a ajouté en tant qu'ami.
      */
     public void ajouterAmi(Acheteur ami) {
-        if (ami==null){return;};
+        if (ami == null) {
+            return;
+        }
+        ;
         if (this.likes.indexOf(ami) == -1) {
             this.amis.add(ami);
         }
@@ -44,11 +47,14 @@ public class Acheteur extends Utilisateur {
      * @param ami L'acheteur a retiré un ami.
      */
     public void retirerAmi(Acheteur ami) {
-        if (ami==null){return;};
+        if (ami == null) {
+            return;
+        }
+        ;
         this.amis.remove(ami);
     }
 
-    public  ArrayList<Acheteur> getAmis(){
+    public ArrayList<Acheteur> getAmis() {
         return this.amis;
     }
 
@@ -58,9 +64,9 @@ public class Acheteur extends Utilisateur {
      *
      * @param vendeur Le revendeur à ajouter à la liste de revendeurs suivis par l'acheteur
      */
-    public void ajouterRevendeur(Revendeur vendeur){
-        if(this.vendeursSuivis.indexOf(vendeur)==-1){
-                this.vendeursSuivis.add(vendeur);
+    public void ajouterRevendeur(Revendeur vendeur) {
+        if (this.vendeursSuivis.indexOf(vendeur) == -1) {
+            this.vendeursSuivis.add(vendeur);
         }
     }
 
@@ -79,7 +85,7 @@ public class Acheteur extends Utilisateur {
      *
      * @return Les coordonnées de l'acheteur.
      */
-    public Coordonnees getCoordonnees(){
+    public Coordonnees getCoordonnees() {
         return this.infosAchat;
     }
 
@@ -88,7 +94,7 @@ public class Acheteur extends Utilisateur {
      *
      * @return Le panier de l'acheteur
      */
-    public Panier getPanier(){
+    public Panier getPanier() {
         return this.panier;
     }
 
