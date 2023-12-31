@@ -10,14 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,7 +44,7 @@ public class ProductCardController implements Initializable {
     }
 
     
-    /** On créer un pane à partir des infos de l'objet ProduitEnVente
+    /** On crée un pane à partir des infos de l'objet ProduitEnVente
      * @param produitEnVente
      * @throws Exception
      */
@@ -83,9 +75,10 @@ public class ProductCardController implements Initializable {
         this.panierSpinner.setValueFactory(this.spinQuantity);
     }
 
-/**methode ajoutant la quantité indiquée dans le champ
- * au panier du unishopcontroller
- */
+    /**
+     * methode ajoutant la quantité indiquée dans le champ
+     * au panier du unishopcontroller
+     */
     public void ajoutPanier() {
 
         this.quantite = this.panierSpinner.getValue();
@@ -104,7 +97,8 @@ public class ProductCardController implements Initializable {
     }
 
     
-    /** Message d'alerte custom pour les erreurs concernant le produit en vente
+    /**
+     * Message d'alerte custom pour les erreurs concernant le produit en vente
      * affiche un pane sur le window 
      * @param error
      * @param window
