@@ -35,13 +35,19 @@ public class ProductCardController implements Initializable {
 
 
 
-    public void setData(ProduitEnVente produitEnVente) {
+    public void setData(ProduitEnVente produitEnVente) throws Exception {
+        if(produitEnVente==null){
+            throw new Exception("null in setData");
+        }
+
         this.produitEnVente = produitEnVente;
         nomProduit.setText(produitEnVente.getTitre());
         prixProduit.setText(produitEnVente.getPrix().toString());
         //Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()));
         //cardImage.setImage(image);
         try {
+
+            
             Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()), 230,102,false,true);
             cardImage.setImage(image);
         } catch (Exception e) {

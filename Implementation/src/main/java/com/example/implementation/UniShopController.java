@@ -2,8 +2,6 @@ package com.example.implementation;
 
 import com.example.implementation.classUnishop.*;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -198,7 +196,7 @@ public class UniShopController implements Initializable {
      */
 
      @FXML
-     private boolean authentificationUser(String username, String password) {
+     private boolean authentificationUser(String username, String password) throws Exception {
          JSONParser parser = new JSONParser();
 
          try {
@@ -332,17 +330,28 @@ public class UniShopController implements Initializable {
             showAlert(Alert.AlertType.ERROR, pane.getScene().getWindow(),
                     "Veuillez vérifier vos informations");
         } else {
-            inscriptionProcess(pseudo, prenom, nom, email, motDePasse, userType);
+            try{
+            inscriptionProcess(pseudo, prenom, nom, email, motDePasse, userType);}
+            catch(Exception e){
+                    showAlert(Alert.AlertType.ERROR, pane.getScene().getWindow(),
+                    "Erreur inattendue dans Inscription Process");
+                    return;
+            }
         }
     }
 
 
     @FXML
     private boolean inscriptionProcess(String pseudo, String prenom, String nom, String email, String
-            motDePasse, String userType) {
+            motDePasse, String userType) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         File jsonFile = new File("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json");
+
+
+        if(pseudo==null || prenom ==null || nom==null || email==null || motDePasse==null ||userType==null){
+            throw new Exception("null in inscriptionProcess");
+        }
 
         try {
             // Step 1: Lire le contenu du fichier JSON
