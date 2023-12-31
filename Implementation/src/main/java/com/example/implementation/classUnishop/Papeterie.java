@@ -10,7 +10,7 @@ public class Papeterie extends Catalogue {
      * @param modele
      * @param sousCategorie
      */
-    Papeterie(String marque, String modele, String sousCategorie) {
+    public Papeterie(String marque, String modele, String sousCategorie) {
         super();
         this.attributs.put("marque", marque);
         this.attributs.put("modele", modele);

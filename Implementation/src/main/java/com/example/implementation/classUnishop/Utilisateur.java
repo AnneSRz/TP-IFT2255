@@ -81,10 +81,12 @@ public abstract class Utilisateur {
      * Utiliser pour vérifier le compte
      *
      */
-    public void verify(){
+    public Boolean verify(){
         if(!(this.isVerifyExpired())) {
             this.verified = true;
+            return true;
         }
+        else{return false;}
     }
 
     /**

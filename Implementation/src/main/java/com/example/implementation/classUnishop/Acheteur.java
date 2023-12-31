@@ -31,6 +31,7 @@ public class Acheteur extends Utilisateur {
      * @param ami L'acheteur a ajouté en tant qu'ami.
      */
     public void ajouterAmi(Acheteur ami) {
+        if (ami==null){return;};
         if (this.likes.indexOf(ami) == -1) {
             this.amis.add(ami);
         }
@@ -43,10 +44,13 @@ public class Acheteur extends Utilisateur {
      * @param ami L'acheteur a retiré un ami.
      */
     public void retirerAmi(Acheteur ami) {
+        if (ami==null){return;};
         this.amis.remove(ami);
     }
 
-
+    public  ArrayList<Acheteur> getAmis(){
+        return this.amis;
+    }
 
     /**
      * Ajoute un revendeur à la liste de revendeurs suivis par l'acheteur, s'il n'est pas déjà dans arraylist
