@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Panier {
-
+    private final ProduitEnVente product;
+    private int quantity;
 
     Map<ProduitEnVente, Integer> contenu=new HashMap<ProduitEnVente, Integer>();
     Acheteur user;
@@ -12,8 +13,36 @@ public class Panier {
     /**  Constructeur de la classe Panier
      *   Le panier est vide, mais il appartient à un utilisateur
      */
-    Panier(Acheteur acheteur){
-        this.user = acheteur;
+
+    public Panier(ProduitEnVente product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    //public Panier(Acheteur acheteur){this.user = acheteur;}
+
+    public ProduitEnVente getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getNomPanier() {
+        return product.getTitre();
+    }
+
+    public int getQtPanier() {
+        return quantity;
+    }
+
+    public double getPrixPanier() {
+        return product.getPrix() * quantity;
     }
 
     /**

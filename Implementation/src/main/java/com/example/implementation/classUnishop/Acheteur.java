@@ -20,7 +20,7 @@ public class Acheteur extends Utilisateur {
     public Acheteur(String username, String password, Coordonnees infos){
         super(username, password);
         this.infosAchat=infos;
-        panier = new Panier(this);
+        //panier = new Panier(this);
         whishlist = new ListeSouhaits(this);
         this.categorieUtilisateur="acheteur";
     }
