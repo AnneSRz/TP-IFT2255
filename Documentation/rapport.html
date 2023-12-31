@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+            
+    <title>Rapport</title>
+
+    <style>
+      ol {list-style:none;}
+
+      .container {
+        display: flex;
+        flex-wrap: nowrap; 
+        overflow: auto;
+      }
+      .items {
+        flex: 0 0 auto;
+        border: 3px solid #304674;
+        background-color: #b2cbde;
+        width: 900px;
+        height: 800px;
+        padding: 15px 40px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+      }
+
+      div.items p:first-child {
+      text-align: center;
+      font-size:25px
+      }
+
+     
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding-bottom: 15px;
+      }
+
+
+
+    </style>
+
+  </head>
+
+  <body style="background-color: #304674">
+    <h1 style="text-align: center; padding: 50px; background-color: aliceblue ">Incrément 3: Implémentation + Tests</h1>
+    <hr><br>
+
+    <div style=" width:90%; text-align: justify; margin:0 auto; background-color: aliceblue; padding:50px;">
+      <h1 style="text-align: center;">Nom de l'équipe:</h2>
+      <h2 style="text-align: center;">Amongus</h2>
+        
+      <h3 style="text-align: center;">Informations sur les auteurs</h3>
+      <p style="text-align: center;"><Strong> Chiril Reabitchi</Strong> , 20248989 , chiril.reabitchi@umontreal.ca , 20h <br>
+                                  <strong>Émanuel Rollin</strong> , 20106951, emanuel.rollin@umontreal.ca, 100h <br>
+                                  <strong>Anne Sophie Rozéfort</strong> , 20189221 , anne.sophie.rozefort@umontreal.ca , 100h <br>
+      </p>
+    </div>
+    <br><hr><br>
+
+    <div style=" width:90%; text-align: center; margin:0 auto; background-color: aliceblue; padding:50px;">
+      <h1 style="text-align: center;">Distribution des tâches</h2>
+      <div style="display: inline-block;">
+        <p style="text-align: center;">
+   
+          <ul style="text-align: left;">
+            <!-- 1 --> 
+            <li><h4>Tâche 1 : Implémentation en Java</h4> </li>
+              <ul>
+                <li>Rédigé par Anne Sophie et Émanuel, assisté par Chiril </li>
+                <li><strong>Configuration Maven</strong> rédigé par Anne Sophie</li>
+                <li><strong>Bonus: Interface graphique</strong> rédigé par Anne Sophie, assisté par Emmanuel</li>
+              </ul>
+              <br><br>
+
+              <!-- 2 --> 
+              <li><h4>Tâche 2 : Tests unitaires avec JUnit</h4> </li>
+                <ul> 
+                  <li><strong>Rédigé par Anne Sophie</strong></li>
+                </ul>  
+                <br><br>
+
+              <!-- 3 --> 
+              <li><h4>Tâche 3 : Livraison et documentation</h4></li>
+                <ul>
+                  <li><strong>JavaDoc</strong> par Emmanuel et Anne Sophie, assisté par Chiril</li>
+                  <li><strong>README</strong> par Emmanuel et Chiril</li>
+                </ul>  
+                <br><br>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <br><hr><br>
+
+    <div style=" width:90%; text-align: justify; margin:0 auto; background-color: aliceblue; padding:50px;">
+      <h1 style="text-align: center;">Liens</h1>
+      <p style="text-align: center;">
+        <a href="https://github.com/AnneSRz/TP-IFT2255">Lien vers le GitHub</a>
+        <a href="https://github.com/AnneSRz/TP-IFT2255/blob/main/README.md">Lien vers le README</a>
+        <a href="">Lien vers le JavaDoc</a>
+        <a href="">Lien vers le diagramme de classe révisé</a>
+        <a href="">Lien vers les insights</a>
+      </p>
+    </div>
+    <br><hr><br>
+
+    <div class="items" style="background-color: aliceblue; width: 90%; margin:0 auto; height:1000px" >
+      <h1 style="text-align: center;">Les captures d'écrans</h1>
+      <a><h4 style="text-align: center;">Les tests passent</h4><img src="capture1.png" style="height:500px; width: 100%; padding: 10px;"></a>
+      <a><h4 style="text-align: center;">Les insights</h4><img src="capture2.png" style="height:500px; width: 100%; padding: 10px;"></a>
+    </div>
+  </body>
+</html>
