@@ -43,10 +43,19 @@ public class ProductCardController implements Initializable {
 
     private UniShopController uniShopController;
 
+    
+    /** Le controlleur gère les events sur l'application
+     * @param uniShopController
+     */
     public void setController(UniShopController uniShopController) {
         this.uniShopController = uniShopController;
     }
 
+    
+    /** On créer un pane à partir des infos de l'objet ProduitEnVente
+     * @param produitEnVente
+     * @throws Exception
+     */
     public void setData(ProduitEnVente produitEnVente) throws Exception {
         if(produitEnVente==null){
             throw new Exception("null in setData");
@@ -74,7 +83,9 @@ public class ProductCardController implements Initializable {
         this.panierSpinner.setValueFactory(this.spinQuantity);
     }
 
-
+/**methode ajoutant la quantité indiquée dans le champ
+ * au panier du unishopcontroller
+ */
     public void ajoutPanier() {
 
         this.quantite = this.panierSpinner.getValue();
@@ -92,6 +103,13 @@ public class ProductCardController implements Initializable {
         }
     }
 
+    
+    /** Message d'alerte custom pour les erreurs concernant le produit en vente
+     * affiche un pane sur le window 
+     * @param error
+     * @param window
+     * @param Message
+     */
     private void showAlert(Alert.AlertType error, Window window, String Message) {
         Alert messageAlert = new Alert(error);
         String messageErreur = "Message";
@@ -102,6 +120,11 @@ public class ProductCardController implements Initializable {
     }
 
 
+        
+        /** something something comment javadoc yes
+         * @param url
+         * @param resourceBundle
+         */
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setQuantity();
