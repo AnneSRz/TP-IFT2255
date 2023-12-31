@@ -46,7 +46,11 @@ public class ProductCardController implements Initializable {
         this.uniShopController = uniShopController;
     }
 
-    public void setData(ProduitEnVente produitEnVente) {
+    public void setData(ProduitEnVente produitEnVente) throws Exception {
+        if(produitEnVente==null){
+            throw new Exception("null in setData");
+        }
+
         this.produitEnVente = produitEnVente;
 
         this.prodId = produitEnVente.getId();
@@ -54,6 +58,8 @@ public class ProductCardController implements Initializable {
         this.nomProduit.setText(produitEnVente.getTitre());
         this.prixProduit.setText(produitEnVente.getPrix().toString());
         try {
+
+            
             Image image = new Image(getClass().getResourceAsStream(produitEnVente.getImagePath()), 230,102,false,true);
             this.cardImage.setImage(image);
         } catch (Exception e) {
