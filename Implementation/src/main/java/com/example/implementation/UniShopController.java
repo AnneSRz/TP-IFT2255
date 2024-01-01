@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,7 +76,7 @@ public class UniShopController implements Initializable {
     @FXML
     private Label acheteurName, userEdit;
     @FXML
-    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like, retirerPanier;
+    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like, retirerPanier, deleteFollower;
     @FXML
     private TextField prenomEdit, nomEdit, emailEdit, telEdit, adresseEdit;
     @FXML
@@ -101,10 +103,24 @@ public class UniShopController implements Initializable {
     private TableColumn<ProduitEnVente, String> wishName;
     @FXML
     private TableColumn<ProduitEnVente, Integer> wishDescription;
+    @FXML
+    private TableView<String> suiveursTab;
+    @FXML
+    private TableColumn<String, String> typeCol;
+    @FXML
+    private TableColumn<String, String> pseudoCol;
+    @FXML
+    private TableColumn<String, String> prenomCol;
+    @FXML
+    private Button convo1, convo2, convo3;
+    @FXML
+    private ScrollPane convoPane;
+    @FXML
+    private AnchorPane convo1Pane, convo2Pane, convo3Pane;
 
     // De la page du Menu revendeur
     @FXML
-    private AnchorPane menuRevendeur;
+    private AnchorPane menuRevendeur,revendeurProfil,navRevendeur;
 
     //Fonctionnalité
     private Acheteur acheteur = null;
@@ -140,6 +156,16 @@ public class UniShopController implements Initializable {
         this.listeDeSouhait.setItems(FXCollections.observableArrayList());
         this.wishName.setCellValueFactory(new PropertyValueFactory<>("wishName"));
         this.wishDescription.setCellValueFactory(new PropertyValueFactory<>("wishDescription"));
+
+//OwO hewwo sauce!!! :DDD
+
+        this.suiveursTab.setItems(FXCollections.observableArrayList());
+        this.typeCol.setCellValueFactory(new PropertyValueFactory<>("typeCol"));
+        this.pseudoCol.setCellValueFactory(new PropertyValueFactory<>("pseudoCol"));
+        this.prenomCol.setCellValueFactory(new PropertyValueFactory<>("prenomCol"));
+
+
+
     }
 
     @FXML
@@ -271,6 +297,15 @@ public class UniShopController implements Initializable {
 
                          this.acheteur.chargerListeSouhaits(utilisateur);
 
+                         List<String> test = new ArrayList<String>();
+                         try{
+                            test=(List<String>) utilisateur.get("suiveurs");
+                            this.acheteur.setSuiveurs(test);
+                         }
+                         catch(Exception e){
+                             //ignore otherwise
+                         }
+
                          return true;
 
                      } else if ("Revendeur".equals(userType)) {
@@ -279,7 +314,7 @@ public class UniShopController implements Initializable {
                          String adresse = (String) utilisateur.get("adresse");
                          this.pane.getChildren().remove(acceuilConnection);
                          this.pane.getChildren().add(menuRevendeur);
-
+                         this.navRevendeur.getChildren().add(revendeurProfil);
 
                          //Stockez les informations de connexion dans la session
                          this.revendeur = new Revendeur(username, password, courriel, telephone, adresse);
@@ -674,7 +709,7 @@ public class UniShopController implements Initializable {
 
     }
 
-    //////Fonctionnalité 1 : Modifier son profil////
+    //Fonctionnalités : Modifier son profil, Fonctionnalité 14 : Voir ses métriques, Fonctionnalité 12: Voir ses points du programme de fidélité
 
     /**
      * @param event event bouton : affiche tous les champs servant à modifier le profil lorsque triggered
@@ -692,16 +727,124 @@ public class UniShopController implements Initializable {
             telEdit.setPromptText(this.coordonnees.getTelephone());
             adresseEdit.setPromptText(this.coordonnees.getAdresse());
 
-            // Extraire les informations de paiement
-            String cc = this.coordonnees.getPaiement().get("cc").toString();
-            String conf = this.coordonnees.getPaiement().get("conf").toString();
-            String exp = this.coordonnees.getPaiement().get("exp").toString();
+                // Extraire les informations de paiement
+                String cc = this.coordonnees.getPaiement().get("cc").toString();
+                String conf = this.coordonnees.getPaiement().get("conf").toString();
+                String exp = this.coordonnees.getPaiement().get("exp").toString();
 
-            // Assigner les informations de paiement aux champs correspondants
-            paiementEdit.setText(cc);
-            ccEdit.setText(conf);
-            expEdit.setText(exp);
+                // Assigner les informations de paiement aux champs correspondants
+                paiementEdit.setText(cc);
+                ccEdit.setText(conf);
+                expEdit.setText(exp);
         }
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(true);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(false);
+        orderPane.setVisible(false);
+        messagePane.setVisible(false);
+
+
+
+        this.suiveursTab.setItems(FXCollections.observableArrayList());
+        this.pseudoCol.setCellValueFactory(new PropertyValueFactory<>("pseudoCol"));
+        this.prenomCol.setCellValueFactory(new PropertyValueFactory<>("prenomCol"));
+        this.typeCol.setCellValueFactory(new PropertyValueFactory<>("typeCol"));
+
+        Acheteur acheteur = this.acheteur;
+
+        List<String> suiveurs = acheteur.getSuiveurs();
+        List<Acheteur> suiveurs2 = new ArrayList<Acheteur>();
+        for (String e : suiveurs){
+            try {
+                suiveurs2.add(this.getUser2(e));
+            }
+            catch (Exception exception22){//skip
+                 }
+        }
+
+        System.out.println("   TEST !!!!!!!!  : SUIVEURS  !!! "+suiveurs);
+        ObservableList suiveursList = FXCollections.observableArrayList(suiveurs2);
+        suiveursTab.setItems(suiveursList);
+
+    }
+
+
+
+    /**
+     * Authenticate the buyer based on the entered username and password.
+     *
+     * @param username The entered username.
+     * @return True if authentication is successful, false otherwise.
+     */
+
+    @FXML
+    private Acheteur getUser2(String username) throws Exception {
+        JSONParser parser = new JSONParser();
+
+        try {
+            // Charger le fichier JSON
+            Object obj = parser.parse(new FileReader("Implementation/src/main/resources/com/example/implementation/data/listeUtilisateurs.json"));
+
+            // Convertir l'objet en tableau JSON
+            JSONArray utilisateurs = (JSONArray) obj;
+
+            // Parcourir la liste des utilisateurs
+            for (Object utilisateurObj : utilisateurs) {
+                JSONObject utilisateur = (JSONObject) utilisateurObj;
+
+                // Récupérer les informations d'identification de l'utilisateur actuel
+                String storedUsername = (String) utilisateur.get("pseudo");
+                String storedPassword = (String) utilisateur.get("mdp");
+                String userType = (String) utilisateur.get("userType");
+
+                System.out.println(storedUsername);
+
+                if (username.equalsIgnoreCase(storedUsername)) {
+                    if ("Acheteur".equals(userType)) {
+                        // Stockez les informations de connexion dans la session
+                        Coordonnees coordonnees1 = Coordonnees.donneesJSON((JSONObject) utilisateurObj);
+                        Acheteur acheteur1 = new Acheteur(username, storedPassword, coordonnees1);
+
+                        List<String> test = new ArrayList<String>();
+                        try{
+                            test=(List<String>) utilisateur.get("suiveurs");
+                            acheteur1.setSuiveurs(test);
+                        }
+                        catch(Exception e){
+                            //ignore otherwise
+                        }
+
+
+                        return acheteur1;
+
+                    }
+                    else {throw new Exception("lmao1");}
+                }
+
+            }
+
+
+        } catch (IOException e) {
+            throw new Exception("lmao2");
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+    /**
+     * Permettre à l'utilisateur de modifier le profil en allant sur la page de ce dernier
+     *
+     * @param event
+     */
+    @FXML
+    public void modifierProfil(ActionEvent event){
         dashboardPane.setVisible(false);
         mainProfilPane.setVisible(false);
         profilPane.setVisible(true);
@@ -709,7 +852,29 @@ public class UniShopController implements Initializable {
         wishlistPane.setVisible(false);
         orderPane.setVisible(false);
         messagePane.setVisible(false);
+    }
 
+    /**
+     * Retirer un suiveur sélectionnné dans le tableau de suiveurs suite à un event bouton
+     * @param event
+     */
+
+    //Fonctionnalité 2 : Gérer ses suiveurs
+    @FXML
+    private void retirerSuiveur(ActionEvent event) {
+        String followerToRemove = suiveursTab.getSelectionModel().getSelectedItem();
+
+        if (followerToRemove != null) {
+            // Retirer le suiveur sélectionné
+            acheteur.enleverAmi(followerToRemove);
+
+            // Mettre à jour la TableView
+            suiveursTab.setItems(FXCollections.observableArrayList(acheteur.getSuiveurs()));
+            showAlert(Alert.AlertType.CONFIRMATION, suiveursTab.getScene().getWindow(), "Suiveur retiré avec succès.");
+
+        } else {
+            showAlert(Alert.AlertType.WARNING, suiveursTab.getScene().getWindow(), "Veuillez sélectionner un suiveur à retirer.");
+        }
     }
 
     /** Met à jour l'objet coordonées
@@ -917,11 +1082,6 @@ public class UniShopController implements Initializable {
     }
 
 
-
-    // ... other methods ...
-
-    //Fonctionnalité 2 : Gérer ses suiveurs
-
     //Fonctionnalité 3 : Suivre un utilisateur
 
     //Fonctionnalité 4 : Liker un produit
@@ -1045,19 +1205,57 @@ public class UniShopController implements Initializable {
 
 
 
-
-
     //Fonctionnalité 7 : Gérer ses commandes
     //Fonctionnalité 8 : Confirmer la réception d'une commande
     //Fonctionnalité 9 : Signaler un problème à une de ses commandes
     //Fonctionnalité 10 : Retourner ou échanger les produits d'une de ses commandes
     //Fonctionnalité 11 : Liker un revendeur
-    //Fonctionnalité 12: Voir ses points du programme de fidélité
+
     //Fonctionnalité 13 : Donner une note et écrire une évaluation à un produit
-    //Fonctionnalité 14 : Voir ses métriques
+
     //Fonctionnalité 15 : Voir ses notifications
 
-    /** Hides panes from view
+    /**
+     * Cache la fenêtre centrale suite au clic de l'onglet de gauche (event)
+     * @param event
+     */
+    @FXML
+    public void handleNotif(ActionEvent event) {
+        dashboardPane.setVisible(false);
+        mainProfilPane.setVisible(false);
+        profilPane.setVisible(false);
+        cataloguePane.setVisible(false);
+        wishlistPane.setVisible(false);
+        orderPane.setVisible(false);
+        messagePane.setVisible(true);
+    }
+
+    /**
+     * gibberish
+     * @param event
+     */
+    @FXML
+    public void handleFirst(ActionEvent event) {
+        convo1Pane.setVisible(true);
+        convo2Pane.setVisible(false);
+        convo3Pane.setVisible(false);
+    }
+    @FXML
+    public void handleSecond(ActionEvent event) {
+        convo1Pane.setVisible(false);
+        convo2Pane.setVisible(true);
+        convo3Pane.setVisible(false);
+    }
+    @FXML
+    public void handleThird(ActionEvent event) {
+        convo1Pane.setVisible(false);
+        convo2Pane.setVisible(false);
+        convo3Pane.setVisible(true);
+    }
+
+
+    /**
+     * Hides panes from view
      * Fired when logout button clicked
      * @param event
      */
@@ -1082,10 +1280,41 @@ public class UniShopController implements Initializable {
             pane.getChildren().remove(menuAcheteur);
             pane.getChildren().add(acceuilConnection);
         } else {
-            // L'utilisateur n'est pas connecté, A VOIIIIR
+            // L'utilisateur n'est pas connecté
         }
     }
 
 ///////////////////////////////////////////////////Partie Revendeur//////////////////////////////////////////////////////
+
+
+    /**
+     * Non implémentée
+      * @param event
+     */
+    @FXML
+    public void profilRevendeur(ActionEvent event){
+
+    }
+
+
+    /**
+     * Logout du revendeur suite à une action event issu d'un bouton
+     * @param event
+     */
+    @FXML
+    private void handleLogoutRevendeur(ActionEvent event) {
+        if (revendeur != null) {
+            // Réinitialiser l'instance de l'utilisateur connecté
+            revendeur = null;
+
+            resetUnishop();
+
+            // Retourner à la page de connexion
+            pane.getChildren().remove(menuRevendeur);
+            pane.getChildren().add(acceuilConnection);
+        } else {
+            // L'utilisateur n'est pas connecté
+        }
+    }
 
 }

@@ -1,13 +1,14 @@
 package com.example.implementation.classUnishop;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Revendeur extends Utilisateur {
 
     ArrayList<Metrique> metriques=new ArrayList<Metrique>();
     ArrayList<Utilisateur> likes=new ArrayList<Utilisateur>();
     ArrayList<ProduitEnVente> produits=new ArrayList<ProduitEnVente>();
-
+    private List<String> suiveurs = new ArrayList<>();
 
     /**Constructeur de la classe Revendeur
      *
@@ -24,6 +25,32 @@ public class Revendeur extends Utilisateur {
         this.attributs.put("adresse",adresse);
         this.categorieUtilisateur="revendeur";
     }
+
+    /**
+     *
+     * @return La liste des uiveurs d'un utilisateur
+     */
+    public List<String> getSuiveurs() {return this.suiveurs;}
+    /**
+     * Pour retrieve la liste des suiveurs
+     * @param suiveurs
+     */
+    public void setSuiveurs(List<String> suiveurs) {this.suiveurs = suiveurs;}
+
+
+    /**
+     * Ajoute un ami à la liste de l'acheteur, s'il n'est pas déjà présent dans arraylist amis
+     *
+     * @param suiveur L'acheteur a ajouté en tant qu'ami.
+     */
+    public void ajoutAmi(String suiveur) {this.suiveurs.add(suiveur);}
+
+    /**
+     * Retire un ami de la liste d'amis de l'acheteur, s'il est dans la liste.
+     *
+     * @param suiveur L'acheteur a retiré un ami.
+     */
+    public void enleverAmi(String suiveur) {this.suiveurs.remove(suiveur);}
 
 
     /** Ajoute Metrique de l'arraylist metriques du revendeur

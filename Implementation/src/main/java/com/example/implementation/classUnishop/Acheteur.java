@@ -4,8 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +18,7 @@ public class Acheteur extends Utilisateur {
     Panier panier;
     ListeSouhaits whishlist;
     Catalogue catalogue;
+    private List<String> suiveurs = new ArrayList<>();
 
     /**
      * @param username Le nom d'utilisateur de l'acheteur pour la connection.
@@ -119,6 +118,35 @@ public class Acheteur extends Utilisateur {
     }
 
 
+    /**
+     *
+     * @return La liste des uiveurs d'un utilisateur
+     */
+    public List<String> getSuiveurs() {return this.suiveurs;}
+
+    /**
+     * Pour retrieve la liste des suiveurs
+     * @param suiveurs
+     */
+    public void setSuiveurs(List<String> suiveurs) {this.suiveurs = suiveurs;}
+
+    /**
+     * Ajoute un ami à la liste de l'acheteur, s'il n'est pas déjà présent dans arraylist amis
+     *
+     * @param suiveur L'acheteur a ajouté en tant qu'ami.
+     */
+    public void ajoutAmi(String suiveur) {this.suiveurs.add(suiveur);}
+
+    /**
+     * Retire un ami de la liste d'amis de l'acheteur, s'il est dans la liste.
+     *
+     * @param suiveur L'acheteur a retiré un ami.
+     */
+    public void enleverAmi(String suiveur) {
+        this.suiveurs.remove(suiveur);
+    }
+
+
 
     /**
      * Ajoute un ami à la liste de l'acheteur, s'il n'est pas déjà présent dans arraylist amis
@@ -134,6 +162,7 @@ public class Acheteur extends Utilisateur {
             this.amis.add(ami);
         }
     }
+
 
 
     /**

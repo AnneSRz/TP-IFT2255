@@ -39,7 +39,7 @@ public class Commande {
 
     /**
      * Cette fonction change l'état actuel de la commande en fonction de divers processus.
-     * Par exemple, quand une commande arrive au main de l'acheteur,il doit confirmer sa commande en se connectant sur
+     * Par exemple, quand une commande arrive au mains de l'acheteur,il doit confirmer sa commande en se connectant sur
      * la plateforme, une fois la réception confirmée, l'état de sa commande devient « livré ».
      *
       * @param nomEtat Le processus dans lequel se trouve la commande : " En production", "En livraison", "livré".

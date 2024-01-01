@@ -26,14 +26,75 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: 0000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UniShopController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="1185.0" style="-fx-background-color: 0000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UniShopController">
    <children>
-      <StackPane layoutY="-1.0" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0">
+      <StackPane layoutY="-1.0" prefHeight="752.0" prefWidth="1185.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0">
          <children>
-            <AnchorPane fx:id="menuRevendeur" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+            <AnchorPane fx:id="acceuilConnection" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <BorderPane prefHeight="749.0" prefWidth="1150.0" style="-fx-background-color: #000000;">
+                     <left>
+                        <Pane prefHeight="749.0" prefWidth="312.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+                           <children>
+                              <FontAwesomeIconView glyphName="SHOPPING_CART" layoutX="74.0" layoutY="332.0" size="150" text="" wrappingWidth="164.33517456054688" />
+                              <Label layoutX="83.0" layoutY="381.0" prefHeight="37.0" prefWidth="147.0" text="UNISHOP !">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </left>
+                     <center>
+                        <Pane prefHeight="749.0" prefWidth="857.0" style="-fx-background-color: #8E8FFA;" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="connectionUtilisateur" layoutX="230.0" layoutY="218.0" prefHeight="55.0" prefWidth="420.0" promptText="Nom d'utilisateur" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="127.0" layoutY="489.0" prefHeight="26.0" prefWidth="187.0" text="Mot de passe oublié ?" underline="true">
+                                 <font>
+                                    <Font name="System Font" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="connectionLabel" layoutX="363.0" layoutY="141.0" prefHeight="36.0" prefWidth="153.0" text="Connection">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="connection" layoutX="582.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #190482;" text="Se connecter" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="procederInscription" layoutX="242.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="56.0" prefWidth="418.0" style="-fx-background-color: #C2D9FF; -fx-text-fill: #000000;" text="Pas de compte ? Inscription">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="30.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIconView glyphName="USER" layoutX="401.0" layoutY="120.0" size="100" wrappingWidth="75.54053592681885" />
+                              <Label fx:id="mdpInvalide" layoutX="498.0" layoutY="393.0" style="-fx-text-fill: #8E8FFA;" text="Mot de passe incorrecte" textFill="#ff1100">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="320.00006103515625" layoutX="330.0" layoutY="274.0" startX="-100.0" />
+                              <Line endX="278.00006103515625" layoutX="372.0" layoutY="375.0" startX="-142.0" />
+                              <PasswordField fx:id="connectionMotdepasse" layoutX="230.0" layoutY="320.0" prefHeight="55.0" prefWidth="420.0" promptText="Mot de Passe" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="30.0" />
+                                 </font>
+                              </PasswordField>
+                           </children>
+                        </Pane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="acceuilInscription" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <BorderPane prefHeight="750.0" prefWidth="1151.0" style="-fx-background-color: #ffffff;">
+                  <BorderPane prefHeight="752.0" prefWidth="1185.0" style="-fx-background-color: #ffffff;">
                      <left>
                         <Pane prefHeight="566.0" prefWidth="312.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                            <children>
@@ -125,71 +186,9 @@
                   </BorderPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="acceuilConnection" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #ffffff;">
-               <children>
-                  <BorderPane prefHeight="749.0" prefWidth="1150.0" style="-fx-background-color: #000000;">
-                     <left>
-                        <Pane prefHeight="749.0" prefWidth="312.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
-                           <children>
-                              <FontAwesomeIconView glyphName="SHOPPING_CART" layoutX="74.0" layoutY="332.0" size="150" text="" wrappingWidth="164.33517456054688" />
-                              <Label layoutX="83.0" layoutY="381.0" prefHeight="37.0" prefWidth="147.0" text="UNISHOP !">
-                                 <font>
-                                    <Font name="System Bold" size="30.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </left>
-                     <center>
-                        <Pane prefHeight="749.0" prefWidth="857.0" style="-fx-background-color: #8E8FFA;" BorderPane.alignment="CENTER">
-                           <children>
-                              <TextField fx:id="connectionUtilisateur" layoutX="230.0" layoutY="218.0" prefHeight="55.0" prefWidth="420.0" promptText="Nom d'utilisateur" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="30.0" />
-                                 </font>
-                              </TextField>
-                              <Label layoutX="127.0" layoutY="489.0" prefHeight="26.0" prefWidth="187.0" text="Mot de passe oublié ?" underline="true">
-                                 <font>
-                                    <Font name="System Font" size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="connectionLabel" layoutX="363.0" layoutY="141.0" prefHeight="36.0" prefWidth="153.0" text="Connection">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="connection" layoutX="582.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #190482;" text="Se connecter" textFill="WHITE">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="procederInscription" layoutX="242.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="56.0" prefWidth="418.0" style="-fx-background-color: #C2D9FF; -fx-text-fill: #000000;" text="Pas de compte ? Inscription">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="30.0" />
-                                 </font>
-                              </Button>
-                              <FontAwesomeIconView glyphName="USER" layoutX="401.0" layoutY="120.0" size="100" wrappingWidth="75.54053592681885" />
-                              <Label fx:id="mdpInvalide" layoutX="498.0" layoutY="393.0" style="-fx-text-fill: #8E8FFA;" text="Mot de passe incorrecte" textFill="#ff1100">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="320.00006103515625" layoutX="330.0" layoutY="274.0" startX="-100.0" />
-                              <Line endX="278.00006103515625" layoutX="372.0" layoutY="375.0" startX="-142.0" />
-                              <PasswordField fx:id="connectionMotdepasse" layoutX="230.0" layoutY="320.0" prefHeight="55.0" prefWidth="420.0" promptText="Mot de Passe" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
-                                 <font>
-                                    <Font name="Microsoft Sans Serif" size="30.0" />
-                                 </font>
-                              </PasswordField>
-                           </children>
-                        </Pane>
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="menuAcheteur" prefHeight="684.0" prefWidth="852.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <BorderPane layoutX="2.0" layoutY="-1.0" prefHeight="750.0" prefWidth="1150.0">
+                  <BorderPane layoutX="2.0" layoutY="-1.0" prefHeight="752.0" prefWidth="1185.0" style="-fx-background-color: #D2E0FB;">
                      <top>
                         <AnchorPane prefHeight="49.0" prefWidth="1150.0" style="-fx-background-color: #190482;" BorderPane.alignment="CENTER">
                            <children>
@@ -202,7 +201,7 @@
                         </AnchorPane>
                      </top>
                      <left>
-                        <AnchorPane prefHeight="711.0" prefWidth="225.0" style="-fx-background-color: #C2D9FF;" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="707.0" prefWidth="218.0" style="-fx-background-color: #C2D9FF;" BorderPane.alignment="CENTER">
                            <children>
                               <FontAwesomeIconView glyphName="USER_CIRCLE" layoutX="68.0" layoutY="112.0" size="90" text="" wrappingWidth="90.83435916900635" />
                               <Line endX="128.68287658691406" layoutX="101.0" layoutY="154.0" startX="-103.0" />
@@ -253,7 +252,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="acheteurMsgs" mnemonicParsing="false" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Mes Notifications">
+                                    <Button fx:id="acheteurMsgs" mnemonicParsing="false" onAction="#handleNotif" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Mes Notifications">
                                        <graphic>
                                           <FontAwesomeIconView glyphName="BELL" />
                                        </graphic>
@@ -263,6 +262,7 @@
                                     </Button>
                                  </children>
                               </VBox>
+                              <Line endX="105.0" endY="600.0000610351562" layoutX="127.0" layoutY="109.0" startX="108.99998474121094" startY="-108.99999237060547" />
                            </children>
                         </AnchorPane>
                      </left>
@@ -272,7 +272,6 @@
                               <StackPane prefHeight="700.0" prefWidth="916.0">
                                  <children>
                                     <AnchorPane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" />
-                                    <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" />
                                     <AnchorPane fx:id="profilPane" prefHeight="721.0" prefWidth="916.0" style="-fx-background-color: #D2E0FB;">
                                        <children>
                                           <Label layoutX="47.0" layoutY="18.0" prefHeight="43.0" prefWidth="391.0" text="DÉTAILS DU PROFIL" textFill="WHITE">
@@ -447,6 +446,84 @@
                                           </Button>
                                        </children>
                                     </AnchorPane>
+                                    <AnchorPane fx:id="cataloguePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                       <children>
+                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="688.0" prefWidth="545.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                                             <children>
+                                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="671.0" prefWidth="526.0">
+                                                   <children>
+                                                      <ScrollPane fx:id="listeProduitsScroll" prefHeight="669.0" prefWidth="570.0" style="-fx-border-radius: 30; -fx-background-color: transparent;">
+                                                         <content>
+                                                            <GridPane fx:id="listeProduitsGrid" prefHeight="0.0" prefWidth="0.0">
+                                                               <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                                               </rowConstraints>
+                                                               <padding>
+                                                                  <Insets left="10.0" top="10.0" />
+                                                               </padding>
+                                                            </GridPane>
+                                                         </content>
+                                                      </ScrollPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="572.0" layoutY="10.0" prefHeight="688.0" prefWidth="331.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                                             <children>
+                                                <Label layoutX="125.0" layoutY="5.0" text="Panier">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="30.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView fx:id="panier" layoutX="7.0" layoutY="59.0" prefHeight="352.0" prefWidth="311.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="nomPanier" prefWidth="151.20123291015625" text="Nom" />
+                                                    <TableColumn fx:id="qtPanier" prefWidth="81.50067138671875" text="Quantité" />
+                                                      <TableColumn fx:id="prixPanier" prefWidth="77.9991455078125" text="Prix ($)" />
+                                                  </columns>
+                                                </TableView>
+                                                <Label layoutX="76.0" layoutY="533.0" prefHeight="28.0" prefWidth="90.0" text="Total : ">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalPanier" layoutX="180.0" layoutY="532.0" prefHeight="28.0" prefWidth="94.0" text="0.00">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" onAction="#passerCommande" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="retirerPanier" layoutX="186.0" layoutY="427.0" mnemonicParsing="false" onAction="#retirerDuPanier" prefHeight="42.0" prefWidth="124.0" style="-fx-background-color: #190482;" text="Retirer" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Microsoft Sans Serif" size="25.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children></AnchorPane>
+                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                       <children>
+                                          <Label layoutX="318.0" layoutY="40.0" prefHeight="36.0" prefWidth="295.0" text="LISTE DE SOUHAITS">
+                                             <font>
+                                                <Font name="Microsoft Sans Serif" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="listeDeSouhait" layoutX="25.0" layoutY="111.0" prefHeight="509.0" prefWidth="864.0">
+                                            <columns>
+                                              <TableColumn fx:id="wishName" minWidth="0.0" prefWidth="323.0" text="Nom" />
+                                               <TableColumn fx:id="wishDescription" prefWidth="288.0" text="Description" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="wishRetirer" layoutX="703.0" layoutY="637.0" mnemonicParsing="false" onAction="#retirerDeLaListe" prefHeight="57.0" prefWidth="166.0" text="Retirer">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Button>
+                                       </children></AnchorPane>
                                     <AnchorPane fx:id="dashboardPane" prefHeight="699.0" prefWidth="914.0" style="-fx-background-color: #D2E0FB;">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="30.0" layoutY="13.0" prefHeight="91.0" prefWidth="864.0" style="-fx-background-color: white;">
@@ -858,85 +935,355 @@
                                              </children>
                                           </HBox>
                                        </children></AnchorPane>
-                                    <AnchorPane fx:id="mainProfilPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D2E0FB;" />
-                                    <AnchorPane fx:id="cataloguePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                    <AnchorPane fx:id="messagePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
                                        <children>
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="688.0" prefWidth="545.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+                                          <HBox layoutX="3.0" layoutY="3.0" prefHeight="695.0" prefWidth="907.0">
                                              <children>
-                                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="671.0" prefWidth="526.0">
+                                                <AnchorPane prefHeight="701.0" prefWidth="326.0">
                                                    <children>
-                                                      <ScrollPane fx:id="listeProduitsScroll" prefHeight="669.0" prefWidth="570.0" style="-fx-border-radius: 30; -fx-background-color: transparent;">
-                                                         <content>
-                                                            <GridPane fx:id="listeProduitsGrid" prefHeight="0.0" prefWidth="0.0">
-                                                               <rowConstraints>
-                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                                                               </rowConstraints>
-                                                               <padding>
-                                                                  <Insets left="10.0" top="10.0" />
-                                                               </padding>
-                                                            </GridPane>
-                                                         </content>
-                                                      </ScrollPane>
+                                                      <VBox prefHeight="708.0" prefWidth="261.0">
+                                                         <children>
+                                                            <Button fx:id="convo1" mnemonicParsing="false" onAction="#handleFirst" prefHeight="105.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="ElectronicsEmpire">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="1.0" left="5.0" right="5.0" top="10.0" />
+                                                               </VBox.margin>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="93.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@images/3361694.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="convo2" mnemonicParsing="false" onAction="#handleSecond" prefHeight="105.0" prefWidth="252.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="OfficeMaster">
+                                                               <VBox.margin>
+                                                                  <Insets top="15.0" />
+                                                               </VBox.margin>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@images/5287148.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="convo3" mnemonicParsing="false" onAction="#handleThird" prefHeight="105.0" prefWidth="255.0" style="-fx-background-color: white; -fx-background-radius: 50;" text="LearningTools">
+                                                               <VBox.margin>
+                                                                  <Insets top="15.0" />
+                                                               </VBox.margin>
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="92.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@images/3372723.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
                                                    </children>
-                                                </HBox>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="695.0" prefWidth="709.0">
+                                                   <children>
+                                                      <StackPane prefHeight="697.0" prefWidth="675.0">
+                                                         <children>
+                                                            <AnchorPane fx:id="convo2Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                                               <children>
+                                                                  <VBox prefHeight="693.0" prefWidth="667.0">
+                                                                     <children>
+                                                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <Label prefHeight="56.0" prefWidth="164.0" text="OfficeMaster">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="10.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="25.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <FontAwesomeIconView fill="#f50000" glyphName="CIRCLE" selectionFill="#00f518" selectionStart="1">
+                                                                                 <HBox.margin>
+                                                                                    <Insets top="35.0" />
+                                                                                 </HBox.margin>
+                                                                              </FontAwesomeIconView>
+                                                                              <Label text="Offline">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="8.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="16.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="82.0" prefWidth="667.0">
+                                                                           <children>
+                                                                              <ImageView fitHeight="69.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@images/5287148.png" />
+                                                                                 </image>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" top="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </ImageView>
+                                                                              <Label prefHeight="26.0" prefWidth="341.0" style="-fx-background-color: lightgrey; -fx-background-radius: 40;" text="Ne ratez pas noter promotion BOGO !">
+                                                                                 <font>
+                                                                                    <Font size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                        <HBox layoutX="10.0" layoutY="110.0" prefHeight="82.0" prefWidth="667.0">
+                                                                           <children>
+                                                                              <ImageView fitHeight="69.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@images/5287148.png" />
+                                                                                 </image>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" top="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </ImageView>
+                                                                              <Label prefHeight="26.0" prefWidth="341.0" style="-fx-background-color: lightgrey; -fx-background-radius: 40;" text="Jusqu'au 31 décembre 23h59 !">
+                                                                                 <font>
+                                                                                    <Font size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children></AnchorPane>
+                                                            <AnchorPane fx:id="convo3Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                                               <children>
+                                                                  <VBox layoutX="3.0" layoutY="1.0" prefHeight="705.0" prefWidth="667.0">
+                                                                     <children>
+                                                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <Label prefHeight="56.0" prefWidth="208.0" text="LearningTools">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="10.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="25.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <FontAwesomeIconView fill="#00f518" glyphName="CIRCLE" selectionFill="#00f518">
+                                                                                 <HBox.margin>
+                                                                                    <Insets top="35.0" />
+                                                                                 </HBox.margin>
+                                                                              </FontAwesomeIconView>
+                                                                              <Label text="Online">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="8.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="16.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <HBox layoutX="20.0" layoutY="120.0" prefHeight="82.0" prefWidth="667.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="69.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/3372723.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                        <Label prefHeight="26.0" prefWidth="341.0" style="-fx-background-color: lightgrey; -fx-background-radius: 40;" text="Bonjour, Votre commande à été livrée">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets left="20.0" top="30.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children></AnchorPane>
+                                                            <AnchorPane fx:id="convo1Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                                               <children>
+                                                                  <VBox prefHeight="693.0" prefWidth="667.0">
+                                                                     <children>
+                                                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <Label prefHeight="56.0" prefWidth="208.0" text="Electronics empire">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="10.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="25.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                              <FontAwesomeIconView fill="#00f518" glyphName="CIRCLE" selectionFill="#00f518">
+                                                                                 <HBox.margin>
+                                                                                    <Insets top="35.0" />
+                                                                                 </HBox.margin>
+                                                                              </FontAwesomeIconView>
+                                                                              <Label text="Online">
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="8.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                                 <font>
+                                                                                    <Font size="16.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="82.0" prefWidth="667.0">
+                                                                           <children>
+                                                                              <ImageView fitHeight="69.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@images/3361694.png" />
+                                                                                 </image>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" top="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </ImageView>
+                                                                              <Label prefHeight="26.0" prefWidth="341.0" style="-fx-background-color: lightgrey; -fx-background-radius: 40;" text="Promotion 25% sur tout en magasin !">
+                                                                                 <font>
+                                                                                    <Font size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="82.0" prefWidth="667.0">
+                                                                           <children>
+                                                                              <ImageView fitHeight="69.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@images/3361694.png" />
+                                                                                 </image>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="10.0" top="5.0" />
+                                                                                 </HBox.margin>
+                                                                              </ImageView>
+                                                                              <Label prefHeight="26.0" prefWidth="341.0" style="-fx-background-color: lightgrey; -fx-background-radius: 40;" text="Bonjour, Votre commande à été livrée">
+                                                                                 <font>
+                                                                                    <Font size="20.0" />
+                                                                                 </font>
+                                                                                 <HBox.margin>
+                                                                                    <Insets left="20.0" top="30.0" />
+                                                                                 </HBox.margin>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children></AnchorPane>
+                                                         </children>
+                                                      </StackPane>
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
-                                          </AnchorPane>
-                                          <AnchorPane layoutX="572.0" layoutY="10.0" prefHeight="688.0" prefWidth="331.0" style="-fx-background-color: white; -fx-background-radius: 25;">
-                                             <children>
-                                                <Label layoutX="125.0" layoutY="5.0" text="Panier">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="30.0" />
-                                                   </font>
-                                                </Label>
-                                                <TableView fx:id="panier" layoutX="7.0" layoutY="59.0" prefHeight="352.0" prefWidth="311.0">
-                                                  <columns>
-                                                    <TableColumn fx:id="nomPanier" prefWidth="151.20123291015625" text="Nom" />
-                                                    <TableColumn fx:id="qtPanier" prefWidth="81.50067138671875" text="Quantité" />
-                                                      <TableColumn fx:id="prixPanier" prefWidth="77.9991455078125" text="Prix ($)" />
-                                                  </columns>
-                                                </TableView>
-                                                <Label layoutX="76.0" layoutY="533.0" prefHeight="28.0" prefWidth="90.0" text="Total : ">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="totalPanier" layoutX="180.0" layoutY="532.0" prefHeight="28.0" prefWidth="94.0" text="0.00">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button fx:id="payer" layoutX="34.0" layoutY="589.0" mnemonicParsing="false" onAction="#passerCommande" prefHeight="44.0" prefWidth="269.0" style="-fx-background-color: #190482;" text="Payer" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Button>
-                                                <Button fx:id="retirerPanier" layoutX="186.0" layoutY="427.0" mnemonicParsing="false" onAction="#retirerDuPanier" prefHeight="42.0" prefWidth="124.0" style="-fx-background-color: #190482;" text="Retirer" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Microsoft Sans Serif" size="25.0" />
-                                                   </font>
-                                                </Button>
-                                             </children>
-                                          </AnchorPane>
+                                          </HBox>
                                        </children></AnchorPane>
-                                    <AnchorPane fx:id="wishlistPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                    <AnchorPane fx:id="mainProfilPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D2E0FB;">
                                        <children>
-                                          <Label layoutX="318.0" layoutY="40.0" prefHeight="36.0" prefWidth="295.0" text="LISTE DE SOUHAITS">
-                                             <font>
-                                                <Font name="Microsoft Sans Serif" size="30.0" />
-                                             </font>
-                                          </Label>
-                                          <TableView fx:id="listeDeSouhait" layoutX="25.0" layoutY="111.0" prefHeight="509.0" prefWidth="864.0">
-                                            <columns>
-                                              <TableColumn fx:id="wishName" minWidth="0.0" prefWidth="323.0" text="Nom" />
-                                               <TableColumn fx:id="wishDescription" prefWidth="288.0" text="Description" />
-                                            </columns>
-                                          </TableView>
-                                          <Button fx:id="wishRetirer" layoutX="703.0" layoutY="637.0" mnemonicParsing="false" onAction="#retirerDeLaListe" prefHeight="57.0" prefWidth="166.0" text="Retirer">
+                                          <HBox layoutX="44.0" layoutY="84.0" prefHeight="178.0" prefWidth="845.0">
+                                             <children>
+                                                <AnchorPane prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="159.0" text="Commandes">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="commandeCount" layoutX="160.0" layoutY="103.0" prefHeight="44.0" prefWidth="41.0" text="2" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="159.0" text="Notifications">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <FontAwesomeIconView fill="RED" glyphName="BELL" layoutX="192.0" layoutY="24.0" selectionFill="RED" size="40" wrappingWidth="29.0">
+                                                         <font>
+                                                            <Font size="25.0" />
+                                                         </font>
+                                                      </FontAwesomeIconView>
+                                                      <Label fx:id="notifCount" layoutX="153.0" layoutY="103.0" prefHeight="44.0" prefWidth="41.0" text="5" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="277.0" layoutY="10.0" prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="26.0" prefHeight="29.0" prefWidth="159.0" text="Mes points">
+                                                         <font>
+                                                            <Font size="21.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="120.0" layoutY="99.0" prefHeight="44.0" prefWidth="85.0" text="3210" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <Label layoutX="61.0" layoutY="284.0" text="Mes suiveurs">
                                              <font>
                                                 <Font size="30.0" />
                                              </font>
+                                          </Label>
+                                          <TableView fx:id="suiveursTab" layoutX="61.0" layoutY="332.0" prefHeight="277.0" prefWidth="774.0">
+                                            <columns>
+                                              <TableColumn fx:id="pseudoCol" prefWidth="272.0" text="Pseudo" />
+                                              <TableColumn fx:id="prenomCol" minWidth="0.0" prefWidth="256.0" text="Prenom" />
+                                                <TableColumn fx:id="typeCol" prefWidth="245.0" text="Type" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="deleteFollower" layoutX="710.0" layoutY="623.0" mnemonicParsing="false" onAction="#retirerSuiveur" prefHeight="37.0" prefWidth="125.0" style="-fx-background-color: #190482;" text="Retirer" textFill="WHITE">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
                                           </Button>
-                                       </children></AnchorPane>
+                                          <Button layoutX="730.0" layoutY="23.0" mnemonicParsing="false" onAction="#modifierProfil" prefHeight="33.0" prefWidth="159.0" style="-fx-background-color: #190482;" text="Modifier le Profil" textFill="WHITE" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </StackPane>
                            </children>
@@ -945,6 +1292,152 @@
                   </BorderPane>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="menuRevendeur" prefHeight="752.0" prefWidth="1185.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <AnchorPane prefHeight="731.0" prefWidth="240.0" style="-fx-background-color: #C2D9FF;" BorderPane.alignment="CENTER">
+                           <children>
+                              <FontAwesomeIconView glyphName="USER_CIRCLE" layoutX="68.0" layoutY="112.0" size="90" text="" wrappingWidth="90.83435916900635" />
+                              <Line endX="128.68287658691406" layoutX="101.0" layoutY="154.0" startX="-103.0" />
+                              <Button fx:id="logOut11" layoutX="2.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleLogoutRevendeur" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="SIGN_OUT" size="40" />
+                                 </graphic>
+                              </Button>
+                              <VBox layoutY="166.0" prefHeight="486.0" prefWidth="232.0">
+                                 <children>
+                                    <Button fx:id="profil11" mnemonicParsing="false" onAction="#profilRevendeur" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Profil">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="ID_CARD" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="acheteurCatalogue11" mnemonicParsing="false" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Catalogue">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="SHOPPING_CART" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="wishlist11" mnemonicParsing="false" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Inventaire">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="LIST" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="commande11" mnemonicParsing="false" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Commandes">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="BOOK" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="acheteurMsgs11" mnemonicParsing="false" prefHeight="70.0" prefWidth="233.0" style="-fx-background-color: transparent;" text="Mes Notifications">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="BELL" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <Line endX="111.00001525878906" endY="645.0000610351562" layoutX="127.0" layoutY="109.0" startX="108.99998474121094" startY="-108.99999237060547" />
+                           </children>
+                        </AnchorPane>
+                     </left>
+                     <center>
+                        <AnchorPane fx:id="navRevendeur" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <StackPane prefHeight="757.0" prefWidth="944.0">
+                                 <children>
+                                    <AnchorPane fx:id="revendeurProfil" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C2D9FF;">
+                                       <children>
+                                          <HBox layoutX="39.0" layoutY="58.0" prefHeight="178.0" prefWidth="845.0">
+                                             <children>
+                                                <AnchorPane prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="159.0" text="Commandes">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="commandeCount1" layoutX="160.0" layoutY="103.0" prefHeight="44.0" prefWidth="41.0" text="17" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="159.0" text="Notifications">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <FontAwesomeIconView fill="RED" glyphName="BELL" layoutX="192.0" layoutY="24.0" selectionFill="RED" size="40" wrappingWidth="29.0">
+                                                         <font>
+                                                            <Font size="25.0" />
+                                                         </font>
+                                                      </FontAwesomeIconView>
+                                                      <Label fx:id="notifCount1" layoutX="153.0" layoutY="103.0" prefHeight="44.0" prefWidth="41.0" text="3" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="277.0" layoutY="10.0" prefHeight="178.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 40;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="26.0" prefHeight="16.0" prefWidth="206.0" text="Commande en attente">
+                                                         <font>
+                                                            <Font size="21.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="120.0" layoutY="99.0" prefHeight="44.0" prefWidth="85.0" text="1" textFill="#190482">
+                                                         <font>
+                                                            <Font size="36.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <Label layoutX="56.0" layoutY="315.0" text="Mes suiveurs">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="suiveursTab1" layoutX="57.0" layoutY="366.0" prefHeight="313.0" prefWidth="797.0">
+                                             <columns>
+                                                <TableColumn fx:id="pseudoCol1" prefWidth="272.0" text="Pseudo" />
+                                                <TableColumn fx:id="prenomCol1" minWidth="0.0" prefWidth="256.0" text="Prenom" />
+                                                <TableColumn fx:id="typeCol1" prefWidth="245.0" text="Type" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
          </children>
       </StackPane>
    </children>
