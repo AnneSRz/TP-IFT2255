@@ -1107,6 +1107,10 @@ public class UniShopController implements Initializable {
 
     }
 
+
+    /*
+     * Affiche un pane contenant tous les objets
+     */
     public void afficherListeDeSouhaits() {
         Acheteur acheteur = this.acheteur;
         System.out.println("Wishlist data in afficherListeDeSouhaits: " + acheteur.getWishlist().getSouhaits());
@@ -1115,6 +1119,10 @@ public class UniShopController implements Initializable {
         this.listeDeSouhait.setItems(wishlist);
     }
 
+    /**
+     * Retire un élément de la liste de souhait si sélectionné via le trigger du bouton
+     * @param event
+    */
     @FXML
     private void retirerDeLaListe(ActionEvent event) {
         ProduitEnVente itemARetirer = listeDeSouhait.getSelectionModel().getSelectedItem();
@@ -1197,6 +1205,11 @@ public class UniShopController implements Initializable {
         }
 
     }
+
+    /**
+     * Passe une commande lorsque le bouton est triggered
+     * @param event
+     */
     @FXML
     public void passerCommande(ActionEvent event) {
         showAlert(Alert.AlertType.CONFIRMATION, panier.getScene().getWindow(), "Votre commande à été passer avec succès");
