@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,12 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.stage.Window;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -76,7 +72,7 @@ public class UniShopController implements Initializable {
     @FXML
     private Label acheteurName, userEdit;
     @FXML
-    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs, like, retirerPanier, deleteFollower;
+    private Button dashboard, profil, wishlist,acheteurCatalogue,commande, acheteurMsgs;
     @FXML
     private TextField prenomEdit, nomEdit, emailEdit, telEdit, adresseEdit;
     @FXML
@@ -1107,10 +1103,6 @@ public class UniShopController implements Initializable {
 
     }
 
-
-    /*
-     * Affiche un pane contenant tous les objets
-     */
     public void afficherListeDeSouhaits() {
         Acheteur acheteur = this.acheteur;
         System.out.println("Wishlist data in afficherListeDeSouhaits: " + acheteur.getWishlist().getSouhaits());
@@ -1119,10 +1111,6 @@ public class UniShopController implements Initializable {
         this.listeDeSouhait.setItems(wishlist);
     }
 
-    /**
-     * Retire un élément de la liste de souhait si sélectionné via le trigger du bouton
-     * @param event
-    */
     @FXML
     private void retirerDeLaListe(ActionEvent event) {
         ProduitEnVente itemARetirer = listeDeSouhait.getSelectionModel().getSelectedItem();
